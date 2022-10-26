@@ -1,5 +1,11 @@
 # TaskAi
 
+## Repo Owner
+Vraj Shah
+
+## Project Manager
+?
+
 Welcome to [RedwoodJS](https://redwoodjs.com)!
 
 > **Prerequisites**
