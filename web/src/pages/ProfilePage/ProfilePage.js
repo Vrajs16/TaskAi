@@ -1,8 +1,42 @@
 import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
-import { Button, ButtonGroup, Container, Flex, HStack, Input, Select, Spacer, Stack, Text } from '@chakra-ui/react'
+import { useState } from "react"
+import { Button, ButtonGroup, Container, FormControl, HStack, Input, Select, Stack, Text } from '@chakra-ui/react'
 
-const ProfilePage = () => {
+function ProfilePage(props) {
+  const [theme, setTheme] = useState(props.theme)
+  const [currentPassword, setCurrentPassword] = useState("")
+  const [newPassword, setNewPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
+  const [currentPasswordError, setCurrentPasswordError] = useState("")
+  const [newPasswordError, setNewPasswordError] = useState("")
+  const [confirmPasswordError, setConfirmPasswordError] = useState("")
+
+  function onSubmit() {
+    if (currentPassword !== props.password) {
+      setCurrentPasswordError("Invalid password")
+    }
+    else {
+      setCurrentPasswordError("")
+    }
+    if (newPassword.length < 7) {
+      setNewPasswordError("Password must be at least 7 characters")
+    }
+    else {
+      setNewPasswordError("")
+    }
+    if (newPassword !== confirmPassword) {
+      setConfirmPasswordError("Passwords don't match")
+    }
+    else {
+      setConfirmPasswordError("")
+    }
+  }
+
+  function onCancel() {
+
+  }
+
   return (
     <>
       <MetaTags title="Profile" description="Profile page" />
@@ -16,43 +50,43 @@ const ProfilePage = () => {
               <Input placeholder='First Name' isReadOnly={true} w="80%"/>
             </Stack>
             <Stack spacing={0} w="50%">
-              <Text className="input-title">First Name</Text>
-              <Input placeholder='First Name' isReadOnly={true} w="80%"/>
+              <Text className="input-title">Last Name</Text>
+              <Input placeholder='Last Name' isReadOnly={true} w="80%"/>
             </Stack>
           </HStack>
           <Stack spacing={0} w="50%">
             <Text className="input-title">Theme</Text>
-            <Select  w="80%">
-              <option value="light">Light</option>
-              <option value="dark">Dark</option>
+            <Select value={theme} onChange={e => setTheme(e.target.value)} w="80%">
+              <option value="Light">Light</option>
+              <option value="Dark">Dark</option>
             </Select>
           </Stack>
           <Stack>
             <Text className="input-title">Change Password</Text>
-            <Stack border={true} borderWidth="3px" borderRadius="lg" p="2" spacing={5}>
+            <Stack border={true} borderWidth="3px" borderRadius="lg" p="2" spacing={1}>
               <Stack spacing={0} w="100%">
                 <Text className="input-title">Current Password</Text>
-                <Input placeholder='Current Password' w="90%"/>
+                <Input value={currentPassword} onChange={e => setCurrentPassword(e.target.value)} placeholder='Current Password' w="90%"/>
+                {currentPasswordError ? <Text className="input-error">{currentPasswordError}</Text> : <br/>}
               </Stack>
               <Stack spacing={0} w="100%">
                 <Text className="input-title">New Password</Text>
-                <Input placeholder='New Password' w="90%"/>
+                <Input value={newPassword} onChange={e => setNewPassword(e.target.value)} placeholder='New Password' w="90%"/>
+                {newPasswordError ? <Text className="input-error">{newPasswordError}</Text> : <br/>}
               </Stack>
               <Stack spacing={0} w="100%">
                 <Text className="input-title">Confirm New Password</Text>
-                <Input placeholder='Confirm New Password' w="90%"/>
+                <Input value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} placeholder='Confirm New Password' w="90%"/>
+                {confirmPasswordError ? <Text className="input-error">{confirmPasswordError}</Text> : <br/>}
               </Stack>
             </Stack>
           </Stack>
           <ButtonGroup gap='2' alignItems="center">
-            <Button colorScheme="blue" align="end">Submit</Button>
-            <Button colorScheme="blue" variant='outline' align="end">Cancel</Button>
+            <Button onClick={onSubmit} colorScheme="blue" align="end">Submit</Button>
+            <Button onClick={onCancel} colorScheme="blue" variant='outline' align="end">Cancel</Button>
           </ButtonGroup>
         </Stack>
       </Container>
-
-
-
     </>
   )
 }
