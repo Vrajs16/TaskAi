@@ -13,6 +13,7 @@
     ]
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.0.11",
     "@chakra-ui/react": "^1",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
@@ -23,5 +24,8 @@
     "prop-types": "15.8.1",
     "react": "17.0.2",
     "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@chakra-ui/storybook-addon": "^4.0.12"
   }
 }
