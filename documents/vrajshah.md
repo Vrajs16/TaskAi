@@ -4,7 +4,9 @@
 
 ## Currently Working On
 
-| Task                     | Status |
-| ------------------------ | :----: |
-| Create a simple homepage |   ❎    |
+| Task                           | Status |
+| ------------------------------ | :----: |
+| Modified blog layout + Linting |   ✅    |
+| Create a simple homepage       |   ❎    |
+
 
