@@ -47,11 +47,11 @@ function ProfilePage(props) {
           <HStack>
             <Stack spacing={0} w="50%">
               <Text className="input-title">First Name</Text>
-              <Input placeholder='First Name' isReadOnly={true} w="80%"/>
+              <Input placeholder='First Name' isReadOnly={true} w="80%" />
             </Stack>
             <Stack spacing={0} w="50%">
               <Text className="input-title">Last Name</Text>
-              <Input placeholder='Last Name' isReadOnly={true} w="80%"/>
+              <Input placeholder='Last Name' isReadOnly={true} w="80%" />
             </Stack>
           </HStack>
           <Stack spacing={0} w="50%">
@@ -66,18 +66,18 @@ function ProfilePage(props) {
             <Stack border={true} borderWidth="3px" borderRadius="lg" p="2" spacing={1}>
               <Stack spacing={0} w="100%">
                 <Text className="input-title">Current Password</Text>
-                <Input value={currentPassword} onChange={e => setCurrentPassword(e.target.value)} placeholder='Current Password' w="90%"/>
-                {currentPasswordError ? <Text className="input-error">{currentPasswordError}</Text> : <br/>}
+                <Input value={currentPassword} onChange={e => setCurrentPassword(e.target.value)} placeholder='Current Password' w="90%" />
+                {currentPasswordError ? <Text className="input-error">{currentPasswordError}</Text> : <br />}
               </Stack>
               <Stack spacing={0} w="100%">
                 <Text className="input-title">New Password</Text>
-                <Input value={newPassword} onChange={e => setNewPassword(e.target.value)} placeholder='New Password' w="90%"/>
-                {newPasswordError ? <Text className="input-error">{newPasswordError}</Text> : <br/>}
+                <Input value={newPassword} onChange={e => setNewPassword(e.target.value)} placeholder='New Password' w="90%" />
+                {newPasswordError ? <Text className="input-error">{newPasswordError}</Text> : <br />}
               </Stack>
               <Stack spacing={0} w="100%">
                 <Text className="input-title">Confirm New Password</Text>
-                <Input value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} placeholder='Confirm New Password' w="90%"/>
-                {confirmPasswordError ? <Text className="input-error">{confirmPasswordError}</Text> : <br/>}
+                <Input value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} placeholder='Confirm New Password' w="90%" />
+                {confirmPasswordError ? <Text className="input-error">{confirmPasswordError}</Text> : <br />}
               </Stack>
             </Stack>
           </Stack>
