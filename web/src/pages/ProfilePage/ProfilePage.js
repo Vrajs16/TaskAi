@@ -1,4 +1,4 @@
-import { Link, routes } from '@redwoodjs/router'
+import { Link, routes, navigate } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 import { useState } from "react"
 import { Button, ButtonGroup, Container, FormControl, HStack, Input, Select, Stack, Text } from '@chakra-ui/react'
@@ -13,28 +13,13 @@ function ProfilePage(props) {
   const [confirmPasswordError, setConfirmPasswordError] = useState("")
 
   function onSubmit() {
-    if (currentPassword !== props.password) {
-      setCurrentPasswordError("Invalid password")
-    }
-    else {
-      setCurrentPasswordError("")
-    }
-    if (newPassword.length < 7) {
-      setNewPasswordError("Password must be at least 7 characters")
-    }
-    else {
-      setNewPasswordError("")
-    }
-    if (newPassword !== confirmPassword) {
-      setConfirmPasswordError("Passwords don't match")
-    }
-    else {
-      setConfirmPasswordError("")
-    }
+    currentPassword !== props.password ? setCurrentPasswordError("Invalid password") : setCurrentPasswordError("")
+    newPassword.length < 7 ? setNewPasswordError("Password must be at least 7 characters") : setNewPasswordError("")
+    newPassword !== confirmPassword ? setConfirmPasswordError("Passwords don't match") : setConfirmPasswordError("")
   }
 
   function onCancel() {
-
+    navigate(routes.home())
   }
 
   return (
