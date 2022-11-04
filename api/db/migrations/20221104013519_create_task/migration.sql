@@ -1,0 +1,11 @@
+-- CreateTable
+CREATE TABLE "Task" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "title" TEXT NOT NULL,
+    "description" TEXT NOT NULL,
+    "duration" INTEGER NOT NULL,
+    "priority" INTEGER NOT NULL,
+    "completed" BOOLEAN NOT NULL DEFAULT false,
+    "dueDate" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
