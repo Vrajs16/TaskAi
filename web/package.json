@@ -10,9 +10,17 @@
       "defaults",
       "not IE 11",
       "not IE_Mob 11"
+    ],
+    "keywords": [
+      "login page",
+      "responsive",
+      "chakra-ui",
+      "template"
     ]
   },
+  "main": "src/index.js",
   "dependencies": {
+    "@chakra-ui/icons": "^2.0.11",
     "@chakra-ui/react": "^1",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
@@ -23,6 +31,18 @@
     "humanize-string": "2.1.0",
     "prop-types": "15.8.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-icons": "4.1.0",
+    "react-scripts": "4.0.0"
+  },
+  "devDependencies": {
+    "@chakra-ui/storybook-addon": "^4.0.12",
+    "typescript": "4.1.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }
