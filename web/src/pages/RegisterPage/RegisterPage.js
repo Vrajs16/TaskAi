@@ -18,16 +18,15 @@ import {
   Link
 } from '@chakra-ui/react'
 import { FaUserAlt, FaLock } from 'react-icons/fa'
-
-import {routes } from '@redwoodjs/router'
+import { routes } from '@redwoodjs/router'
 const CFaUserAlt = chakra(FaUserAlt)
 const CFaLock = chakra(FaLock)
 
-const LoginPage = () => {
+const RegisterPage = () => {
+
   const [showPassword, setShowPassword] = useState(false)
 
   const handleShowClick = () => setShowPassword(!showPassword)
-
   return (
     <>
       <Stack
@@ -72,9 +71,6 @@ const LoginPage = () => {
                     </Button>
                   </InputRightElement>
                 </InputGroup>
-                <FormHelperText textAlign="right">
-                  <Link color="blue.500" href={routes.forgotPassword()}>Forgot password?</Link>
-                </FormHelperText>
               </FormControl>
               <Button
                 borderRadius={0}
@@ -83,19 +79,20 @@ const LoginPage = () => {
                 colorScheme="blue"
                 width="full"
               >
-                Sign in
+                Sign up
               </Button>
             </Stack>
           </form>
         </Box>
       </Stack>
       <Box>
-        Do not have an account?{' '}
-        <Link color="blue.500" href={routes.register()}>
-          Sign Up
+        Have an account?{' '}
+        <Link color="blue.500" href={routes.login()} >
+          Sign in
         </Link>
-      </Box></>
+      </Box>
+    </>
   )
 }
 
-export default LoginPage
+export default RegisterPage
