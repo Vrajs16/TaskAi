@@ -11,11 +11,16 @@ import { Router, Route, Set } from '@redwoodjs/router'
 
 import BannerLayout from 'src/layouts/BannerLayout'
 import ScaffoldLayout from 'src/layouts/ScaffoldLayout'
+import AuthLayout from './layouts/AuthLayout/AuthLayout'
 
 const Routes = () => {
   return (
     <Router>
-      <Route path="/login" page={LoginPage} name="login" />
+      <Set wrap={AuthLayout}>
+        <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
+        <Route path="/register" page={RegisterPage} name="register" />
+        <Route path="/login" page={LoginPage} name="login" />
+      </Set>
       <Set wrap={ScaffoldLayout} title="Tasks" titleTo="tasks" buttonLabel="New Task" buttonTo="newTask">
         <Route path="/tasks/new" page={TaskNewTaskPage} name="newTask" />
         <Route path="/tasks/{id:Int}/edit" page={TaskEditTaskPage} name="editTask" />
