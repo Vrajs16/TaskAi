@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="375pt" height="375pt" viewBox="0 0 375 375">
+<g enable-background="new">
+<clipPath id="cp0">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M 0 0 L 1562.5 0 L 1562.5 1593.75 L 0 1593.75 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp0)">
+<path transform="matrix(.75,0,0,.75,0,0)" d="M 0 0 L 500 0 L 500 510 L 0 510 Z " fill="#ffffff"/>
+</g>
+<clipPath id="cp1">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M 0 0 L 1562.5 0 L 1562.5 1562.5 L 0 1562.5 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp1)">
+<path transform="matrix(.75,0,0,.75,0,0)" d="M 0 0 L 500 0 L 500 500 L 0 500 Z " fill="#ffffff"/>
+</g>
+<clipPath id="cp2">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M 0 0 L 1562.5 0 L 1562.5 1562.5 L 0 1562.5 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp2)">
+<path transform="matrix(.75,0,0,.75,0,0)" d="M 0 0 L 500 0 L 500 500 L 0 500 Z " opacity="0"/>
+</g>
+<clipPath id="cp3">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M 0 0 L 1562.5 0 L 1562.5 1562.5 L 0 1562.5 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp3)">
+<g id="Layer-1" data-name="P">
+</g>
+<text fill="#ffffff" xml:space="preserve" transform="matrix(.75 0 0 .75 130.91379 238.3322)" font-size="13.08" font-family="DMSans"><tspan y="13" x="0 11.498771 22.291319 34.901739 47.839124 55.231344 62.191984 73.442279 79.919017">PLAN IT. </tspan></text>
+<g id="Layer-1" data-name="P">
+</g>
+<text fill="#ff914d" xml:space="preserve" transform="matrix(.75 0 0 .75 130.91379 238.3322)" font-size="13.08" font-family="DMSans"><tspan y="13" x="87.296878 100.3258 114.505619 121.897838 128.85848 140.10877">DO IT.</tspan></text>
+</g>
+<clipPath id="cp4">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M 492.88993 629.7448 L 1071.0149 629.7448 L 1071.0149 932.8698 L 492.88993 932.8698 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp4)">
+<path transform="matrix(.10620259,0,0,.10599369,118.29954,151.13875)" d="M 0 0 L 0 686.36166 L 1306.353 686.36166 L 1306.353 0 L 0 0 M 1301.5531 681.56167 L 4.7 681.56167 L 4.7 4.7 L 1301.5531 4.7 L 1301.5531 681.56167 " fill="#ffffff"/>
+</g>
+<clipPath id="cp5">
+<path transform="matrix(.24,0,0,.24,0,0)" d="M 0 0 L 1562.5 0 L 1562.5 1562.5 L 0 1562.5 Z " fill-rule="evenodd"/>
+</clipPath>
+<g clip-path="url(#cp5)">
+<g id="Layer-1" data-name="P">
+</g>
+<text fill="#ff914d" xml:space="preserve" transform="matrix(.75 0 0 .75 140.50917 148.12271)" font-size="40.21" font-family="NotoSerifDisplay"><tspan y="43" x="15.296875 37.931215 63.862215 83.56174">TASK</tspan></text>
+<g id="Layer-1" data-name="P">
+</g>
+<text fill="#ffffff" xml:space="preserve" transform="matrix(.75 0 0 .75 156.15416 184.47937)" font-size="40.21" font-family="NotoSerifDisplay"><tspan y="43" x="22.296875 48.227876">AI</tspan></text>
+<path transform="matrix(.7512297,0,0,.75,108.87339,187.5)" stroke-width="1" stroke-linecap="butt" stroke-miterlimit="4" stroke-linejoin="miter" fill="none" stroke="#ffffff" d="M 0 0 L 209.67095 0 "/>
+</g>
+</g>
+</svg>

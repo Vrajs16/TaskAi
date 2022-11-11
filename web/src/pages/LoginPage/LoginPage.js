@@ -19,7 +19,7 @@ import {
 } from '@chakra-ui/react'
 import { FaUserAlt, FaLock } from 'react-icons/fa'
 
-import {routes } from '@redwoodjs/router'
+import { routes } from '@redwoodjs/router'
 const CFaUserAlt = chakra(FaUserAlt)
 const CFaLock = chakra(FaLock)
 
@@ -37,7 +37,7 @@ const LoginPage = () => {
         alignItems="center"
       >
         <Avatar bg="blue.500" />
-        <Heading color="blue.400">TaskAi</Heading>
+        <Heading color="blue.500">TaskAi</Heading>
         <Box minW={{ base: '90%', md: '468px' }}>
           <form>
             <Stack

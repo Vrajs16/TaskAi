@@ -5,7 +5,7 @@ const AuthLayout = ({ children }) => {
       flexDirection="column"
       width="100wh"
       height="100vh"
-      backgroundColor="gray.200"
+      backgroundColor="gray.50"
       justifyContent="center"
       alignItems="center"
     >

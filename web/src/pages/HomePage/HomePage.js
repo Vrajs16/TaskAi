@@ -26,19 +26,11 @@ const HomePage = () => {
   return (
     <>
       <MetaTags title="Home" description="Home page" />
-      <Center bg="white" h="lg" color="black">
+      <Center color="black" h="full">
+        {/* I feel like we should remove this landing page since it has no value for our project, just go straight into the calendar/task view ~ "Vraj Shah" */}
         <Stack spacing={3}>
           <Text fontSize="3xl" as="b" align="center">
             Coming Soon: A task tracking tool even better than Google Calendar
-          </Text>
-          <Text fontSize="3xl" as="b" align="center">
-            For now: Look through our pages
-          </Text>
-          <Text fontSize="2xl" color="blue" as="u" align="center">
-            <Link to={routes.profile()}>Profile Page</Link>
-          </Text>
-          <Text fontSize="2xl" color="blue" as="u" align="center">
-            <Link to={routes.login()}>Login Page</Link>
           </Text>
         </Stack>
       </Center>

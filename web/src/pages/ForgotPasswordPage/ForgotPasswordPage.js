@@ -26,7 +26,7 @@ const ForgotPasswordPage = () => {
         alignItems="center"
       >
         <Avatar bg="blue.500" />
-        <Heading color="blue.400">TaskAi</Heading>
+        <Heading color="blue.500">TaskAi</Heading>
         <Box minW={{ base: '90%', md: '468px' }}>
           <form>
             <Stack
