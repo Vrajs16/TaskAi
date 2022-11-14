@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { Box, Container, Divider, Tabs, TabList, TabPanel, TabPanels, Tab, HStack, Text, Input } from '@chakra-ui/react'
+import TasksCell from 'src/components/TasksCell'
+import AppointmentsCell from 'src/components/AppointmentsCell'
 
 function TaskView() {
   const [day, setDay] = useState(new Date().toJSON().slice(0, 10))
@@ -29,16 +31,16 @@ function TaskView() {
         <Input type="date" value={day} onChange={e => setDay(e.target.value)} border={false} w="10%"/>
       </HStack>
       <Divider orientation='horizontal' mb="2"/>
-      <HStack>
+      <HStack alignItems='start'>
         <Box w="50%" borderWidth="1px" borderRadius="lg" p="3">
           <Text fontSize='2xl' as='b'>Tasks</Text>
           <Divider orientation='horizontal'  mb="2"/>
-          <Text fontSize='l'>Actual Tasks</Text>
+          <TasksCell day={day}/>
         </Box>
-        <Box w="50%" borderWidth="1px" borderRadius="lg" p="3">
+        <Box w="50%" borderWidth="1px" borderRadius="lg" p="3" center={false}>
           <Text fontSize='2xl' as='b'>Appointments</Text>
           <Divider orientation='horizontal' mb="2"/>
-          <Text fontSize='l'>Actual Appointments</Text>
+          <AppointmentsCell day={day}/>
         </Box>
       </HStack>
     </div>
