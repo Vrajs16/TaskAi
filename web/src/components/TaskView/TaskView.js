@@ -1,7 +1,21 @@
-import { useState } from "react"
-import { Box, Container, Divider, Tabs, TabList, TabPanel, TabPanels, Tab, HStack, Text, Input } from '@chakra-ui/react'
-import TasksCell from 'src/components/TasksCell'
+import { useState } from 'react'
+
+import {
+  Box,
+  Container,
+  Divider,
+  Tabs,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tab,
+  HStack,
+  Text,
+  Input,
+} from '@chakra-ui/react'
+
 import AppointmentsCell from 'src/components/AppointmentsCell'
+import TaskCell from 'src/components/Task/TaskCell'
 
 function TaskView() {
   const [day, setDay] = useState(new Date().toJSON().slice(0, 10))
@@ -25,22 +39,37 @@ function TaskView() {
   return (
     <div>
       <HStack>
-        <Text className="date-selector" onClick={getTodayDay} mx="2">Today</Text>
-        <Text className="date-selector" onClick={getPreviousDay} mx="2">{'<'}</Text>
-        <Text className="date-selector" onClick={getNextDay} mx="2">{'>'}</Text>
-        <Input type="date" value={day} onChange={e => setDay(e.target.value)} border={false} w="10%"/>
+        <Text className="date-selector" onClick={getTodayDay} mx="2">
+          Today
+        </Text>
+        <Text className="date-selector" onClick={getPreviousDay} mx="2">
+          {'<'}
+        </Text>
+        <Text className="date-selector" onClick={getNextDay} mx="2">
+          {'>'}
+        </Text>
+        <Input
+          type="date"
+          value={day}
+          onChange={(e) => setDay(e.target.value)}
+          border={false}
+          w="10%"
+        />
       </HStack>
-      <Divider orientation='horizontal' mb="2"/>
-      <HStack alignItems='start'>
+      <Divider orientation="horizontal" mb="2" />
+      <HStack alignItems="start">
         <Box w="50%" borderWidth="1px" borderRadius="lg" p="3">
-          <Text fontSize='2xl' as='b'>Tasks</Text>
-          <Divider orientation='horizontal'  mb="2"/>
-          <TasksCell day={day}/>
+          <Text fontSize="2xl" as="b">
+            Tasks
+          </Text>
+          <TaskCell id={1}></TaskCell>
+          <Divider orientation="horizontal" mb="2" />
         </Box>
         <Box w="50%" borderWidth="1px" borderRadius="lg" p="3" center={false}>
-          <Text fontSize='2xl' as='b'>Appointments</Text>
-          <Divider orientation='horizontal' mb="2"/>
-          <AppointmentsCell day={day}/>
+          <Text fontSize="2xl" as="b">
+            Appointments
+          </Text>
+          <Divider orientation="horizontal" mb="2" />
         </Box>
       </HStack>
     </div>
@@ -48,3 +77,5 @@ function TaskView() {
 }
 
 export default TaskView
+//<TasksCell day={day} />
+//<AppointmentsCell day={day} />
