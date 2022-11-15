@@ -6,6 +6,8 @@ export const QUERY = gql`
   query FindTasks {
     tasks {
       id
+      userID
+      isAppointment
       title
       description
       duration
