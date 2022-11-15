@@ -16,6 +16,7 @@ import AuthLayout from './layouts/AuthLayout/AuthLayout'
 const Routes = () => {
   return (
     <Router>
+      <Route path="/calendar" page={CalendarPage} name="calendar" />
       <Set wrap={AuthLayout}>
         <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
         <Route path="/register" page={RegisterPage} name="register" />
