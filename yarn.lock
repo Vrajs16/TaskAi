@@ -6119,6 +6119,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@remix-run/router@npm:1.0.3":
+  version: 1.0.3
+  resolution: "@remix-run/router@npm:1.0.3"
+  checksum: ccaa13272014a7f068478eb981bfba6d432a8eae8992b47fb6f85d270aadcb061c2e01f70edd635c4a9e36c21727ccb60075c1b1e3ad03c731e803e8fca511d8
+  languageName: node
+  linkType: hard
+
 "@repeaterjs/repeater@npm:^3.0.4":
   version: 3.0.4
   resolution: "@repeaterjs/repeater@npm:3.0.4"
@@ -25318,6 +25325,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-router-dom@npm:^6.4.3":
+  version: 6.4.3
+  resolution: "react-router-dom@npm:6.4.3"
+  dependencies:
+    "@remix-run/router": 1.0.3
+    react-router: 6.4.3
+  peerDependencies:
+    react: ">=16.8"
+    react-dom: ">=16.8"
+  checksum: e1f1b7c13cd800dff0f6fefb840e89bc46113db66ac96e7e251e4c59367ac5d4aac9a9bff45446e47b784d111ce10018b3a880e66aea6ea02f14fd116294af85
+  languageName: node
+  linkType: hard
+
+"react-router@npm:6.4.3":
+  version: 6.4.3
+  resolution: "react-router@npm:6.4.3"
+  dependencies:
+    "@remix-run/router": 1.0.3
+  peerDependencies:
+    react: ">=16.8"
+  checksum: 58493e0ce7f7ccee0d5f813b07e7bc7838ec7831c71bf31fe576ed8a4208fe49de125fd73f31fa380a78fef82aed3808dade1612f5646f5e8f9611b02bd53917
+  languageName: node
+  linkType: hard
+
 "react-scripts@npm:4.0.0":
   version: 4.0.0
   resolution: "react-scripts@npm:4.0.0"
@@ -26267,6 +26298,7 @@ __metadata:
     "@redwoodjs/core": 3.2.0
     react-datetime: ^3.2.0
     react-icons: ^4.6.0
+    react-router-dom: ^6.4.3
   languageName: unknown
   linkType: soft
 
