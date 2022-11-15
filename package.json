@@ -23,6 +23,10 @@
   },
   "packageManager": "yarn@3.2.3",
   "dependencies": {
-    "@chakra-ui/icons": "^2.0.11"
+    "@chakra-ui/icons": "^2.0.11",
+    "@fullcalendar/daygrid": "^5.11.3",
+    "@fullcalendar/react": "^5.11.2",
+    "react-datetime": "^3.2.0",
+    "react-icons": "^4.6.0"
   }
 }

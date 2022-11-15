@@ -3683,6 +3683,38 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fullcalendar/common@npm:~5.11.2, @fullcalendar/common@npm:~5.11.3":
+  version: 5.11.3
+  resolution: "@fullcalendar/common@npm:5.11.3"
+  dependencies:
+    tslib: ^2.1.0
+  checksum: 3437775ce385bbfc18786cf9b8a9e5e1f9edafdb14f773f7835286fc38779741186ff09a43c630e84b40468274f60f22117cef7707beab64a5c579afb4d1396a
+  languageName: node
+  linkType: hard
+
+"@fullcalendar/daygrid@npm:^5.11.3":
+  version: 5.11.3
+  resolution: "@fullcalendar/daygrid@npm:5.11.3"
+  dependencies:
+    "@fullcalendar/common": ~5.11.3
+    tslib: ^2.1.0
+  checksum: db790842307500311d0f92c3f036b07773783e4368582ceb3c6f5a3ba96b749eb58791290fa680efd62b988f856d50db1b34dddf353bd6c2729a15083fa24c40
+  languageName: node
+  linkType: hard
+
+"@fullcalendar/react@npm:^5.11.2":
+  version: 5.11.2
+  resolution: "@fullcalendar/react@npm:5.11.2"
+  dependencies:
+    "@fullcalendar/common": ~5.11.2
+    tslib: ^2.1.0
+  peerDependencies:
+    react: ^16.7.0 || ^17 || ^18
+    react-dom: ^16.7.0 || ^17 || ^18
+  checksum: ef55c18a0167104384612d32bfbb62b64dea4e417a4e77936000beb0f65ec6592f2959f83d69377524f58f419316e39f0a10f95180e7c6dd90e2b4dfcafea70e
+  languageName: node
+  linkType: hard
+
 "@gar/promisify@npm:^1.0.1, @gar/promisify@npm:^1.1.3":
   version: 1.1.3
   resolution: "@gar/promisify@npm:1.1.3"
@@ -24669,7 +24701,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:15.8.1, prop-types@npm:^15.0.0, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:15.8.1, prop-types@npm:^15.0.0, prop-types@npm:^15.5.7, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -25000,6 +25032,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-datetime@npm:^3.2.0":
+  version: 3.2.0
+  resolution: "react-datetime@npm:3.2.0"
+  dependencies:
+    prop-types: ^15.5.7
+  peerDependencies:
+    moment: ^2.16.0
+    react: ^16.5.0 || ^17.0.0 || ^18.0.0
+  checksum: 9ca11acda843e87619803d7d8dd9bde13a200071a97e9f173b6edb1e85eaf5bcd86b6ccdcc501c96227b795d6ad2eaf0aafd6acb75eea7a23f38d55d76bf08f5
+  languageName: node
+  linkType: hard
+
 "react-dev-utils@npm:^11.0.0":
   version: 11.0.4
   resolution: "react-dev-utils@npm:11.0.4"
@@ -25172,6 +25216,15 @@ __metadata:
   peerDependencies:
     react: "*"
   checksum: 1f7ac9ba9b7ac2b3630930b253734a4ef0c2853fa6a4b2a8d4701910aedfa9db4946dd7c02dd0412204abcff1ecb1aa3d15156e0efc30d4a77b7fee7ec6f869c
+  languageName: node
+  linkType: hard
+
+"react-icons@npm:^4.6.0":
+  version: 4.6.0
+  resolution: "react-icons@npm:4.6.0"
+  peerDependencies:
+    react: "*"
+  checksum: 8918b18c7a956d8832cf2a508b023a8893bfb551fdbaa16aecb9b2eb2ad4c783af6abbcb4609106362d7ad9497b0c6143bb4e8426e2df598f2509cfcf87af4ac
   languageName: node
   linkType: hard
 
@@ -26209,7 +26262,11 @@ __metadata:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@chakra-ui/icons": ^2.0.11
+    "@fullcalendar/daygrid": ^5.11.3
+    "@fullcalendar/react": ^5.11.2
     "@redwoodjs/core": 3.2.0
+    react-datetime: ^3.2.0
+    react-icons: ^4.6.0
   languageName: unknown
   linkType: soft
 

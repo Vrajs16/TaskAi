@@ -1,12 +1,12 @@
 import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 
-import React from 'react'
-import FullCalendar from '@fullcalendar/react'
-import dayGridPlugin from '@fullcalendar/daygrid'
+import Calendar from 'src/components/Calendar/Calendar.js'
 
-export default class DemoApp extends React.Component {
-  render() {
-    return <FullCalendar plugins={[dayGridPlugin]} initialView="dayGridMonth" />
-  }
+const CalendarPage = () => {
+  return (
+    <Calendar />
+  );
 }
+
+export default CalendarPage;
