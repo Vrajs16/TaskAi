@@ -44,6 +44,14 @@ const Task = ({ task }) => {
               <td>{task.id}</td>
             </tr>
             <tr>
+              <th>User id</th>
+              <td>{task.userID}</td>
+            </tr>
+            <tr>
+              <th>Is appointment</th>
+              <td>{checkboxInputTag(task.isAppointment)}</td>
+            </tr>
+            <tr>
               <th>Title</th>
               <td>{task.title}</td>
             </tr>

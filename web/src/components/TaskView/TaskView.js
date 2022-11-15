@@ -14,8 +14,11 @@ import {
   Input,
 } from '@chakra-ui/react'
 
+import { Link, routes } from '@redwoodjs/router'
+
 import AppointmentsCell from 'src/components/AppointmentsCell'
 import TaskCell from 'src/components/Task/TaskCell'
+import TasksCell from 'src/components/Task/TasksCell'
 
 function TaskView() {
   const [day, setDay] = useState(new Date().toJSON().slice(0, 10))
@@ -63,6 +66,7 @@ function TaskView() {
             Tasks
           </Text>
           <TaskCell id={1}></TaskCell>
+          <TasksCell></TasksCell>
           <Divider orientation="horizontal" mb="2" />
         </Box>
         <Box w="50%" borderWidth="1px" borderRadius="lg" p="3" center={false}>
@@ -72,6 +76,9 @@ function TaskView() {
           <Divider orientation="horizontal" mb="2" />
         </Box>
       </HStack>
+      <Text fontSize="2xl" as="b">
+        <Link to={routes.newTask()}>Create a new task</Link>
+      </Text>
     </div>
   )
 }
