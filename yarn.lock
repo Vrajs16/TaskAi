@@ -7431,6 +7431,66 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@supabase/functions-js@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@supabase/functions-js@npm:2.0.0"
+  dependencies:
+    cross-fetch: ^3.1.5
+  checksum: c2adb1df4afbe3e8eab0c07c0687ef82f1d506945105222306ee90c9256036936caa5c7da1de156d3cfa1961f63e3fe86f5f844133f6445a352077c7d18e6720
+  languageName: node
+  linkType: hard
+
+"@supabase/gotrue-js@npm:^2.3.0":
+  version: 2.3.0
+  resolution: "@supabase/gotrue-js@npm:2.3.0"
+  dependencies:
+    cross-fetch: ^3.1.5
+  checksum: 8bb1e609da5b70bcf1e5456811c64eacf7a4d5d8f15f4d5d263ae2b4b3c725dc1f46837566b077056f24a1e2f9360b7965074c11ccb288d516b1213134001801
+  languageName: node
+  linkType: hard
+
+"@supabase/postgrest-js@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@supabase/postgrest-js@npm:1.1.0"
+  dependencies:
+    cross-fetch: ^3.1.5
+  checksum: bbfb1d3859ebd13ec22afdf8f26ef90edad56db058934ea49a0075cd900bb6fc7d5b95dfba2f5e74513f5fa566b68e459161f05f8b5539a1e651211d0ba0d7ef
+  languageName: node
+  linkType: hard
+
+"@supabase/realtime-js@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@supabase/realtime-js@npm:2.1.0"
+  dependencies:
+    "@types/phoenix": ^1.5.4
+    websocket: ^1.0.34
+  checksum: f326c86e57b77212ac5e90f117e1780392450b34c60cc69b5a95b920646f16b92a88d465a32c63a8dd16ef85996a137bbf2c16e819522d9c1d693e2588c98b70
+  languageName: node
+  linkType: hard
+
+"@supabase/storage-js@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@supabase/storage-js@npm:2.0.0"
+  dependencies:
+    cross-fetch: ^3.1.5
+  checksum: 8b8deb8f39f6119ff17b3daf3aae817ed5f384f34c8f16df58cd4d1fb919e2fe4cecca64db95521c2b844e0a69f4daf04cd3079c3476e91a0213ab124fd19f32
+  languageName: node
+  linkType: hard
+
+"@supabase/supabase-js@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@supabase/supabase-js@npm:2.1.0"
+  dependencies:
+    "@supabase/functions-js": ^2.0.0
+    "@supabase/gotrue-js": ^2.3.0
+    "@supabase/postgrest-js": ^1.1.0
+    "@supabase/realtime-js": ^2.1.0
+    "@supabase/storage-js": ^2.0.0
+    cross-fetch: ^3.1.5
+  checksum: 3e63bd35ea6fbe96cda1d993abe33ba879f65f11911b0975f074281d3be5e57872c0dd6d6ae4e92fb8ec35741f1f36d9a8fd2ecb1c038b6961fd2a0c2a43e5a7
+  languageName: node
+  linkType: hard
+
 "@surma/rollup-plugin-off-main-thread@npm:^1.1.1":
   version: 1.4.2
   resolution: "@surma/rollup-plugin-off-main-thread@npm:1.4.2"
@@ -8294,6 +8354,13 @@ __metadata:
   version: 5.0.3
   resolution: "@types/parse5@npm:5.0.3"
   checksum: 7d7ebbcb704a0ef438aa0de43ea1fd9723dfa802b8fa459628ceaf063f092bd19791b2a2580265244898dcc9d40f7345588a76cf752847d29540539f802711ed
+  languageName: node
+  linkType: hard
+
+"@types/phoenix@npm:^1.5.4":
+  version: 1.5.4
+  resolution: "@types/phoenix@npm:1.5.4"
+  checksum: ea146325918847b94c545d99c62d233dca9cf71111bed674eeee3c75e5a8e967fe785c9cf70e4b869c12337200955346bce63fa42de2eb3969f7db621c2da48b
   languageName: node
   linkType: hard
 
@@ -11232,6 +11299,16 @@ __metadata:
     base64-js: ^1.3.1
     ieee754: ^1.2.1
   checksum: 2a905fbbcde73cc5d8bd18d1caa23715d5f83a5935867c2329f0ac06104204ba7947be098fe1317fbd8830e26090ff8e764f08cd14fefc977bb248c3487bcbd0
+  languageName: node
+  linkType: hard
+
+"bufferutil@npm:^4.0.1":
+  version: 4.0.7
+  resolution: "bufferutil@npm:4.0.7"
+  dependencies:
+    node-gyp: latest
+    node-gyp-build: ^4.3.0
+  checksum: 48d6cf98b9c227db65f0a1062b6c80e933c43dc03e0ad5f908da0e79cc87a633c215516f4d541ca9b0e09c1fb386f1bbe1fc2de913057f0201d14798d3e0c2bb
   languageName: node
   linkType: hard
 
@@ -21917,6 +21994,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"node-gyp-build@npm:^4.3.0":
+  version: 4.5.0
+  resolution: "node-gyp-build@npm:4.5.0"
+  bin:
+    node-gyp-build: bin.js
+    node-gyp-build-optional: optional.js
+    node-gyp-build-test: build-test.js
+  checksum: 4ca30ae1f7ba570cd33ae6b71c7e3eb249c3901c0b8a02014cfe2ce18f7f23df621c8d087868973e4f32c90b1c4ad753b4dff1d8bf54666a3f848f414828c14f
+  languageName: node
+  linkType: hard
+
 "node-gyp@npm:latest":
   version: 9.3.0
   resolution: "node-gyp@npm:9.3.0"
@@ -26296,6 +26384,7 @@ __metadata:
     "@fullcalendar/daygrid": ^5.11.3
     "@fullcalendar/react": ^5.11.2
     "@redwoodjs/core": 3.2.0
+    "@supabase/supabase-js": ^2.1.0
     react-datetime: ^3.2.0
     react-icons: ^4.6.0
     react-router-dom: ^6.4.3
@@ -29343,6 +29432,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"utf-8-validate@npm:^5.0.2":
+  version: 5.0.10
+  resolution: "utf-8-validate@npm:5.0.10"
+  dependencies:
+    node-gyp: latest
+    node-gyp-build: ^4.3.0
+  checksum: 23cd6adc29e6901aa37ff97ce4b81be9238d0023c5e217515b34792f3c3edb01470c3bd6b264096dd73d0b01a1690b57468de3a24167dd83004ff71c51cc025f
+  languageName: node
+  linkType: hard
+
 "util-deprecate@npm:^1.0.1, util-deprecate@npm:^1.0.2, util-deprecate@npm:~1.0.1":
   version: 1.0.2
   resolution: "util-deprecate@npm:1.0.2"
@@ -30252,6 +30351,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"websocket@npm:^1.0.34":
+  version: 1.0.34
+  resolution: "websocket@npm:1.0.34"
+  dependencies:
+    bufferutil: ^4.0.1
+    debug: ^2.2.0
+    es5-ext: ^0.10.50
+    typedarray-to-buffer: ^3.1.5
+    utf-8-validate: ^5.0.2
+    yaeti: ^0.0.6
+  checksum: a7e17d24edec685fdf055940ff9c6a15e726df5bb5e537382390bd1ab978fc8c0d71cd2842bb628e361d823aafd43934cc56aa5b979d08e52461be7da8d01eee
+  languageName: node
+  linkType: hard
+
 "whatwg-encoding@npm:^1.0.5":
   version: 1.0.5
   resolution: "whatwg-encoding@npm:1.0.5"
@@ -30820,6 +30933,13 @@ __metadata:
   version: 5.0.8
   resolution: "y18n@npm:5.0.8"
   checksum: 4df2842c36e468590c3691c894bc9cdbac41f520566e76e24f59401ba7d8b4811eb1e34524d57e54bc6d864bcb66baab7ffd9ca42bf1eda596618f9162b91249
+  languageName: node
+  linkType: hard
+
+"yaeti@npm:^0.0.6":
+  version: 0.0.6
+  resolution: "yaeti@npm:0.0.6"
+  checksum: 4e88702d8b34d7b61c1c4ec674422b835d453b8f8a6232be41e59fc98bc4d9ab6d5abd2da55bab75dfc07ae897fdc0c541f856ce3ab3b17de1630db6161aa3f6
   languageName: node
   linkType: hard
 
