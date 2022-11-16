@@ -46,11 +46,13 @@ export const Failure = ({ error }) => (
 
 export const Success = ({ tasks, day }) => {
   const priorityMap = { 1: 'green', 2: 'yellow', 3: 'red' }
-
+  if (day == undefined) {
+    return <Tasks tasks={tasks} />
+  }
   return (
     <ul>
       {tasks.map((item) => {
-        if (day === item.dueDate.slice(0, 10) && item.isAppointment) {
+        if (day === item.dueDate.slice(0, 10) && !item.isAppointment) {
           let hours = new Date(item.dueDate).getHours()
           let minutes = new Date(item.dueDate).getMinutes()
           let ampm = hours >= 12 ? 'pm' : 'am'
