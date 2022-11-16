@@ -12,3 +12,4 @@
  3. Update Taskform UI so that the look of the New/Edit Task Page matches the single task view
  4. Autosave needs to be added to Edit Task page
  5. Formatting on Task form needs to be revised for a cleaner look
+ 6. Additional statuses need to be added to the New/Edit task pages
