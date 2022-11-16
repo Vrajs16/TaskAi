@@ -52,7 +52,13 @@ const ScaffoldLayout = ({
                     src="/taskai-logo.png"
                     alt="Placeholder Logo"
                   />
-                  <Text fontSize="5xl" as="b">
+                  <Text
+                    fontSize="5xl"
+                    as="b"
+                    bgGradient="linear(to-l, #20BF55, #01BAEF)"
+                    bgClip="text"
+                    outline="none"
+                  >
                     TaskAI
                   </Text>
                 </Flex>
