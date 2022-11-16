@@ -23,48 +23,35 @@ import { Link, routes } from '@redwoodjs/router'
 const BannerLayout = ({ children }) => {
   return (
     <>
-      <header style={{width: "100vw"}}>
-          <Center bg="blue.500" h="100px" color="white">
-            <Flex
-              minWidth="max-content"
-              direction={['column', 'row']}
-              align="center"
-              gap="300"
-            >
-              <Link to={routes.home()}>
-                <Flex
-                  minWidth="max-content"
-                  direction={['column', 'row']}
-                  align="center"
-                  gap="5"
-                >
-                  <Image
-                    borderRadius="0"
-                    boxSize="50px"
-                    src="/taskai-logo.png"
-                    alt="Placeholder Logo"
-                  />
-                  <Text fontSize="5xl" as="b">
-                    TaskAI
-                  </Text>
-                </Flex>
+      <header style={{ width: "100vw" }}>
+        <Center bg="blue.500" h="100px" color="white">
+          <Flex
+            minWidth="max-content"
+            direction={['column', 'row']}
+            align="center"
+            gap="300"
+          >
+            <Link to={routes.home()}>
+              <Text fontSize="5xl" as="b" bgGradient='linear(to-l, #20BF55, #01BAEF)' bgClip='text' outline='none'>
+                TaskAI
+              </Text>
+            </Link>
+            <Spacer />
+            <Spacer />
+            <ButtonGroup gap="4">
+              <Link to={routes.profile()}>
+                <Button colorScheme="gray" variant="outline" size="md">
+                  Profile
+                </Button>
               </Link>
-              <Spacer />
-              <Spacer />
-              <ButtonGroup gap="4">
-                <Link to={routes.profile()}>
-                  <Button colorScheme="gray" variant="outline" size="md">
-                    Profile
-                  </Button>
-                </Link>
-                <Link to={routes.login()}>
-                  <Button colorScheme="gray" variant="outline" size="md">
-                    Sign Out
-                  </Button>
-                </Link>
-              </ButtonGroup>
-            </Flex>
-          </Center>
+              <Link to={routes.login()}>
+                <Button colorScheme="gray" variant="outline" size="md">
+                  Sign Out
+                </Button>
+              </Link>
+            </ButtonGroup>
+          </Flex>
+        </Center>
       </header>
       <main style={{ height: "calc(100vh - 100px", backgroundColor: "#F7FAFC" }}>{children}</main>
     </>

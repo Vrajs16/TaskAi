@@ -39,37 +39,26 @@ const TasksList = ({ tasks }) => {
       <table className="rw-table">
         <thead>
           <tr>
-            <th>Id</th>
             <th>Title</th>
             <th>Description</th>
             <th>Duration</th>
             <th>Priority</th>
             <th>Completed</th>
             <th>Due date</th>
-            <th>Created at</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
         <tbody>
           {tasks.map((task) => (
-            <tr key={task.id}>
-              <td>{truncate(task.id)}</td>
+            <tr key={task.title}>
               <td>{truncate(task.title)}</td>
               <td>{truncate(task.description)}</td>
               <td>{truncate(task.duration)}</td>
               <td>{truncate(task.priority)}</td>
               <td>{checkboxInputTag(task.completed)}</td>
               <td>{timeTag(task.dueDate)}</td>
-              <td>{timeTag(task.createdAt)}</td>
               <td>
                 <nav className="rw-table-actions">
-                  <Link
-                    to={routes.task({ id: task.id })}
-                    title={'Show task ' + task.id + ' detail'}
-                    className="rw-button rw-button-small"
-                  >
-                    Show
-                  </Link>
                   <Link
                     to={routes.editTask({ id: task.id })}
                     title={'Edit task ' + task.id}

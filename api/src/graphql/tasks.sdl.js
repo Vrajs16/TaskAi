@@ -1,6 +1,8 @@
 export const schema = gql`
   type Task {
     id: Int!
+    userID: Int!
+    isAppointment: Boolean!
     title: String!
     description: String!
     duration: Int!
@@ -16,6 +18,8 @@ export const schema = gql`
   }
 
   input CreateTaskInput {
+    userID: Int!
+    isAppointment: Boolean!
     title: String!
     description: String!
     duration: Int!
@@ -25,6 +29,8 @@ export const schema = gql`
   }
 
   input UpdateTaskInput {
+    userID: Int
+    isAppointment: Boolean
     title: String
     description: String
     duration: Int

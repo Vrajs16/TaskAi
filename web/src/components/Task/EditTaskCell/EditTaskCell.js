@@ -10,6 +10,8 @@ export const QUERY = gql`
   query EditTaskById($id: Int!) {
     task: task(id: $id) {
       id
+      userID
+      isAppointment
       title
       description
       duration
@@ -24,6 +26,8 @@ const UPDATE_TASK_MUTATION = gql`
   mutation UpdateTaskMutation($id: Int!, $input: UpdateTaskInput!) {
     updateTask(id: $id, input: $input) {
       id
+      userID
+      isAppointment
       title
       description
       duration

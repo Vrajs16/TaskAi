@@ -5,11 +5,13 @@ import {
   FormError,
   FieldError,
   Label,
-  TextField,
   NumberField,
   CheckboxField,
+  TextField,
   Submit,
+  DatetimeLocalField,
   DateField,
+  InputField,
 } from '@redwoodjs/forms'
 
 const TaskForm = (props) => {
@@ -18,146 +20,152 @@ const TaskForm = (props) => {
   }
 
   return (
-    <>
-      <Box maxW="lg" borderWidth="1px" borderRadius="lg" overflow="hidden">
-        <Box bg="blue.500" w="100%" color="white">
-          Task {props.task?.id}
-        </Box>
-        <SimpleGrid columns={1} spacing={2} border="1px" borderColor="gray.200">
-          <div className="rw-form-wrapper">
-            <Form onSubmit={onSubmit} error={props.error}>
-              <Box height="30px">
-                <FormError
-                  error={props.error}
-                  wrapperClassName="rw-form-error-wrapper"
-                  titleClassName="rw-form-error-title"
-                  listClassName="rw-form-error-list"
-                />
+    <div className="rw-form-wrapper">
+      <br></br>
+      <br></br>
+      <Form onSubmit={onSubmit} error={props.error}>
+        <FormError
+          error={props.error}
+          wrapperClassName="rw-form-error-wrapper"
+          titleClassName="rw-form-error-title"
+          listClassName="rw-form-error-list"
+        />
 
-                <Label
-                  name="title"
-                  className="rw-label"
-                  errorClassName="rw-label rw-label-error"
-                >
-                  <Text as="b">Title</Text>
-                </Label>
+        <Label
+          name="userID"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          User id
+        </Label>
 
-                <TextField
-                  name="title"
-                  defaultValue={props.task?.title}
-                  className="rw-input"
-                  errorClassName="rw-input rw-input-error"
-                  validation={{ required: true }}
-                />
+        <NumberField
+          name="userID"
+          defaultValue={props.task?.userID}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
 
-                <FieldError name="title" className="rw-field-error" />
-              </Box>
+        <FieldError name="userID" className="rw-field-error" />
+        <br></br>
+        <Label
+          name="isAppointment"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Is appointment
+        </Label>
 
-              <Box height="30px">
-                <Label
-                  name="description"
-                  className="rw-label"
-                  errorClassName="rw-label rw-label-error"
-                >
-                  <Text as="b">Description</Text>
-                </Label>
+        <CheckboxField
+          name="isAppointment"
+          defaultChecked={props.task?.isAppointment}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+        />
 
-                <TextField
-                  name="description"
-                  defaultValue={props.task?.description}
-                  className="rw-input"
-                  errorClassName="rw-input rw-input-error"
-                  validation={{ required: true }}
-                />
+        <FieldError name="isAppointment" className="rw-field-error" />
+        <br></br>
+        <Label
+          name="title"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Title
+        </Label>
 
-                <FieldError name="description" className="rw-field-error" />
-              </Box>
+        <TextField
+          name="title"
+          defaultValue={props.task?.title}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
 
-              <Box height="30px">
-                <Label
-                  name="duration"
-                  className="rw-label"
-                  errorClassName="rw-label rw-label-error"
-                >
-                  <Text as="b">Duration</Text>
-                </Label>
+        <FieldError name="title" className="rw-field-error" />
+        <br></br>
+        <Label
+          name="description"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Description
+        </Label>
 
-                <NumberField
-                  name="duration"
-                  defaultValue={props.task?.duration}
-                  className="rw-input"
-                  errorClassName="rw-input rw-input-error"
-                  validation={{ required: true }}
-                />
+        <TextField
+          name="description"
+          defaultValue={props.task?.description}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
 
-                <FieldError name="duration" className="rw-field-error" />
-              </Box>
+        <FieldError name="description" className="rw-field-error" />
+        <br></br>
+        <Label
+          name="duration"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Duration
+        </Label>
 
-              <Box height="30px">
-                <Label
-                  name="priority"
-                  className="rw-label"
-                  errorClassName="rw-label rw-label-error"
-                >
-                  <Text as="b">Priority</Text>
-                </Label>
+        <NumberField
+          name="duration"
+          defaultValue={props.task?.duration}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
 
-                <NumberField
-                  name="priority"
-                  defaultValue={props.task?.priority}
-                  className="rw-input"
-                  errorClassName="rw-input rw-input-error"
-                  validation={{ required: true }}
-                />
+        <FieldError name="duration" className="rw-field-error" />
+        <br></br>
+        <Label
+          name="priority"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Priority
+        </Label>
 
-                <FieldError name="priority" className="rw-field-error" />
-              </Box>
+        <NumberField
+          name="priority"
+          defaultValue={props.task?.priority}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
 
-              <Box height="30px">
-                <Label
-                  name="completed"
-                  className="rw-label"
-                  errorClassName="rw-label rw-label-error"
-                >
-                  <Text as="b">Completed</Text>
-                </Label>
+        <FieldError name="priority" className="rw-field-error" />
+        <br></br>
+        <Label
+          name="completed"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Completed
+        </Label>
 
-                <CheckboxField
-                  name="completed"
-                  defaultChecked={props.task?.completed}
-                  className="rw-input"
-                  errorClassName="rw-input rw-input-error"
-                />
+        <CheckboxField
+          name="completed"
+          defaultChecked={props.task?.completed}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+        />
 
-                <FieldError name="completed" className="rw-field-error" />
-              </Box>
+        <FieldError name="completed" className="rw-field-error" />
 
-              <Box height="30px">
-                <Label
-                  name="completed"
-                  className="rw-label"
-                  errorClassName="rw-label rw-label-error"
-                >
-                  <Text as="b">Due Date</Text>
-                </Label>
-                <DateField name="dueDate" />
-                <FieldError name="dueDate" className="rw-field-error" />
-              </Box>
-              <Button colorScheme="gray" variant="outline" size="md">
-                <div className="rw-button-group">
-                  <Submit
-                    disabled={props.loading}
-                    className="rw-button rw-button-blue"
-                  >
-                    Save
-                  </Submit>
-                </div>
-              </Button>
-            </Form>
-          </div>
-        </SimpleGrid>
-      </Box>
-    </>
+        <br></br>
+        <DateField name="dueDate" />
+        <FieldError name="dueDate" className="rw-field-error" />
+
+        <div className="rw-button-group">
+          <Submit disabled={props.loading} className="rw-button rw-button-blue">
+            Save
+          </Submit>
+        </div>
+      </Form>
+    </div>
   )
 }
 

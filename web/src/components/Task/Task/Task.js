@@ -38,64 +38,68 @@ const Task = ({ task }) => {
           <h2 className="rw-heading rw-heading-secondary">
             Task {task.id} Details
           </h2>
+          <table className="rw-table">
+            <tbody>
+              <tr>
+                <th>Id</th>
+                <td>{task.id}</td>
+              </tr>
+              <tr>
+                <th>User id</th>
+                <td>{task.userID}</td>
+              </tr>
+              <tr>
+                <th>Is appointment</th>
+                <td>{checkboxInputTag(task.isAppointment)}</td>
+              </tr>
+              <tr>
+                <th>Title</th>
+                <td>{task.title}</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td>{task.description}</td>
+              </tr>
+              <tr>
+                <th>Duration</th>
+                <td>{task.duration}</td>
+              </tr>
+              <tr>
+                <th>Priority</th>
+                <td>{task.priority}</td>
+              </tr>
+              <tr>
+                <th>Completed</th>
+                <td>{checkboxInputTag(task.completed)}</td>
+              </tr>
+              <tr>
+                <th>Due date</th>
+                <td>{timeTag(task.dueDate)}</td>
+              </tr>
+              <tr>
+                <th>Created at</th>
+                <td>{timeTag(task.createdAt)}</td>
+              </tr>
+            </tbody>
+          </table>
+          <nav className="rw-button-group">
+            <Link
+              to={routes.editTask({ id: task.id })}
+              className="rw-button rw-button-blue"
+            >
+              Edit
+            </Link>
+            <Button
+              colorScheme="gray"
+              variant="outline"
+              size="md"
+              onClick={() => onDeleteClick(task.id)}
+            >
+              <div className="rw-button-icon">Delete</div>
+            </Button>
+          </nav>
         </Box>
-        <SimpleGrid columns={2} spacing={2} border="1px" borderColor="gray.200">
-          <Box height="30px">
-            <Text as="b">ID</Text>
-          </Box>
-          <Box height="30px">{task.id}</Box>
-
-          <Box height="30px">
-            <Text as="b">Title</Text>
-          </Box>
-          <Box height="30px">{task.title}</Box>
-
-          <Box height="30px">
-            <Text as="b">Description</Text>
-          </Box>
-          <Box height="30px">{task.description}</Box>
-
-          <Box height="30px">
-            <Text as="b">Duration</Text>
-          </Box>
-          <Box height="30px">{task.duration}</Box>
-
-          <Box height="30px">
-            <Text as="b">Priority</Text>
-          </Box>
-          <Box height="30px">{task.priority}</Box>
-
-          <Box height="30px">
-            <Text as="b">Completed</Text>
-          </Box>
-          <Box height="30px">{checkboxInputTag(task.completed)}</Box>
-
-          <Box height="30px">
-            <Text as="b">Due date</Text>
-          </Box>
-          <Box height="30px">{timeTag(task.dueDate)}</Box>
-
-          <Box height="30px">
-            <Text as="b">Created at</Text>
-          </Box>
-          <Box height="30px">{timeTag(task.createdAt)}</Box>
-        </SimpleGrid>
       </Box>
-      <ButtonGroup gap="4">
-        <Link to={routes.editTask({ id: task.id })}>
-          <Button colorScheme="gray" variant="outline" size="md">
-            Edit
-          </Button>
-        </Link>
-        <Button
-          colorScheme="gray"
-          variant="outline"
-          size="md"
-          onClick={() => onDeleteClick(task.id)}
-        >
-          <div className="rw-button-icon">Delete</div>
-        </Button>
-      </ButtonGroup>
     </>
   )
 }
