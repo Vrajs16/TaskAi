@@ -22,27 +22,29 @@ describe('tasks', () => {
   scenario('creates a task', async () => {
     const result = await createTask({
       input: {
+        userID: 3559254,
         title: 'String',
         description: 'String',
-        duration: 2744575,
-        priority: 231340,
+        duration: 5338223,
+        priority: 7048115,
       },
     })
 
+    expect(result.userID).toEqual(3559254)
     expect(result.title).toEqual('String')
     expect(result.description).toEqual('String')
-    expect(result.duration).toEqual(2744575)
-    expect(result.priority).toEqual(231340)
+    expect(result.duration).toEqual(5338223)
+    expect(result.priority).toEqual(7048115)
   })
 
   scenario('updates a task', async (scenario) => {
     const original = await task({ id: scenario.task.one.id })
     const result = await updateTask({
       id: original.id,
-      input: { title: 'String2' },
+      input: { userID: 2594030 },
     })
 
-    expect(result.title).toEqual('String2')
+    expect(result.userID).toEqual(2594030)
   })
 
   scenario('deletes a task', async (scenario) => {

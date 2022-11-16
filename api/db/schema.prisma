@@ -19,12 +19,14 @@ model UserExample {
 }
 
 model Task {
-  id          Int      @id @default(autoincrement())
-  title       String
-  description String
-  duration    Int
-  priority    Int
-  completed   Boolean  @default(false)
-  dueDate     DateTime @default(now())
-  createdAt   DateTime @default(now())
+  id            Int      @id @default(autoincrement())
+  userID        Int
+  isAppointment Boolean  @default(false)
+  title         String
+  description   String
+  duration      Int
+  priority      Int
+  completed     Boolean  @default(false)
+  dueDate       DateTime @default(now())
+  createdAt     DateTime @default(now())
 }

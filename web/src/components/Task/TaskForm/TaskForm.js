@@ -3,10 +3,13 @@ import {
   FormError,
   FieldError,
   Label,
-  TextField,
   NumberField,
   CheckboxField,
+  TextField,
   Submit,
+  DatetimeLocalField,
+  DateField,
+  InputField,
 } from '@redwoodjs/forms'
 
 const TaskForm = (props) => {
@@ -16,6 +19,8 @@ const TaskForm = (props) => {
 
   return (
     <div className="rw-form-wrapper">
+      <br></br>
+      <br></br>
       <Form onSubmit={onSubmit} error={props.error}>
         <FormError
           error={props.error}
@@ -24,6 +29,41 @@ const TaskForm = (props) => {
           listClassName="rw-form-error-list"
         />
 
+        <Label
+          name="userID"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          User id
+        </Label>
+
+        <NumberField
+          name="userID"
+          defaultValue={props.task?.userID}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
+
+        <FieldError name="userID" className="rw-field-error" />
+        <br></br>
+        <Label
+          name="isAppointment"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Is appointment
+        </Label>
+
+        <CheckboxField
+          name="isAppointment"
+          defaultChecked={props.task?.isAppointment}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+        />
+
+        <FieldError name="isAppointment" className="rw-field-error" />
+        <br></br>
         <Label
           name="title"
           className="rw-label"
@@ -41,7 +81,7 @@ const TaskForm = (props) => {
         />
 
         <FieldError name="title" className="rw-field-error" />
-
+        <br></br>
         <Label
           name="description"
           className="rw-label"
@@ -59,7 +99,7 @@ const TaskForm = (props) => {
         />
 
         <FieldError name="description" className="rw-field-error" />
-
+        <br></br>
         <Label
           name="duration"
           className="rw-label"
@@ -77,7 +117,7 @@ const TaskForm = (props) => {
         />
 
         <FieldError name="duration" className="rw-field-error" />
-
+        <br></br>
         <Label
           name="priority"
           className="rw-label"
@@ -95,7 +135,7 @@ const TaskForm = (props) => {
         />
 
         <FieldError name="priority" className="rw-field-error" />
-
+        <br></br>
         <Label
           name="completed"
           className="rw-label"
@@ -112,6 +152,10 @@ const TaskForm = (props) => {
         />
 
         <FieldError name="completed" className="rw-field-error" />
+
+        <br></br>
+        <DateField name="dueDate" />
+        <FieldError name="dueDate" className="rw-field-error" />
 
         <div className="rw-button-group">
           <Submit disabled={props.loading} className="rw-button rw-button-blue">
