@@ -94,7 +94,14 @@ const LoginPage = () => {
         <Link color="blue.500" href={routes.register()}>
           Sign Up
         </Link>
-      </Box></>
+      </Box>
+      <Box>
+        Sign In Using GitHub?{' '}
+        <Link color="blue.500" href={routes.GitAuth()}>
+          Sign In
+        </Link>
+      </Box>
+      </>
   )
 }
 
