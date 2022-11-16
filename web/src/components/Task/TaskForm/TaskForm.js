@@ -9,6 +9,7 @@ import {
   NumberField,
   CheckboxField,
   Submit,
+  DateField,
 } from '@redwoodjs/forms'
 
 const TaskForm = (props) => {
@@ -129,6 +130,18 @@ const TaskForm = (props) => {
                 />
 
                 <FieldError name="completed" className="rw-field-error" />
+              </Box>
+
+              <Box height="30px">
+                <Label
+                  name="completed"
+                  className="rw-label"
+                  errorClassName="rw-label rw-label-error"
+                >
+                  <Text as="b">Due Date</Text>
+                </Label>
+                <DateField name="dueDate" />
+                <FieldError name="dueDate" className="rw-field-error" />
               </Box>
               <Button colorScheme="gray" variant="outline" size="md">
                 <div className="rw-button-group">
