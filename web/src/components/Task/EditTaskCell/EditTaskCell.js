@@ -1,5 +1,6 @@
-import { navigate, routes } from '@redwoodjs/router'
+import { Text } from '@chakra-ui/react'
 
+import { navigate, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
@@ -9,6 +10,8 @@ export const QUERY = gql`
   query EditTaskById($id: Int!) {
     task: task(id: $id) {
       id
+      userID
+      isAppointment
       title
       description
       duration
@@ -23,6 +26,8 @@ const UPDATE_TASK_MUTATION = gql`
   mutation UpdateTaskMutation($id: Int!, $input: UpdateTaskInput!) {
     updateTask(id: $id, input: $input) {
       id
+      userID
+      isAppointment
       title
       description
       duration
@@ -59,7 +64,9 @@ export const Success = ({ task }) => {
     <div className="rw-segment">
       <header className="rw-segment-header">
         <h2 className="rw-heading rw-heading-secondary">
-          Edit Task {task?.id}
+          <Text fontSize="3xl" as="b" color="blue.500">
+            Edit Task {task?.id}
+          </Text>
         </h2>
       </header>
       <div className="rw-segment-main">

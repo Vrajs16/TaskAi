@@ -25,6 +25,7 @@ const NewTask = () => {
 
   const onSave = (input) => {
     createTask({ variables: { input } })
+    routes.planner()
   }
 
   return (
