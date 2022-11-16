@@ -1,9 +1,13 @@
 # TaskAi
 
+Organizing your schedule made easy. Never miss a task. Never miss an appointment. Never be late for one too. Keep track of your day, week, and year all in one platform. Collaborate with others and never miss a beat.
+
 ## Repo Owner
+
 Vraj Shah
 
 ## Project Manager
+
 Robert Diasio
 
 Welcome to [RedwoodJS](https://redwoodjs.com)!
@@ -33,9 +37,11 @@ Your browser should automatically open to http://localhost:8910 where you'll see
 > Congratulations on running your first Redwood CLI command!
 > From dev to deploy, the CLI is with you the whole way.
 > And there's quite a few commands at your disposal:
+>
 > ```
 > yarn redwood --help
 > ```
+>
 > For all the details, see the [CLI reference](https://redwoodjs.com/docs/cli-commands).
 
 ## Prisma and the database
@@ -125,3 +131,150 @@ The best way to learn Redwood is by going through the comprehensive [tutorial](h
 
 - Stay updated: read [Forum announcements](https://community.redwoodjs.com/c/announcements/5), follow us on [Twitter](https://twitter.com/redwoodjs), and subscribe to the [newsletter](https://redwoodjs.com/newsletter)
 - [Learn how to contribute](https://redwoodjs.com/docs/contributing)
+
+## The Database Schema
+
+Our database is composed of two tables: `Task`, and `User`.
+
+#### **User Table**
+
+The **`User`** table consists of the account information, namely the email, name, and password, of people who currently have an account with us. The schema for it is as follows:
+
+| Field   | Data Type |             |
+| ------- | --------- | ----------- |
+| id      | Int       | Primary Key |
+| email   | String    | Unique      |
+| pasword | String    |             |
+| name    | String    |             |
+
+The `schema.prisma` syntax used to create this table:
+
+> ```
+> model User {
+>  id       Int     @id @default(autoincrement())
+>  email    String  @unique
+>  password String
+>  name     String?
+> }
+> ```
+
+#### **Task Table**
+
+The `Task` table holds the data about a task for a user with ID of `userID`. Each task in the table points to a user in the `User` table. The schema for it is as follows:
+
+| Field         | Data Type |             |
+| ------------- | --------- | ----------- |
+| id            | Int       | Primary Key |
+| userID        | Int       | Foreign Key |
+| title         | String    |             |
+| description   | String    |             |
+| duration      | Int       |             |
+| priority      | Int       |             |
+| completed     | Boolean   |             |
+| dueDate       | DateTime  |             |
+| createdAt     | DateTime  |             |
+| isAppointment | Boolean   |             |
+
+The `schema.prisma` syntax used to create this table:
+
+> ```
+> model Task {
+>  id            Int      @id @default(autoincrement())
+>  userID        Int
+>  isAppointment Boolean  @default(false)
+>  title         String
+>  description   String
+>  duration      Int
+>  priority      Int
+>  completed     Boolean  @default(false)
+>  dueDate       DateTime @default(now())
+>  createdAt     DateTime @default(now())
+> }
+> ```
+
+## Accessing Database Data
+
+Interacting with and accesing the data in the Task table is done through CRUD operations:
+
+#### **Creating a Task**
+
+> ```javascript
+> export const createTask = ({ input }) => {
+>  return db.task.create({
+>    data: input,
+>  })
+> }
+> ```
+
+Create a task using the `input` data. `input` is a dictionary. The required input data is `userID`, `title`, `description`, `duration`, and `priority`.
+
+Example of a valid `input` dictionary:
+
+> ```javascript
+>       data: {
+>         userID: 6090835,
+>         title: 'String',
+>         description: 'String',
+>         duration: 6181799,
+>         priority: 4696712,
+>       }
+> ```
+
+#### **Retrieving Tasks**
+
+> ```javascript
+> export const tasks = () => {
+>  return db.task.findMany()
+> }
+> ```
+
+Returns all tasks in the database.
+
+> ```javascript
+> export const task = ({ id }) => {
+>  return db.task.findUnique({
+>    where: { id },
+>  })
+> }
+> ```
+
+Returns the task in the database that contains ID `id`.
+
+#### **Updating a Task**
+
+> ```javascript
+> export const updateTask = ({ id, input }) => {
+>  return db.task.update({
+>    data: input,
+>    where: { id },
+>  })
+> }
+> ```
+
+Update the data of task with ID `id`, using the given `input` parameter.
+
+#### **Deleting a Task**
+
+> ```javascript
+> export const deleteTask = ({ id }) => {
+>  return db.task.delete({
+>    where: { id },
+>  })
+> }
+> ```
+
+Deletes task with ID `id` from the database.
+
+## Google Calendar API
+
+In order to access the data stored on your Google Calendar and sync it with TaskAI, the Google Calendar API is leveraged.
+
+* [Google Calendar Events Endpoint](https://developers.google.com/calendar/api/v3/reference/events)
+
+## Appendix
+
+* To learn more about Prisma:
+  * [RedwoodJS Prisma Relations](https://redwoodjs.com/docs/schema-relations)
+  * [Prisma Documentation](https://www.prisma.io/docs/getting-started)
+* [Google Calendar API Documentation](https://developers.google.com/calendar/api/v3/reference)
+  * [Calendar Events Endpoint Documentation](https://developers.google.com/calendar/api/v3/reference/events)
