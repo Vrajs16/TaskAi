@@ -3692,7 +3692,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fullcalendar/daygrid@npm:^5.11.3":
+"@fullcalendar/daygrid@npm:^5.11.3, @fullcalendar/daygrid@npm:~5.11.3":
   version: 5.11.3
   resolution: "@fullcalendar/daygrid@npm:5.11.3"
   dependencies:
@@ -3712,6 +3712,17 @@ __metadata:
     react: ^16.7.0 || ^17 || ^18
     react-dom: ^16.7.0 || ^17 || ^18
   checksum: ef55c18a0167104384612d32bfbb62b64dea4e417a4e77936000beb0f65ec6592f2959f83d69377524f58f419316e39f0a10f95180e7c6dd90e2b4dfcafea70e
+  languageName: node
+  linkType: hard
+
+"@fullcalendar/timegrid@npm:^5.11.3":
+  version: 5.11.3
+  resolution: "@fullcalendar/timegrid@npm:5.11.3"
+  dependencies:
+    "@fullcalendar/common": ~5.11.3
+    "@fullcalendar/daygrid": ~5.11.3
+    tslib: ^2.1.0
+  checksum: d80fe783ac8ce3f51a891ba6942838eee9a8bfbf3cde564412e8855a5339ff28991c51cad32765a7ddbdf5091ebbad5e1c2262c8109bcfb34df8cc11b3e66d29
   languageName: node
   linkType: hard
 
@@ -26383,6 +26394,7 @@ __metadata:
     "@chakra-ui/icons": ^2.0.11
     "@fullcalendar/daygrid": ^5.11.3
     "@fullcalendar/react": ^5.11.2
+    "@fullcalendar/timegrid": ^5.11.3
     "@redwoodjs/core": 3.2.0
     "@supabase/supabase-js": ^2.1.0
     react-datetime: ^3.2.0
