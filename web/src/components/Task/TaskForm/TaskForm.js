@@ -1,4 +1,11 @@
-import { Box, SimpleGrid, Text, Button, ButtonGroup } from '@chakra-ui/react'
+import {
+  Box,
+  SimpleGrid,
+  Text,
+  Button,
+  ButtonGroup,
+  Center,
+} from '@chakra-ui/react'
 
 import {
   Form,
@@ -20,152 +27,190 @@ const TaskForm = (props) => {
   }
 
   return (
-    <div className="rw-form-wrapper">
-      <br></br>
-      <br></br>
-      <Form onSubmit={onSubmit} error={props.error}>
-        <FormError
-          error={props.error}
-          wrapperClassName="rw-form-error-wrapper"
-          titleClassName="rw-form-error-title"
-          listClassName="rw-form-error-list"
-        />
+    <Center>
+      <Box maxW="lg" borderWidth="2px" borderRadius="lg" overflow="hidden">
+        <div className="rw-form-wrapper">
+          <Box bg="blue.500" w="100%" color="white">
+            <h2 className="rw-heading rw-heading-secondary">
+              Insert Task Information
+            </h2>
+          </Box>
+          <Form onSubmit={onSubmit} error={props.error}>
+            <SimpleGrid columns={2} spacing="2px" border="2px">
+              <Box w="100%" bg="white" color="blue.500">
+                <FormError
+                  error={props.error}
+                  wrapperClassName="rw-form-error-wrapper"
+                  titleClassName="rw-form-error-title"
+                  listClassName="rw-form-error-list"
+                />
 
-        <Label
-          name="userID"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          User id
-        </Label>
+                <Label
+                  name="userID"
+                  className="rw-label"
+                  errorClassName="rw-label rw-label-error"
+                >
+                  <Text as="b">User ID</Text>
+                </Label>
+              </Box>
+              <Box w="100%" bg="white" color="blue.500">
+                <NumberField
+                  name="userID"
+                  defaultValue={props.task?.userID}
+                  className="rw-input"
+                  errorClassName="rw-input rw-input-error"
+                  validation={{ required: true }}
+                />
+              </Box>
 
-        <NumberField
-          name="userID"
-          defaultValue={props.task?.userID}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        />
+              <Box w="100%" bg="white" color="blue.500">
+                <FieldError name="userID" className="rw-field-error" />
+                <Label
+                  name="isAppointment"
+                  className="rw-label"
+                  errorClassName="rw-label rw-label-error"
+                >
+                  <Text as="b">Is Appointment</Text>
+                </Label>
+              </Box>
+              <Box w="100%" bg="white" color="blue.500">
+                <CheckboxField
+                  name="isAppointment"
+                  defaultChecked={props.task?.isAppointment}
+                  className="rw-input"
+                  errorClassName="rw-input rw-input-error"
+                />
+              </Box>
 
-        <FieldError name="userID" className="rw-field-error" />
-        <br></br>
-        <Label
-          name="isAppointment"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          Is appointment
-        </Label>
+              <Box w="100%" bg="white" color="blue.500">
+                <FieldError name="isAppointment" className="rw-field-error" />
+                <Label
+                  name="title"
+                  className="rw-label"
+                  errorClassName="rw-label rw-label-error"
+                >
+                  <Text as="b">Title</Text>
+                </Label>
+              </Box>
+              <Box w="100%" bg="white" color="blue.500">
+                <TextField
+                  name="title"
+                  defaultValue={props.task?.title}
+                  className="rw-input"
+                  errorClassName="rw-input rw-input-error"
+                  validation={{ required: true }}
+                />
+              </Box>
+              <Box w="100%" bg="white" color="blue.500">
+                <FieldError name="title" className="rw-field-error" />
+                <Label
+                  name="description"
+                  className="rw-label"
+                  errorClassName="rw-label rw-label-error"
+                >
+                  <Text as="b">Description</Text>
+                </Label>
+              </Box>
+              <Box w="100%" bg="white" color="blue.500">
+                <TextField
+                  name="description"
+                  defaultValue={props.task?.description}
+                  className="rw-input"
+                  errorClassName="rw-input rw-input-error"
+                  validation={{ required: true }}
+                />
+              </Box>
 
-        <CheckboxField
-          name="isAppointment"
-          defaultChecked={props.task?.isAppointment}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-        />
+              <Box w="100%" bg="white" color="blue.500">
+                <FieldError name="description" className="rw-field-error" />
+                <Label
+                  name="duration"
+                  className="rw-label"
+                  errorClassName="rw-label rw-label-error"
+                >
+                  <Text as="b">Duration</Text>
+                </Label>
+              </Box>
+              <Box w="100%" bg="white" color="blue.500">
+                <NumberField
+                  name="duration"
+                  defaultValue={props.task?.duration}
+                  className="rw-input"
+                  errorClassName="rw-input rw-input-error"
+                  validation={{ required: true }}
+                />
+              </Box>
 
-        <FieldError name="isAppointment" className="rw-field-error" />
-        <br></br>
-        <Label
-          name="title"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          Title
-        </Label>
+              <Box w="100%" bg="white" color="blue.500">
+                <FieldError name="duration" className="rw-field-error" />
+                <Label
+                  name="priority"
+                  className="rw-label"
+                  errorClassName="rw-label rw-label-error"
+                >
+                  <Text as="b">Priority</Text>
+                </Label>
+              </Box>
+              <Box w="100%" bg="white" color="blue.500">
+                <NumberField
+                  name="priority"
+                  defaultValue={props.task?.priority}
+                  className="rw-input"
+                  errorClassName="rw-input rw-input-error"
+                  validation={{ required: true }}
+                />
+              </Box>
 
-        <TextField
-          name="title"
-          defaultValue={props.task?.title}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        />
+              <Box w="100%" bg="white" color="blue.500">
+                <FieldError name="priority" className="rw-field-error" />
+                <Label
+                  name="completed"
+                  className="rw-label"
+                  errorClassName="rw-label rw-label-error"
+                >
+                  <Text as="b">Completed</Text>
+                </Label>
+              </Box>
+              <Box w="100%" bg="white" color="blue.500">
+                <CheckboxField
+                  name="completed"
+                  defaultChecked={props.task?.completed}
+                  className="rw-input"
+                  errorClassName="rw-input rw-input-error"
+                />
+              </Box>
+              <Box w="100%" bg="white" color="blue.500">
+                <FieldError name="dueDate" className="rw-field-error" />
+                <Label
+                  name="dueDate"
+                  className="rw-label"
+                  errorClassName="rw-label rw-label-error"
+                >
+                  <Text as="b">Due Date</Text>
+                </Label>
+              </Box>
+              <Box w="100%" bg="white" color="blue.500">
+                <DateField name="dueDate" />
+                <FieldError name="dueDate" className="rw-field-error" />
+              </Box>
 
-        <FieldError name="title" className="rw-field-error" />
-        <br></br>
-        <Label
-          name="description"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          Description
-        </Label>
-
-        <TextField
-          name="description"
-          defaultValue={props.task?.description}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        />
-
-        <FieldError name="description" className="rw-field-error" />
-        <br></br>
-        <Label
-          name="duration"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          Duration
-        </Label>
-
-        <NumberField
-          name="duration"
-          defaultValue={props.task?.duration}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        />
-
-        <FieldError name="duration" className="rw-field-error" />
-        <br></br>
-        <Label
-          name="priority"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          Priority
-        </Label>
-
-        <NumberField
-          name="priority"
-          defaultValue={props.task?.priority}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        />
-
-        <FieldError name="priority" className="rw-field-error" />
-        <br></br>
-        <Label
-          name="completed"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          Completed
-        </Label>
-
-        <CheckboxField
-          name="completed"
-          defaultChecked={props.task?.completed}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-        />
-
-        <FieldError name="completed" className="rw-field-error" />
-
-        <br></br>
-        <DateField name="dueDate" />
-        <FieldError name="dueDate" className="rw-field-error" />
-
-        <div className="rw-button-group">
-          <Submit disabled={props.loading} className="rw-button rw-button-blue">
-            Save
-          </Submit>
+              <Box w="100%" bg="white" color="blue.500">
+                <Button colorScheme="gray" variant="outline" size="md">
+                  <div className="rw-button-group">
+                    <Submit
+                      disabled={props.loading}
+                      className="rw-button rw-button-blue"
+                    >
+                      Save
+                    </Submit>
+                  </div>
+                </Button>
+              </Box>
+            </SimpleGrid>
+          </Form>
         </div>
-      </Form>
-    </div>
+      </Box>
+    </Center>
   )
 }
 

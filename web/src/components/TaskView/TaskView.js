@@ -65,7 +65,6 @@ function TaskView() {
           <Text fontSize="2xl" as="b">
             Tasks
           </Text>
-          <TaskCell id={1}></TaskCell>
           <TasksCell></TasksCell>
           <Divider orientation="horizontal" mb="2" />
         </Box>
