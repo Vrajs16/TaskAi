@@ -1,4 +1,4 @@
-import { Box, SimpleGrid, Text, Button, ButtonGroup } from '@chakra-ui/react'
+import { Box, SimpleGrid, Text, Button, Center } from '@chakra-ui/react'
 
 import { Link, routes, navigate } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
@@ -33,73 +33,110 @@ const Task = ({ task }) => {
 
   return (
     <>
-      <Box maxW="lg" borderWidth="1px" borderRadius="lg" overflow="hidden">
-        <Box bg="blue.500" w="100%" color="white">
-          <h2 className="rw-heading rw-heading-secondary">
-            Task {task.id} Details
-          </h2>
-          <table className="rw-table">
-            <tbody>
-              <tr>
-                <th>Id</th>
-                <td>{task.id}</td>
-              </tr>
-              <tr>
-                <th>User id</th>
-                <td>{task.userID}</td>
-              </tr>
-              <tr>
-                <th>Is appointment</th>
-                <td>{checkboxInputTag(task.isAppointment)}</td>
-              </tr>
-              <tr>
-                <th>Title</th>
-                <td>{task.title}</td>
-              </tr>
-              <tr>
-                <th>Description</th>
-                <td>{task.description}</td>
-              </tr>
-              <tr>
-                <th>Duration</th>
-                <td>{task.duration}</td>
-              </tr>
-              <tr>
-                <th>Priority</th>
-                <td>{task.priority}</td>
-              </tr>
-              <tr>
-                <th>Completed</th>
-                <td>{checkboxInputTag(task.completed)}</td>
-              </tr>
-              <tr>
-                <th>Due date</th>
-                <td>{timeTag(task.dueDate)}</td>
-              </tr>
-              <tr>
-                <th>Created at</th>
-                <td>{timeTag(task.createdAt)}</td>
-              </tr>
-            </tbody>
-          </table>
-          <nav className="rw-button-group">
-            <Link
-              to={routes.editTask({ id: task.id })}
-              className="rw-button rw-button-blue"
-            >
-              Edit
+      <Center>
+        <Box maxW="lg" borderWidth="2px" borderRadius="lg" overflow="hidden">
+          <Box bg="blue.500" w="100%" color="white">
+            <Link to={routes.editTask({ id: task.id })}>
+              <h2 className="rw-heading rw-heading-secondary">
+                Task {task.id} Details
+              </h2>
             </Link>
-            <Button
-              colorScheme="gray"
-              variant="outline"
-              size="md"
-              onClick={() => onDeleteClick(task.id)}
-            >
-              <div className="rw-button-icon">Delete</div>
-            </Button>
-          </nav>
+            <SimpleGrid columns={2} spacing="2px" border="2px">
+              <Box w="100%" bg="white" color="blue.500">
+                <Text as="b">Id</Text>
+              </Box>
+              <Box w="!00%" bg="white" color="blue.500">
+                <Text>{task.id}</Text>
+              </Box>
+
+              <Box w="100%" bg="white" color="blue.500">
+                <Text as="b">User ID</Text>
+              </Box>
+              <Box w="!00%" bg="white" color="blue.500">
+                <Text>{task.userID}</Text>
+              </Box>
+
+              <Box w="100%" bg="white" color="blue.500">
+                <Text as="b">Is Appointment</Text>
+              </Box>
+              <Box w="!00%" bg="white" color="blue.500">
+                {checkboxInputTag(task.isAppointment)}
+              </Box>
+
+              <Box w="100%" bg="white" color="blue.500">
+                <Text as="b">Title</Text>
+              </Box>
+              <Box w="!00%" bg="white" color="blue.500">
+                <Text>{task.title}</Text>
+              </Box>
+
+              <Box w="100%" bg="white" color="blue.500">
+                <Text as="b">Description</Text>
+              </Box>
+              <Box w="!00%" bg="white" color="blue.500">
+                <Text>{task.description}</Text>
+              </Box>
+
+              <Box w="100%" bg="white" color="blue.500">
+                <Text as="b">Duration</Text>
+              </Box>
+              <Box w="!00%" bg="white" color="blue.500">
+                <Text>{task.duration}</Text>
+              </Box>
+
+              <Box w="100%" bg="white" color="blue.500">
+                <Text as="b">Priority</Text>
+              </Box>
+              <Box w="!00%" bg="white" color="blue.500">
+                <Text>{task.priority}</Text>
+              </Box>
+
+              <Box w="100%" bg="white" color="blue.500">
+                <Text as="b">Completed</Text>
+              </Box>
+              <Box w="!00%" bg="white" color="blue.500">
+                <Text>{checkboxInputTag(task.completed)}</Text>
+              </Box>
+
+              <Box w="100%" bg="white" color="blue.500">
+                <Text as="b">Due Date</Text>
+              </Box>
+              <Box w="!00%" bg="white" color="blue.500">
+                <Text>{timeTag(task.dueDate)}</Text>
+              </Box>
+
+              <Box w="100%" bg="white" color="blue.500">
+                <Text as="b">Created At</Text>
+              </Box>
+              <Box w="!00%" bg="white" color="blue.500">
+                <Text>{timeTag(task.createdAt)}</Text>
+              </Box>
+
+              <Box>
+                <Link
+                  to={routes.editTask({ id: task.id })}
+                  className="rw-button rw-button-blue"
+                >
+                  <Button colorScheme="gray" variant="outline" size="md">
+                    <div>Edit</div>
+                  </Button>
+                </Link>
+              </Box>
+
+              <Box>
+                <Button
+                  colorScheme="gray"
+                  variant="outline"
+                  size="md"
+                  onClick={() => onDeleteClick(task.id)}
+                >
+                  <div className="rw-button-icon">Delete</div>
+                </Button>
+              </Box>
+            </SimpleGrid>
+          </Box>
         </Box>
-      </Box>
+      </Center>
     </>
   )
 }

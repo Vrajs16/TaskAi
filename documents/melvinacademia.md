@@ -13,3 +13,9 @@
  4. Autosave needs to be added to Edit Task page
  5. Formatting on Task form needs to be revised for a cleaner look
  6. Additional statuses need to be added to the New/Edit task pages
+ 11/17-11/23 <br>
+ 1. Implement Task Card UI changes that were lost due to merge conflicts
+ 2. Update Tasks and Task View to list tasks using the Task Card UI
+ 3. Planner page uses Task Card to display list of Tasks
+ 4. Individual Task View can now be accessed by clicking title of task card
+ 5. Autosave to be implemented
