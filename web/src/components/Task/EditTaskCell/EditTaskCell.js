@@ -1,4 +1,4 @@
-import { Text } from '@chakra-ui/react'
+import { Text, Center } from '@chakra-ui/react'
 
 import { navigate, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
@@ -63,11 +63,13 @@ export const Success = ({ task }) => {
   return (
     <div className="rw-segment">
       <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">
-          <Text fontSize="3xl" as="b" color="blue.500">
-            Edit Task {task?.id}
-          </Text>
-        </h2>
+        <Center>
+          <h2 className="rw-heading rw-heading-secondary">
+            <Text fontSize="3xl" as="b" color="blue.500">
+              Edit Task {task?.id}
+            </Text>
+          </h2>
+        </Center>
       </header>
       <div className="rw-segment-main">
         <TaskForm task={task} onSave={onSave} error={error} loading={loading} />

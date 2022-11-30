@@ -1,3 +1,5 @@
+import { Text, Center } from '@chakra-ui/react'
+
 import { navigate, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
@@ -31,7 +33,11 @@ const NewTask = () => {
   return (
     <div className="rw-segment">
       <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">New Task</h2>
+        <Center>
+          <Text fontSize="3xl" as="b" color="blue.500">
+            New Task
+          </Text>
+        </Center>
       </header>
       <div className="rw-segment-main">
         <TaskForm onSave={onSave} loading={loading} error={error} />

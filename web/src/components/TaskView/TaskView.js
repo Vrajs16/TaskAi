@@ -65,13 +65,14 @@ function TaskView() {
           <Text fontSize="2xl" as="b">
             Tasks
           </Text>
-          <TasksCell day={day}></TasksCell>
+          <TasksCell day={day} isTasks={true}></TasksCell>
           <Divider orientation="horizontal" mb="2" />
         </Box>
         <Box w="50%" borderWidth="1px" borderRadius="lg" p="3" center={false}>
           <Text fontSize="2xl" as="b">
             Appointments
           </Text>
+          <TasksCell day={day} isTasks={false}></TasksCell>
           <Divider orientation="horizontal" mb="2" />
         </Box>
       </HStack>

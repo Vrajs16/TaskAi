@@ -1,4 +1,4 @@
-import { Text } from '@chakra-ui/react'
+import { Text, Center } from '@chakra-ui/react'
 
 import { MetaTags } from '@redwoodjs/web'
 
@@ -8,10 +8,11 @@ const TaskPage = ({ id }) => {
   return (
     <>
       <MetaTags title="Task" description="Task Page" />
-
-      <Text fontSize="3xl" as="b" color="blue.500">
-        Task Page
-      </Text>
+      <Center>
+        <Text fontSize="3xl" as="b" color="blue.500">
+          Task Page
+        </Text>
+      </Center>
       <TaskCell id={id} />
     </>
   )

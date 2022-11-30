@@ -1,7 +1,10 @@
+import { Box } from '@chakra-ui/react'
+
 import { Link, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
+import Task from 'src/components/Task/Task'
 import { QUERY } from 'src/components/Task/TasksCell'
 import { checkboxInputTag, timeTag, truncate } from 'src/lib/formatters'
 
@@ -36,50 +39,9 @@ const TasksList = ({ tasks }) => {
 
   return (
     <div className="rw-segment rw-table-wrapper-responsive">
-      <table className="rw-table">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Duration</th>
-            <th>Priority</th>
-            <th>Completed</th>
-            <th>Due date</th>
-            <th>&nbsp;</th>
-          </tr>
-        </thead>
-        <tbody>
-          {tasks.map((task) => (
-            <tr key={task.title}>
-              <td>{truncate(task.title)}</td>
-              <td>{truncate(task.description)}</td>
-              <td>{truncate(task.duration)}</td>
-              <td>{truncate(task.priority)}</td>
-              <td>{checkboxInputTag(task.completed)}</td>
-              <td>{timeTag(task.dueDate)}</td>
-              <td>
-                <nav className="rw-table-actions">
-                  <Link
-                    to={routes.editTask({ id: task.id })}
-                    title={'Edit task ' + task.id}
-                    className="rw-button rw-button-small rw-button-blue"
-                  >
-                    Edit
-                  </Link>
-                  <button
-                    type="button"
-                    title={'Delete task ' + task.id}
-                    className="rw-button rw-button-small rw-button-red"
-                    onClick={() => onDeleteClick(task.id)}
-                  >
-                    Delete
-                  </button>
-                </nav>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      {tasks.map((task) => (
+        <Task task={task} />
+      ))}
     </div>
   )
 }
