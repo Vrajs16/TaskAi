@@ -265,6 +265,163 @@ Update the data of task with ID `id`, using the given `input` parameter.
 
 Deletes task with ID `id` from the database.
 
+## GraphQL
+
+There are three types of GraphQL operations. The two that we'll focus on are: **Queries** (to read data) and **Mutations** (to create, update, or delete data)
+
+Take the following GraphQL query, for example:
+
+```
+query GetProject {
+  project(name: "GraphQL") {
+    id
+    title
+    description
+    owner {
+      id
+      username
+    }
+    tags {
+      id
+      name
+    }
+  }
+}
+```
+
+This query will return the following JSON response:
+
+```
+{
+  "data": {
+    "project": {
+      "id": 1,
+      "title": "My Project",
+      "description": "Lorem ipsum...",
+      "owner": {
+        "id": 11,
+        "username": "Redwood",
+      },
+      "tags": [
+        { "id": 22, "name": "graphql" }
+      ]
+    }
+  },
+  "errors": null
+}
+```
+
+The response's structure mirrors the query's.
+
+A GraphQL API is built on a schema that specifies exactly which queries and mutations can be performed.
+
+Take a look at one of the queries that we are using in this project:
+
+```
+  query TasksQuery {
+    tasks {
+      id
+      title
+      description
+      duration
+      priority
+      completed
+      duedate
+      createdat
+      appointment
+    }
+  }
+```
+
+The following is the schema that specifies what queries and mutations can be performed. TasksQuery is just one of many queries being used.
+
+```
+  type Task {
+    id: Int!
+    userID: Int!
+    isAppointment: Boolean!
+    title: String!
+    description: String!
+    duration: Int!
+    priority: Int!
+    completed: Boolean!
+    dueDate: DateTime!
+    createdAt: DateTime!
+  }
+```
+
+### Resolvers
+
+The GraphQL schema is then associated with a resolvers map that helps resolve each requested field. Take a look at the following code showing some of the resolvers being used in this project:
+
+```
+export const tasks = () => {
+  return db.task.findMany()
+}
+
+export const task = ({ id }) => {
+  return db.task.findUnique({
+    where: { id },
+  })
+}
+
+export const createTask = ({ input }) => {
+  return db.task.create({
+    data: input,
+  })
+}
+
+export const updateTask = ({ id, input }) => {
+  return db.task.update({
+    data: input,
+    where: { id },
+  })
+}
+
+export const deleteTask = ({ id }) => {
+  return db.task.delete({
+    where: { id },
+  })
+}
+```
+
+Redwood takes care of mapping resolvers for you.
+
+### Creating a GraphQL API
+
+Creating a GraphQL API can be defined into 3 steps:
+
+* You define your SDLs (schema) in `*.sdl.js` files, which define what queries and mutations are available, and what fields can be returned
+* For each query or mutation, you write a service function with the same name. This is the resolver.
+* Redwood then takes all your SDLs and Services (resolvers), combines them into a GraphQL server, and expose it as an endpoint
+
+When a GraphQL query reaches a GraphQL API, here's what happens:
+
+```
++--------------------+                  +--------------------+
+|                    | 1.send operation |                    |
+|                    |                  |   GraphQL Server   |
+|   GraphQL Client   +----------------->|    |               |
+|                    |                  |    |  2.resolve    |
+|                    |                  |    |     data      |
++--------------------+                  |    v               |
+          ^                             | +----------------+ |
+          |                             | |                | |
+          |                             | |    Resolvers   | |
+          |                             | |                | |
+          |                             | +--------+-------+ |
+          |  3. respond JSON with data  |          |         |
+          +-----------------------------+ <--------+         |
+                                        |                    |
+                                        +--------------------+
+```
+
+There are two parts to GraphQL in Redwood: the **client side** and the **server side**
+
+### Client Side
+
+Redwood Apps come ready-to-query with the `RedwoodApolloProvider` located in the App.js file (`web/src/App.js`)
+
 ## Google Calendar API
 
 In order to access the data stored on your Google Calendar and sync it with TaskAI, the Google Calendar API is leveraged.
