@@ -68,8 +68,8 @@ export const Success = ({ tasks, day, isTasks }) => {
             <Box key={item.id}  borderWidth="1px" borderRadius="lg" p="2" m="1" bg={priorityMap[item.priority]}>
               <HStack>
                 <ProgressIcon />
-                <Text fontSize='l'>{`By ${taskTime}`}</Text>
-                <Center height='20px'><Divider orientation='vertical'/></Center>
+                {/* <Text fontSize='l'>{`By ${taskTime}`}</Text>
+                <Center height='20px'><Divider orientation='vertical'/></Center> */}
                 <Text fontSize='l' as='b'>{item.title}</Text>
               </HStack>
             </Box>
@@ -93,11 +93,11 @@ export const Success = ({ tasks, day, isTasks }) => {
           hours = hours < 10 ? '0'+hours : hours
           minutes = minutes < 10 ? '0'+minutes : minutes
           let appointmentEndTime = hours + ':' + minutes + ampm
-          const ProgressIcon = item.completed ? CheckIcon : MinusIcon
+          // const ProgressIcon = item.completed ? CheckIcon : MinusIcon
           return (
             <Box key={item.id}  borderWidth="1px" borderRadius="lg" p="2" m="1" bg={priorityMap[item.priority]}>
               <HStack>
-                <ProgressIcon />
+                {/* <ProgressIcon /> */}
                 <Text fontSize='l'>{`${appointmentTime} - ${appointmentEndTime}`}</Text>
                 <Center height='20px'><Divider orientation='vertical'/></Center>
                 <Text fontSize='l' as='b'>{item.title}</Text>
