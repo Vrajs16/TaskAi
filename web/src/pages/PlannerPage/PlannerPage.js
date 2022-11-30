@@ -13,6 +13,7 @@ import {
 import TaskView from 'src/components/TaskView/TaskView'
 import Calendar from 'src/components/Calendar/Calendar'
 import WeekView from 'src/components/WeekView/WeekView'
+import DayView from 'src/components/DayView/DayView'
 {
   /* import day view here */
 }
@@ -26,7 +27,7 @@ const PlannerPage = () => {
    */
   const [state, setState] = useState('month')
   const [monthContentVisible, setMonthContentVisible] = useState(false)
-  // const [dayContentVisible, setDayContentVisible] = useState(false)
+  const [dayContentVisible, setDayContentVisible] = useState(false)
   const [weekContentVisible, setWeekContentVisible] = useState(false)
 
   const handleOnChange = (e) => {
@@ -40,7 +41,10 @@ const PlannerPage = () => {
     state === 'week'
       ? setWeekContentVisible(true)
       : setWeekContentVisible(false)
-    // state === 'day' ? dayContentVisible(true) : dayContentVisible(false)
+    // eslint-disable-next-line prettier/prettier
+    state === 'day'
+      ? setDayContentVisible(true)
+      : setDayContentVisible(false)
   }, [state])
 
   return (
@@ -69,7 +73,7 @@ const PlannerPage = () => {
             </Select>
             {monthContentVisible && <Calendar />}
             {weekContentVisible && <WeekView />}
-            {/* {dayContentVisible && <DayView />} */}
+            {dayContentVisible && <DayView />}
           </TabPanel>
         </TabPanels>
       </Tabs>
