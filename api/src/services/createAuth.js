@@ -1,4 +1,4 @@
-import fetch from 'cross-undici-fetch'
+import { fetch } from 'cross-undici-fetch'
 
 export const getAuthorizationURL = async () =>
 {
@@ -6,6 +6,6 @@ export const getAuthorizationURL = async () =>
   const json = await res.json()
 
   return {
-    url: json.data,
+    url: json.data
   }
 }

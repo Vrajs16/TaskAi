@@ -6,7 +6,7 @@ import { RedwoodApolloProvider } from '@redwoodjs/web/apollo'
 
 import FatalErrorPage from 'src/pages/FatalErrorPage'
 import Routes from 'src/Routes'
-
+import AuthURLProvider from 'src/contexts/AuthURL'
 import './index.css'
 
 const extendedTheme = extendTheme(theme)
@@ -18,9 +18,11 @@ const App = () => {
         <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
           <ColorModeScript />
           <ChakraProvider theme={extendedTheme}>
+            <AuthURLProvider>
             <RedwoodApolloProvider>
               <Routes />
             </RedwoodApolloProvider>
+            </AuthURLProvider>
           </ChakraProvider>
         </RedwoodProvider>
       </FatalErrorBoundary>

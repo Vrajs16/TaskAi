@@ -1,19 +1,36 @@
 import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
+import {useState} from 'react'
+import AuthorizeCell from 'src/components/AuthorizeCell/AuthorizeCell.js'
 
 const SyncPage = () => {
+
+  const [showEvents, setShowEvents] = useState(false)
+  const queryParams = new URLSearchParams(window.location.search)
+  const code = queryParams.get('code')
+
+  const start = '2022-11-01T12:00:00Z'
+  const end = '2022-12-01T12:00:00Z'
+
+  if (code === null){
+    return <AuthorizeCell></AuthorizeCell>
+  }
+
   return (
     <>
       <MetaTags title="Sync" description="Sync page" />
+      <p> Working </p>
 
-      <h1>SyncPage</h1>
-      <p>
-        Find me in <code>./web/src/pages/SyncPage/SyncPage.js</code>
-      </p>
-      <p>
-        My default route is named <code>sync</code>, link to me with `
-        <Link to={routes.sync()}>Sync</Link>`
-      </p>
+      {showEvents ? (
+        <GoogleEventsCell
+        start = {start}
+        end = {end}
+        code = {code}
+        ></GoogleEventsCell>
+      ) : (
+
+        <div></div>
+      )}
     </>
   )
 }
