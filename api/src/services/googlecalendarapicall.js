@@ -17,7 +17,7 @@ export const getEvents = async ({start, end, code}) => {
     auth: authInstance
   })
 
-  const response = await calendar.events.list({
+  const response = await googleCalendar.events.list({
     calendarId: 'primary',
     orderBy: 'startTime',
     timeMin: start,
@@ -43,6 +43,7 @@ export const getEvents = async ({start, end, code}) => {
       start: start, // this instance of start and end come from the variables we just defined above in lines 38/39
       end: end
     }
+    return event
   })
 
 

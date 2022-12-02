@@ -2,7 +2,8 @@ import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 import {useState} from 'react'
 import AuthorizeCell from 'src/components/AuthorizeCell/AuthorizeCell.js'
-
+import GoogleEventsCell from 'src/components/GoogleEventsCell'
+import {Button} from '@chakra-ui/react'
 const SyncPage = () => {
 
   const [showEvents, setShowEvents] = useState(false)
@@ -20,7 +21,7 @@ const SyncPage = () => {
     <>
       <MetaTags title="Sync" description="Sync page" />
       <p> Working </p>
-
+      <Button onClick = {() => setShowEvents(true)}> Show Events </Button>
       {showEvents ? (
         <GoogleEventsCell
         start = {start}
