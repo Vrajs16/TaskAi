@@ -18,13 +18,20 @@ import {
 import { Flex, Spacer } from '@chakra-ui/react'
 import { Image } from '@chakra-ui/react'
 import{Auth0Provider} from '@auth0/auth0-react'
+import{useAuth0} from "@auth0/auth0-react"
 
 import { Link, routes } from '@redwoodjs/router'
 import LoginButton from 'src/components/LoginButton/LoginButton'
 import LogoutButton from 'src/components/LogoutButton/LogoutButton'
-import LoggedInAs from 'src/components/LoggedInAs/LoggedInAs'
+import LoggedInAs from 'src/components/LoggedInAs/LoggedInAs.stories'
+
 const BannerLayout = ({ children }) => {
-  
+  const {user, isAuthenticated} = useAuth0();
+
+  const domain = process.env.domain
+  const clientId = process.env.clientId
+  const redirectUri = process.env.redirectUri
+
   return (
     <>
       <header style={{ width: "100vw" }}>
@@ -47,18 +54,16 @@ const BannerLayout = ({ children }) => {
                 <Button colorScheme="gray" variant="outline" size="md">
                   Profile
                 </Button>
-              </Link>
-              <text>
-                <LoggedInAs>
 
-                </LoggedInAs>
-              </text>
+              </Link>
               
+              {isAuthenticated ? "logged in" : "logged out"}
+
               <Link>
               <Auth0Provider
                 domain="dev-i1vyox6upbtxdp6g.us.auth0.com"
-                clientId="M23oYCQdXUjKfreB0vgHIDVmIJmoLWXy"
-                redirectUri={window.location.origin}
+                clientId="M23oYCQdXUjKfreB0vgHIDVmIJmoLWXy"           
+                redirectUri="http://localhost:8910/planner"
                 >   
                 <LoginButton>
                 </LoginButton> 
@@ -73,6 +78,7 @@ const BannerLayout = ({ children }) => {
                 <LogoutButton>
                 </LogoutButton>
                 </Auth0Provider>
+                
               </Link>
             </ButtonGroup>
           </Flex>
