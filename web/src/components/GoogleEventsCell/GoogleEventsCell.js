@@ -40,6 +40,7 @@ export const Success = ({ getEvents }) => {
           <Thead>
             <Tr>
               <Th>Title</Th>
+              <Th> Description </Th>
               <Th>Start</Th>
               <Th>End</Th>
             </Tr>
@@ -49,6 +50,7 @@ export const Success = ({ getEvents }) => {
               return (
                 <Tr key={item.id}>
                   <Td>{item.summary}</Td>
+                  <Td>{item.description}</Td>
                   <Td>{item.start}</Td>
                   <Td>{item.end}</Td>
                 </Tr>
