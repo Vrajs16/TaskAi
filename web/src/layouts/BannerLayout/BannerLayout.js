@@ -17,10 +17,13 @@ import {
 } from '@chakra-ui/react'
 import { Flex, Spacer } from '@chakra-ui/react'
 import { Image } from '@chakra-ui/react'
+import{Auth0Provider} from '@auth0/auth0-react'
 
 import { Link, routes } from '@redwoodjs/router'
-
+import LoginButton from 'src/components/LoginButton/LoginButton'
+import LogoutButton from 'src/components/LogoutButton/LogoutButton'
 const BannerLayout = ({ children }) => {
+  
   return (
     <>
       <header style={{ width: "100vw" }}>
@@ -44,10 +47,25 @@ const BannerLayout = ({ children }) => {
                   Profile
                 </Button>
               </Link>
-              <Link to={routes.login()}>
-                <Button colorScheme="gray" variant="outline" size="md">
-                  Sign Out
-                </Button>
+              <Link>
+              <Auth0Provider
+                domain="dev-i1vyox6upbtxdp6g.us.auth0.com"
+                clientId="M23oYCQdXUjKfreB0vgHIDVmIJmoLWXy"
+                redirectUri={window.location.origin}
+                >   
+                <LoginButton>
+                </LoginButton> 
+              </Auth0Provider>
+              </Link>
+              <Link>
+              <Auth0Provider
+                domain="dev-i1vyox6upbtxdp6g.us.auth0.com"
+                clientId="M23oYCQdXUjKfreB0vgHIDVmIJmoLWXy"
+                redirectUri={window.location.origin}
+                > 
+                <LogoutButton>
+                </LogoutButton>
+                </Auth0Provider>
               </Link>
             </ButtonGroup>
           </Flex>
