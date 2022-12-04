@@ -242,6 +242,72 @@ The `schema.prisma` syntax used to create this table:
 
 ## Accessing Database Data
 
+Throughout various files you will see code similar to the following:
+
+> ```
+> import Tasks from 'src/components/Task/Tasks'
+> export const QUERY = gql`
+>   query FindTasks {
+>     tasks {
+>       id
+>       userID
+>       isAppointment
+>       title
+>       description
+>       duration
+>       priority
+>       completed
+>       dueDate
+>       createdAt
+>     }
+>   }
+> `
+> ```
+
+Or
+
+> ```
+> export const QUERY = gql`
+>   query AppointmentsQuery {
+>     appointments {
+>       id
+>       title
+>       description
+>       duration
+>       priority
+>       completed
+>       duedate
+>       createdat
+>       appointment
+>     }
+>   }
+> `
+> ```
+
+This is how we grab data from the database and display it on a webpage. We then set up four different functions after querying the data: `Loading`, `Error`, `Empty`, and `Success`. Each function handles what to do given the query empty, loading, has an error, or successful.
+
+Take a look at the following code for a real example:
+
+> ```
+> export const Loading = () => <div>...</div>
+>
+> export const Empty = () => { ... }
+>
+> export const Failure = ({ error }) => ( ... )
+>
+> export const Success = ({ tasks, day })  => {
+> 	if (day == undefined) {
+>     		return <Tasks tasks={tasks} />
+>   	}
+>   	return (
+>     	<ul>
+>       		{tasks.map((item) => {
+>         	if (day === item.dueDate.slice(0, 10) && !item.isAppointment) {
+> 	...
+> ```
+
+We queried the tasks and leverage the built in function `.map` and work with the different attributes to display them. For example, you can get the ID of a task by calling `task.id`.
+
 Interacting with and accesing the data in the Task table is done through CRUD operations:
 
 #### **Creating a Task**
