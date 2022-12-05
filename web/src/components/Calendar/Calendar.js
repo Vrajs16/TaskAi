@@ -8,12 +8,23 @@ import { Link, navigate, routes } from '@redwoodjs/router'
 import NewTaskPage from 'src/pages/Task/NewTaskPage/NewTaskPage'
 
 export default function () {
+  let todayStr = new Date().toISOString().replace(/T.*$/, '')
+  console.log(todayStr)
+
   return (
     <section>
       {/* add button here to add route to new task page
         <button onClick={navigate(NewTaskPage)}>New Task</button>
       */}
-      <FullCalendar plugins={[dayGridPlugin]} initialView="dayGridMonth" />
+      <FullCalendar plugins={[dayGridPlugin]} initialView="dayGridMonth"
+      initialEvents={[
+        {
+          id: 'testing',
+          title: 'summary',
+          start: todayStr
+        }
+      ]}
+      />
     </section>
   )
 }
