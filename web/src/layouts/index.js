@@ -4,13 +4,20 @@ import { ChakraProvider } from '@chakra-ui/react'
 import ReactDOM from 'react-dom'
 
 import App from './App'
+import {Auth0Provider} from '@auth0/auth0-react'
 
 const rootElement = document.getElementById('root')
 ReactDOM.render(
-  <StrictMode>
-    <ChakraProvider>
-      <App />
-    </ChakraProvider>
-  </StrictMode>,
+  <Auth0Provider
+    domain="dev-i1vyox6upbtxdp6g.us.auth0.com"
+    clientId="M23oYCQdXUjKfreB0vgHIDVmIJmoLWXy"
+    redirectUri={window.location.origin}
+  >
+    <StrictMode>
+      <ChakraProvider>
+        <App />
+      </ChakraProvider>
+    </StrictMode>
+  </Auth0Provider>,
   rootElement
 )
