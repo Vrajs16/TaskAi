@@ -23,14 +23,14 @@ import{useAuth0} from "@auth0/auth0-react"
 import { Link, routes } from '@redwoodjs/router'
 import LoginButton from 'src/components/LoginButton/LoginButton'
 import LogoutButton from 'src/components/LogoutButton/LogoutButton'
-import LoggedInAs from 'src/components/LoggedInAs/LoggedInAs.stories'
+
 
 const BannerLayout = ({ children }) => {
-  const {user, isAuthenticated} = useAuth0();
-
+  const { isAuthenticated } = useAuth0()
   const domain = process.env.domain
   const clientId = process.env.clientId
   const redirectUri = process.env.redirectUri
+
 
   return (
     <>
@@ -54,11 +54,8 @@ const BannerLayout = ({ children }) => {
                 <Button colorScheme="gray" variant="outline" size="md">
                   Profile
                 </Button>
-
               </Link>
               
-              {isAuthenticated ? "logged in" : "logged out"}
-
               <Link>
               <Auth0Provider
                 domain="dev-i1vyox6upbtxdp6g.us.auth0.com"
@@ -73,7 +70,6 @@ const BannerLayout = ({ children }) => {
               <Auth0Provider
                 domain="dev-i1vyox6upbtxdp6g.us.auth0.com"
                 clientId="M23oYCQdXUjKfreB0vgHIDVmIJmoLWXy"
-                redirectUri={window.location.origin}
                 > 
                 <LogoutButton>
                 </LogoutButton>
