@@ -18,7 +18,6 @@ model UserExample {
   name     String?
 }
 
-// Task datamodel defined here. Defines the data fields for each task. Defines the data type of each field
 model Task {
   id            Int      @id @default(autoincrement())
   userID        Int

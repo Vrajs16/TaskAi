@@ -15,15 +15,15 @@ import {
   FormControl,
   FormHelperText,
   InputRightElement,
-  Link,
+  Link
 } from '@chakra-ui/react'
 import { FaUserAlt, FaLock } from 'react-icons/fa'
-
 import { routes } from '@redwoodjs/router'
 const CFaUserAlt = chakra(FaUserAlt)
 const CFaLock = chakra(FaLock)
 
 const RegisterPage = () => {
+
   const [showPassword, setShowPassword] = useState(false)
 
   const handleShowClick = () => setShowPassword(!showPassword)
@@ -87,7 +87,7 @@ const RegisterPage = () => {
       </Stack>
       <Box>
         Have an account?{' '}
-        <Link color="blue.500" href={routes.login()}>
+        <Link color="blue.500" href={routes.login()} >
           Sign in
         </Link>
       </Box>

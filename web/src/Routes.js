@@ -13,6 +13,7 @@ import BannerLayout from 'src/layouts/BannerLayout'
 import ScaffoldLayout from 'src/layouts/ScaffoldLayout'
 import AuthLayout from './layouts/AuthLayout/AuthLayout'
 import GitAuth from './GitAuth'
+
 const Routes = () => {
   return (
     <Router>
