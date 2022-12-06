@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom'
 import App from './App'
 import {Auth0Provider} from '@auth0/auth0-react'
 
-const rootElement = document.getElementById('root')
+
 ReactDOM.render(
   <Auth0Provider
     domain="dev-i1vyox6upbtxdp6g.us.auth0.com"
@@ -19,5 +19,5 @@ ReactDOM.render(
       </ChakraProvider>
     </StrictMode>
   </Auth0Provider>,
-  rootElement
+  document.getElementById('root')
 )

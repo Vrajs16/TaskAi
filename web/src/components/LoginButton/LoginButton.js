@@ -11,24 +11,35 @@ import React from 'react'
 
 function LoginButton(props) {
 
-    const { loginWithRedirect } = useAuth0()
+    const { loginWithRedirect, isAuthenticated } = useAuth0()
     return (
+
       <Auth0Provider
                 domain="dev-i1vyox6upbtxdp6g.us.auth0.com"
                 clientId="M23oYCQdXUjKfreB0vgHIDVmIJmoLWXy"
                 redirectUri={window.location.origin}
-                > 
+                >
         <div>
-            
+
               <Button colorScheme="gray" variant="outline" size="md"
-                onClick={()=>loginWithRedirect()} 
+                onClick={()=>loginWithRedirect()}
                 className="loginButton"
                 >
                 Login
               </Button>
-          
+
         </div>
+
         </Auth0Provider>
+         //!isAuthenticated &&
+         //( //Keep this, when you aren't logged in, it wont show logout button
+             //<Button colorScheme="gray" variant="outline" size="md"
+             //onClick={()=>loginWithRedirect()}
+             //className="loginButton"
+             //>
+             //Login
+           //</Button>
+           //)
     )
 }
 
