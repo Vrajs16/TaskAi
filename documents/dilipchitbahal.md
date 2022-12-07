@@ -24,3 +24,4 @@
     * My approach of how to do this is simply the same as above where I would query gql for the google calendar events stored
 
 
+* Found issue with planner page after google auth takes place where returning to home page of taskai returns dom error: will check into this
