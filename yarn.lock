@@ -14208,7 +14208,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:^16.0.0":
+"dotenv@npm:^16.0.0, dotenv@npm:^16.0.3":
   version: 16.0.3
   resolution: "dotenv@npm:16.0.3"
   checksum: 109457ac5f9e930ca8066ea33887b6f839ab24d647a7a8b49ddcd1f32662e2c35591c5e5b9819063e430148a664d0927f0cbe60cf9575d89bc524f47ff7e78f0
@@ -26462,6 +26462,7 @@ __metadata:
     "@fullcalendar/timegrid": ^5.11.3
     "@redwoodjs/core": 3.2.0
     "@supabase/supabase-js": ^2.1.0
+    dotenv: ^16.0.3
     react-datetime: ^3.2.0
     react-icons: ^4.6.0
     react-router-dom: ^6.4.3

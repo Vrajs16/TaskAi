@@ -5,7 +5,7 @@ const LoggedInAs = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
 
   if (isLoading) {
-    return <div>Hello</div>;
+    return <div>loading</div>;
   }
 
   return (
