@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react'
 
 import { useAuth } from '@redwoodjs/auth'
-import { Form } from '@redwoodjs/forms'
+import { Form, Submit, TextField, PasswordField } from '@redwoodjs/forms'
 import { navigate, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'
@@ -76,13 +76,24 @@ const SignupPage = () => {
                   <FormControl isRequired>
                     <FormLabel>Email</FormLabel>
                     <InputGroup>
-                      <Input type="email" placeholder="Email" />
+                      <Input
+                        as={TextField}
+                        type="email"
+                        ref={usernameRef}
+                        placeholder="Email"
+                        name="username"
+                      />
                     </InputGroup>
                   </FormControl>
                   <FormControl isRequired>
                     <FormLabel>Name</FormLabel>
                     <InputGroup>
-                      <Input type="text" placeholder="Name" />
+                      <Input
+                        type="text"
+                        placeholder="Name"
+                        name="name"
+                        as={TextField}
+                      />
                     </InputGroup>
                   </FormControl>
                   <FormControl isRequired>
@@ -91,6 +102,8 @@ const SignupPage = () => {
                       <Input
                         type={showPassword ? 'text' : 'password'}
                         placeholder="Password"
+                        name="password"
+                        as={PasswordField}
                       />
                       <InputRightElement width="4.5rem">
                         <Button h="1.75rem" size="sm" onClick={handleShowClick}>

@@ -85,7 +85,13 @@ const ForgotPasswordPage = () => {
                       pointerEvents="none"
                       children={<CFaUserAlt color="gray.300" />}
                     />
-                    <Input type="email" placeholder="Username" />
+                    <Input
+                      as={TextField}
+                      type="email"
+                      ref={usernameRef}
+                      placeholder="Email"
+                      name="username"
+                    />
                   </InputGroup>
                 </FormControl>
                 <Button

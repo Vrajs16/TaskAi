@@ -18,7 +18,7 @@ import {
 import { FaLock, FaUserAlt } from 'react-icons/fa'
 
 import { useAuth } from '@redwoodjs/auth'
-import { Form } from '@redwoodjs/forms'
+import { Form, TextField, PasswordField } from '@redwoodjs/forms'
 import { Link, navigate, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'
@@ -85,7 +85,13 @@ const LoginPage = () => {
                       pointerEvents="none"
                       children={<CFaUserAlt color="gray.300" />}
                     />
-                    <Input type="email" placeholder="Username" />
+                    <Input
+                      as={TextField}
+                      type="email"
+                      ref={usernameRef}
+                      placeholder="Email"
+                      name="username"
+                    />
                   </InputGroup>
                 </FormControl>
                 <FormControl isRequired>
@@ -99,6 +105,8 @@ const LoginPage = () => {
                     <Input
                       type={showPassword ? 'text' : 'password'}
                       placeholder="Password"
+                      name="password"
+                      as={PasswordField}
                     />
                     <InputRightElement width="4.5rem">
                       <Button h="1.75rem" size="sm" onClick={handleShowClick}>
