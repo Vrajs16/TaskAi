@@ -12,8 +12,10 @@ import {
 } from '@chakra-ui/react'
 import TaskView from 'src/components/TaskView/TaskView'
 import Calendar from 'src/components/Calendar/Calendar'
+import FullCalEvents from 'src/components/FullCalEventsCell/FullCalEventsCell'
 import WeekView from 'src/components/WeekView/WeekView'
 import DayView from 'src/components/DayView/DayView'
+import AuthorizeCell from 'src/components/AuthorizeCell/AuthorizeCell'
 {
   /* import day view here */
 }
@@ -33,6 +35,17 @@ const PlannerPage = () => {
   const handleOnChange = (e) => {
     setState(e.target.value)
   }
+
+  const queryParams = new URLSearchParams(window.location.search)
+  const code = queryParams.get('code')
+
+  const start = '2022-11-01T12:00:00Z'
+  const end = '2022-12-30T12:00:00Z'
+
+  if (code === null){
+    return <AuthorizeCell></AuthorizeCell>
+  }
+
 
   useEffect(() => {
     state === 'month'
@@ -71,7 +84,7 @@ const PlannerPage = () => {
               <option value="week">Week</option>
               <option value="day">Day</option>
             </Select>
-            {monthContentVisible && <Calendar />}
+            {monthContentVisible && <FullCalEvents start = {start} end = {end} code = {code} />}
             {weekContentVisible && <WeekView />}
             {dayContentVisible && <DayView />}
           </TabPanel>
