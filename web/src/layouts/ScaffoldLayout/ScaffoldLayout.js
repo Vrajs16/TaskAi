@@ -46,12 +46,6 @@ const ScaffoldLayout = ({
                   align="center"
                   gap="5"
                 >
-                  <Image
-                    borderRadius="0"
-                    boxSize="50px"
-                    src="/taskai-logo.png"
-                    alt="Placeholder Logo"
-                  />
                   <Text
                     fontSize="5xl"
                     as="b"

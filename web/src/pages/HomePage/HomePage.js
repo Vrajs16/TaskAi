@@ -26,14 +26,6 @@ const HomePage = () => {
   return (
     <>
       <MetaTags title="Home" description="Home page" />
-      {/*   <Center color="black" h="full">
-        <Stack spacing={3}>
-          <Text fontSize="3xl" as="b" align="center">
-            Other views: <Button colorScheme='blue'><Link to={routes.planner()}>Planner</Link></Button>
-          </Text>
-        </Stack>
-      </Center> */}
-
       <Container maxW={'5xl'}>
         <Stack
           textAlign={'center'}
@@ -67,12 +59,6 @@ const HomePage = () => {
                 Planner
               </Button></Link>
           </Stack>
-          <Flex w={'full'}>
-            {/*    <Illustration
-            height={{ sm: '24rem', lg: '28rem' }}
-            mt={{ base: 12, sm: 16 }}
-          /> */}
-          </Flex>
         </Stack>
       </Container>
 
