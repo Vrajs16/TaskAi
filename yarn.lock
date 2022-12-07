@@ -29923,6 +29923,7 @@ __metadata:
     "@chakra-ui/storybook-addon": ^4.0.12
     "@emotion/react": ^11
     "@emotion/styled": ^11
+    "@redwoodjs/auth": 3.2.0
     "@redwoodjs/forms": 3.2.0
     "@redwoodjs/router": 3.2.0
     "@redwoodjs/web": 3.2.0

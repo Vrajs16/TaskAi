@@ -7,15 +7,15 @@ import {
   Label,
   TextField,
   PasswordField,
-  Submit,
   FieldError,
+  Submit,
 } from '@redwoodjs/forms'
 import { Link, navigate, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'
 
-const LoginPage = () => {
-  const { isAuthenticated, logIn } = useAuth()
+const SignupPage = () => {
+  const { isAuthenticated, signUp } = useAuth()
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -23,33 +23,34 @@ const LoginPage = () => {
     }
   }, [isAuthenticated])
 
+  // focus on email box on page load
   const usernameRef = useRef(null)
   useEffect(() => {
     usernameRef.current?.focus()
   }, [])
 
   const onSubmit = async (data) => {
-    const response = await logIn({ ...data })
-
+    const response = await signUp({ ...data })
     if (response.message) {
       toast(response.message)
     } else if (response.error) {
       toast.error(response.error)
     } else {
-      toast.success('Welcome back!')
+      // user is signed in automatically
+      toast.success('Welcome!')
     }
   }
 
   return (
     <>
-      <MetaTags title="Login" />
+      <MetaTags title="Signup" />
 
       <main className="rw-main">
         <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
         <div className="rw-scaffold rw-login-container">
           <div className="rw-segment">
             <header className="rw-segment-header">
-              <h2 className="rw-heading rw-heading-secondary">Login</h2>
+              <h2 className="rw-heading rw-heading-secondary">Signup</h2>
             </header>
 
             <div className="rw-segment-main">
@@ -60,7 +61,7 @@ const LoginPage = () => {
                     className="rw-label"
                     errorClassName="rw-label rw-label-error"
                   >
-                    Username
+                    Email
                   </Label>
                   <TextField
                     name="username"
@@ -70,13 +71,34 @@ const LoginPage = () => {
                     validation={{
                       required: {
                         value: true,
-                        message: 'Username is required',
+                        message: 'Email is required',
                       },
                     }}
                   />
 
-                  <FieldError name="username" className="rw-field-error" />
+                  <FieldError name="email" className="rw-field-error" />
+                  <br></br>
+                  <Label
+                    name="name"
+                    className="rw-label"
+                    errorClassName="rw-label rw-label-error"
+                  >
+                    Name
+                  </Label>
+                  <TextField
+                    name="name"
+                    className="rw-input"
+                    errorClassName="rw-input rw-input-error"
+                    validation={{
+                      required: {
+                        value: true,
+                        message: 'Name is required',
+                      },
+                    }}
+                  />
 
+                  <FieldError name="email" className="rw-field-error" />
+                  <br></br>
                   <Label
                     name="password"
                     className="rw-label"
@@ -97,28 +119,21 @@ const LoginPage = () => {
                     }}
                   />
 
-                  <div className="rw-forgot-link">
-                    <Link
-                      to={routes.forgotPassword()}
-                      className="rw-forgot-link"
-                    >
-                      Forgot Password?
-                    </Link>
-                  </div>
-
                   <FieldError name="password" className="rw-field-error" />
 
                   <div className="rw-button-group">
-                    <Submit className="rw-button rw-button-blue">Login</Submit>
+                    <Submit className="rw-button rw-button-blue">
+                      Sign Up
+                    </Submit>
                   </div>
                 </Form>
               </div>
             </div>
           </div>
           <div className="rw-login-link">
-            <span>Don&apos;t have an account?</span>{' '}
-            <Link to={routes.signup()} className="rw-link">
-              Sign up!
+            <span>Already have an account?</span>{' '}
+            <Link to={routes.login()} className="rw-link">
+              Log in!
             </Link>
           </div>
         </div>
@@ -127,4 +142,4 @@ const LoginPage = () => {
   )
 }
 
-export default LoginPage
+export default SignupPage
