@@ -20,8 +20,10 @@
 
 * Update the daily view and the weekly view
     * My understanding of how to do this would be to push google calendar api events to the local database and pull events from gql query so we only ever need to make 1 api call with 1 access token instead of repeated calls
+    * Status: UNDONE
 * Populate the Appointments tab on the planner page with Google Calendar Events
     * My approach of how to do this is simply the same as above where I would query gql for the google calendar events stored
-
+    * Status: UNDONE
 
 * Found issue with planner page after google auth takes place where returning to home page of taskai returns dom error: will check into this
+* Status: Still broken 

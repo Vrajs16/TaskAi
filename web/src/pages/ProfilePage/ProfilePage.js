@@ -14,7 +14,12 @@ function ProfilePage(props) {
 
   function onSubmit() {
     currentPassword !== props.password ? setCurrentPasswordError("Invalid password") : setCurrentPasswordError("")
-    newPassword.length < 7 ? setNewPasswordError("Password must be at least 7 characters") : setNewPasswordError("")
+    let count = 0
+    newPassword.match(/[a-z]/) && count++
+    newPassword.match(/[A-Z]/) && count++
+    newPassword.match(/\d/) && count++
+    newPassword.match(/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/) && count++
+    (newPassword.length < 8 || count<3) ? setNewPasswordError("Password must be at least 8 characters and contain 3 of the following: lowercase letters, uppercase letters, numbers, and special characters") : setNewPasswordError("")
     newPassword !== confirmPassword ? setConfirmPasswordError("Passwords don't match") : setConfirmPasswordError("")
   }
 
