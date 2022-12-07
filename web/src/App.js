@@ -22,32 +22,22 @@ const App = () => {
   console.log(isAuthenticated)
   return (
     <>
-    
+
       <FatalErrorBoundary page={FatalErrorPage}>
         <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
-<<<<<<< HEAD
-          <ColorModeScript />
-          <ChakraProvider theme={extendedTheme}>
-            <AuthURLProvider>
-            <RedwoodApolloProvider>
-              <Routes />
-            </RedwoodApolloProvider>
-            </AuthURLProvider>
-          </ChakraProvider>
-=======
-          
+
           <Auth0Provider
                 domain="dev-i1vyox6upbtxdp6g.us.auth0.com"
-                clientId="M23oYCQdXUjKfreB0vgHIDVmIJmoLWXy"           
+                clientId="M23oYCQdXUjKfreB0vgHIDVmIJmoLWXy"
                 redirectUri="http://localhost:8910/planner"
-                > 
+                >
                 <LoginButton> </LoginButton>
           </Auth0Provider>
           <Auth0Provider
                 domain="dev-i1vyox6upbtxdp6g.us.auth0.com"
-                clientId="M23oYCQdXUjKfreB0vgHIDVmIJmoLWXy"           
+                clientId="M23oYCQdXUjKfreB0vgHIDVmIJmoLWXy"
                 redirectUri="http://localhost:8910"
-                > 
+                >
                 <LogoutButton> </LogoutButton>
           </Auth0Provider>
 
@@ -57,7 +47,6 @@ const App = () => {
                 <Routes />
               </RedwoodApolloProvider>
             </ChakraProvider>
->>>>>>> 35236241898f54cf814bfb3b68284ac95f615376
         </RedwoodProvider>
       </FatalErrorBoundary>
     </>

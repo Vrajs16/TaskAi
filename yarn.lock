@@ -119,6 +119,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@auth0/auth0-spa-js@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@auth0/auth0-spa-js@npm:2.0.0"
+  checksum: 978035c158f5e0a02e9bc8f6e14af9e4b1a5aa5c6e8684cc44137759a5dfb0f6f99389e0799027174558c48d716d1c8a22cf76e08d949cf0b41fc468446d74d5
+  languageName: node
+  linkType: hard
+
 "@babel/cli@npm:7.19.3":
   version: 7.19.3
   resolution: "@babel/cli@npm:7.19.3"
@@ -2225,6 +2232,16 @@ __metadata:
     core-js-pure: ^3.25.1
     regenerator-runtime: ^0.13.4
   checksum: 84c509499eed1c32ad280830fc1dccb6f1cc7858dc8946709a1776781cd80e6de12820d6108f0224d4fd4070fdec1b8a2090dfa62a6cc334182a6186ef7bf0ca
+  languageName: node
+  linkType: hard
+
+"@babel/runtime-corejs3@npm:7.20.1":
+  version: 7.20.1
+  resolution: "@babel/runtime-corejs3@npm:7.20.1"
+  dependencies:
+    core-js-pure: ^3.25.1
+    regenerator-runtime: ^0.13.10
+  checksum: 95859391570f788875e4c2d10e56998cff165c81b3366508f7c224cf9358b7cd52cf5c62eebcfb9e1c32f8bb6d6bf2e7658620c4c56d6ab0612aa152e2f0469a
   languageName: node
   linkType: hard
 
@@ -5766,6 +5783,16 @@ __metadata:
     "@babel/runtime-corejs3": 7.19.1
     core-js: 3.25.5
   checksum: b4fb73382350fb693119c0b10242fcb6144e66f71589dd9247e7c0e238de4a544e3ececc9d51df609e171cbc01c85b4e979fe531335ab8de1c0cac95e238c7cd
+  languageName: node
+  linkType: hard
+
+"@redwoodjs/auth@npm:^3.5.0":
+  version: 3.5.0
+  resolution: "@redwoodjs/auth@npm:3.5.0"
+  dependencies:
+    "@babel/runtime-corejs3": 7.20.1
+    core-js: 3.26.0
+  checksum: 04dc4141742ea5840884f6d00a4328439f64c7abbee3b6316a66fc7adcdefd02a23fb7141a9e48cf69062473afaf939a883c60b3086c5ff5d2df649a58e10edb
   languageName: node
   linkType: hard
 
@@ -12661,6 +12688,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"core-js@npm:3.26.0":
+  version: 3.26.0
+  resolution: "core-js@npm:3.26.0"
+  checksum: 5b61da1cccea18b42e64dafe7270b3a12e31f6fca97f7bbebd565b89acd71c2bbb45605ceb164f5b0aa7e41843f6ae8ecc16d4833a081ac269969220c50fd8d6
+  languageName: node
+  linkType: hard
+
 "core-js@npm:^2.4.0":
   version: 2.6.12
   resolution: "core-js@npm:2.6.12"
@@ -15826,7 +15860,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-text-encoding@npm:^1.0.6":
+"fast-text-encoding@npm:^1.0.0, fast-text-encoding@npm:^1.0.6":
   version: 1.0.6
   resolution: "fast-text-encoding@npm:1.0.6"
   checksum: e1d0381bda229c92c7906f63308f3b9caca8c78b732768b1ee16f560089ed21bc159bbe1434138ccd3815931ec8d4785bdade1ad1c45accfdf27ac6606ac67d2
@@ -26584,6 +26618,9 @@ __metadata:
     "@fullcalendar/timegrid": ^5.11.3
     "@redwoodjs/core": 3.2.0
     "@supabase/supabase-js": ^2.1.0
+    cross-undici-fetch: ^0.4.14
+    dotenv: ^16.0.3
+    googleapis: ^109.0.1
     react-datetime: ^3.2.0
     react-icons: ^4.6.0
     react-router-dom: ^6.4.3
@@ -30047,11 +30084,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "web@workspace:web"
   dependencies:
+    "@auth0/auth0-react": ^1.12.0
+    "@auth0/auth0-spa-js": ^2.0.0
     "@chakra-ui/icons": ^2.0.11
     "@chakra-ui/react": ^1
     "@chakra-ui/storybook-addon": ^4.0.12
     "@emotion/react": ^11
     "@emotion/styled": ^11
+    "@redwoodjs/auth": ^3.5.0
     "@redwoodjs/forms": 3.2.0
     "@redwoodjs/router": 3.2.0
     "@redwoodjs/web": 3.2.0
