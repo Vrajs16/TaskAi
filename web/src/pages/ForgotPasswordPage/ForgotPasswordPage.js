@@ -1,10 +1,28 @@
 import { useEffect, useRef } from 'react'
 
+import {
+  Heading,
+  Input,
+  Button,
+  InputGroup,
+  Stack,
+  InputLeftElement,
+  Box,
+  Avatar,
+  FormControl,
+  chakra,
+  FormLabel,
+  Text,
+} from '@chakra-ui/react'
+import { FaUserAlt } from 'react-icons/fa'
+
 import { useAuth } from '@redwoodjs/auth'
 import { Form, Label, TextField, Submit, FieldError } from '@redwoodjs/forms'
-import { navigate, routes } from '@redwoodjs/router'
+import { Link, navigate, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'
+
+const CFaUserAlt = chakra(FaUserAlt)
 
 const ForgotPasswordPage = () => {
   const { isAuthenticated, forgotPassword } = useAuth()
@@ -39,50 +57,56 @@ const ForgotPasswordPage = () => {
 
   return (
     <>
+      {/* <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} /> */}
       <MetaTags title="Forgot Password" />
 
       <main className="rw-main">
         <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
-        <div className="rw-scaffold rw-login-container">
-          <div className="rw-segment">
-            <header className="rw-segment-header">
-              <h2 className="rw-heading rw-heading-secondary">
-                Forgot Password
-              </h2>
-            </header>
-
-            <div className="rw-segment-main">
-              <div className="rw-form-wrapper">
-                <Form onSubmit={onSubmit} className="rw-form-wrapper">
-                  <div className="text-left">
-                    <Label
-                      name="username"
-                      className="rw-label"
-                      errorClassName="rw-label rw-label-error"
-                    >
-                      Username
-                    </Label>
-                    <TextField
-                      name="username"
-                      className="rw-input"
-                      errorClassName="rw-input rw-input-error"
-                      ref={usernameRef}
-                      validation={{
-                        required: true,
-                      }}
+        <Form onSubmit={onSubmit}>
+          <Stack
+            flexDir="column"
+            mb="2"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Avatar bg="blue.500" />
+            <Heading color="blue.500">TaskAi</Heading>
+            <Box minW={{ base: '90%', md: '468px' }}>
+              <Stack
+                spacing={4}
+                p="1rem"
+                backgroundColor="whiteAlpha.900"
+                boxShadow="md"
+              >
+                <FormControl isRequired>
+                  <FormLabel>Username</FormLabel>
+                  <InputGroup>
+                    <InputLeftElement
+                      pointerEvents="none"
+                      children={<CFaUserAlt color="gray.300" />}
                     />
-
-                    <FieldError name="username" className="rw-field-error" />
-                  </div>
-
-                  <div className="rw-button-group">
-                    <Submit className="rw-button rw-button-blue">Submit</Submit>
-                  </div>
-                </Form>
-              </div>
-            </div>
-          </div>
-        </div>
+                    <Input type="email" placeholder="Username" />
+                  </InputGroup>
+                </FormControl>
+                <Button
+                  borderRadius={0}
+                  type="submit"
+                  variant="solid"
+                  colorScheme="blue"
+                  width="full"
+                >
+                  Submit
+                </Button>
+                <p id="sign-up-link-wrapper">
+                  Have an account?&nbsp;
+                  <a href={routes.login()} className="sign-up-link">
+                    Sign in!
+                  </a>
+                </p>
+              </Stack>
+            </Box>
+          </Stack>
+        </Form>
       </main>
     </>
   )
