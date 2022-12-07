@@ -23,6 +23,11 @@ import {
 
 const TaskForm = (props) => {
   const onSubmit = (data) => {
+    //WE NEED TO MAKE IT SO THAT THE SESSION USERID IS HERE INSTEAD
+    data.userID = 1
+    data.completed = false
+    data.isAppointment = false
+    console.log(data)
     props.onSave(data, props?.task?.id)
   }
 
@@ -38,52 +43,6 @@ const TaskForm = (props) => {
           <Form onSubmit={onSubmit} error={props.error}>
             <SimpleGrid columns={2} spacing="2px" border="2px">
               <Box w="100%" bg="white" color="blue.500">
-                <FormError
-                  error={props.error}
-                  wrapperClassName="rw-form-error-wrapper"
-                  titleClassName="rw-form-error-title"
-                  listClassName="rw-form-error-list"
-                />
-
-                <Label
-                  name="userID"
-                  className="rw-label"
-                  errorClassName="rw-label rw-label-error"
-                >
-                  <Text as="b">User ID</Text>
-                </Label>
-              </Box>
-              <Box w="100%" bg="white" color="blue.500">
-                <NumberField
-                  name="userID"
-                  defaultValue={props.task?.userID}
-                  className="rw-input"
-                  errorClassName="rw-input rw-input-error"
-                  validation={{ required: true }}
-                />
-              </Box>
-
-              <Box w="100%" bg="white" color="blue.500">
-                <FieldError name="userID" className="rw-field-error" />
-                <Label
-                  name="isAppointment"
-                  className="rw-label"
-                  errorClassName="rw-label rw-label-error"
-                >
-                  <Text as="b">Is Appointment</Text>
-                </Label>
-              </Box>
-              <Box w="100%" bg="white" color="blue.500">
-                <CheckboxField
-                  name="isAppointment"
-                  defaultChecked={props.task?.isAppointment}
-                  className="rw-input"
-                  errorClassName="rw-input rw-input-error"
-                />
-              </Box>
-
-              <Box w="100%" bg="white" color="blue.500">
-                <FieldError name="isAppointment" className="rw-field-error" />
                 <Label
                   name="title"
                   className="rw-label"
@@ -158,25 +117,6 @@ const TaskForm = (props) => {
                   className="rw-input"
                   errorClassName="rw-input rw-input-error"
                   validation={{ required: true }}
-                />
-              </Box>
-
-              <Box w="100%" bg="white" color="blue.500">
-                <FieldError name="priority" className="rw-field-error" />
-                <Label
-                  name="completed"
-                  className="rw-label"
-                  errorClassName="rw-label rw-label-error"
-                >
-                  <Text as="b">Completed</Text>
-                </Label>
-              </Box>
-              <Box w="100%" bg="white" color="blue.500">
-                <CheckboxField
-                  name="completed"
-                  defaultChecked={props.task?.completed}
-                  className="rw-input"
-                  errorClassName="rw-input rw-input-error"
                 />
               </Box>
               <Box w="100%" bg="white" color="blue.500">

@@ -14,7 +14,7 @@ function LoginButton(props) {
     return (
         <div>
               <Button colorScheme="gray" variant="outline" size="md"
-                onClick={()=>loginWithRedirect()} 
+                onClick={()=>loginWithRedirect()}
                 className="loginButton"
                 >
                 Login
