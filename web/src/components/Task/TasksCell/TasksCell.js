@@ -7,7 +7,7 @@ import {
 } from '@chakra-ui/icons'
 import { Box, Center, Divider, HStack, Text } from '@chakra-ui/react'
 
-import { Link, routes } from '@redwoodjs/router'
+import { Link, navigate, routes } from '@redwoodjs/router'
 
 import Tasks from 'src/components/Task/Tasks'
 export const QUERY = gql`
@@ -65,7 +65,7 @@ export const Success = ({ tasks, day, isTasks }) => {
           const ProgressIcon = item.completed ? CheckIcon : MinusIcon
 
           return (
-            <Box key={item.id}  borderWidth="1px" borderRadius="lg" p="2" m="1" bg={priorityMap[item.priority]}>
+            <Box key={item.id} onClick={() => navigate(routes.task({id: item.id}))} style={{cursor:'pointer'}} borderWidth="1px" borderRadius="lg" p="2" m="1" bg={priorityMap[item.priority]}>
               <HStack>
                 <ProgressIcon />
                 {/* <Text fontSize='l'>{`By ${taskTime}`}</Text>
@@ -95,7 +95,7 @@ export const Success = ({ tasks, day, isTasks }) => {
           let appointmentEndTime = hours + ':' + minutes + ampm
           // const ProgressIcon = item.completed ? CheckIcon : MinusIcon
           return (
-            <Box key={item.id}  borderWidth="1px" borderRadius="lg" p="2" m="1" bg={priorityMap[item.priority]}>
+            <Box key={item.id}  onClick={() => navigate(routes.task({id: item.id}))} style={{cursor:'pointer'}} borderWidth="1px" borderRadius="lg" p="2" m="1" bg={priorityMap[item.priority]}>
               <HStack>
                 {/* <ProgressIcon /> */}
                 <Text fontSize='l'>{`${appointmentTime} - ${appointmentEndTime}`}</Text>
