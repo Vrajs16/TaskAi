@@ -1,4 +1,5 @@
 import { Auth0Provider } from '@auth0/auth0-react'
+import { useAuth0 } from '@auth0/auth0-react'
 import {
   Button,
   ButtonGroup,
@@ -18,8 +19,6 @@ import {
 } from '@chakra-ui/react'
 import { Flex, Spacer } from '@chakra-ui/react'
 import { Image } from '@chakra-ui/react'
-import { Auth0Provider } from '@auth0/auth0-react'
-import { useAuth0 } from "@auth0/auth0-react"
 
 import { useAuth } from '@redwoodjs/auth'
 import { Link, routes } from '@redwoodjs/router'
@@ -38,13 +37,12 @@ const BannerLayout = ({ children }) => {
       <header style={{ width: '100vw' }}>
         <Center bg="blue.500" h="100px" color="white">
           <Flex
-            direction='row'
+            direction="row"
             align="center"
             gap="300"
             justify="space-evenly"
-            flexWrap='wrap'
+            flexWrap="wrap"
             w="full"
-
           >
             <Link to={routes.home()}>
               <Text
@@ -95,8 +93,6 @@ const BannerLayout = ({ children }) => {
                   <LogoutButton></LogoutButton>
                 </Auth0Provider>
               </Link>
-
-
             </ButtonGroup>
           </Flex>
         </Center>
