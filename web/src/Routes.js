@@ -16,8 +16,6 @@ import GitAuth from './GitAuth'
 const Routes = () => {
   return (
     <Router>
-      <Route path="/calendar" page={CalendarPage} name="calendar" />
-      <Route path="/GitAuth" page={GitAuth} name="GitAuth"></Route>
       <Set wrap={AuthLayout}>
         <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
         <Route path="/register" page={RegisterPage} name="register" />

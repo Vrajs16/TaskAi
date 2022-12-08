@@ -68,7 +68,7 @@ function TaskView() {
           <TasksCell day={day} isTasks={true}></TasksCell>
           <Divider orientation="horizontal" mb="2" />
         </Box>
-        <Box w="50%" borderWidth="1px" borderRadius="lg" p="3" center={false}>
+        <Box w="50%" borderWidth="1px" borderRadius="lg" p="3" center="false">
           <Text fontSize="2xl" as="b">
             Appointments
           </Text>
