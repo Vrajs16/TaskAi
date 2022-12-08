@@ -20,3 +20,11 @@
 .date-selector:hover {
   cursor: pointer;
 }
+
+#sign-up-link-wrapper {
+  text-align: center;
+}
+.sign-up-link {
+  color: blue;
+  text-decoration: underline;
+}

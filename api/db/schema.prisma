@@ -8,14 +8,14 @@ generator client {
   binaryTargets = "native"
 }
 
-// Define your own datamodels here and run `yarn redwood prisma migrate dev`
-// to create migrations for them and apply to your dev DB.
-// TODO: Please remove the following example:
-model UserExample {
-  id       Int     @id @default(autoincrement())
-  email    String  @unique
-  password String
-  name     String?
+model User {
+  id                  Int       @id @default(autoincrement())
+  name                String?
+  email               String    @unique
+  hashedPassword      String
+  salt                String
+  resetToken          String?
+  resetTokenExpiresAt DateTime?
 }
 
 // Task datamodel defined here. Defines the data fields for each task. Defines the data type of each field
