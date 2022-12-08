@@ -57,36 +57,28 @@ const BannerLayout = ({ children }) => {
               </Link>
 
 
-              {(() => {
-                console.log(isAuthenticated)
-                if (isAuthenticated) {
-                  return (
-                    <Link>
-                      <Auth0Provider
-                        domain="dev-i1vyox6upbtxdp6g.us.auth0.com"
-                        clientId="M23oYCQdXUjKfreB0vgHIDVmIJmoLWXy"
-                      >
-                        <LogoutButton>
-                        </LogoutButton>
-                      </Auth0Provider>
+              <Link>
+                <Auth0Provider
+                  domain="dev-i1vyox6upbtxdp6g.us.auth0.com"
+                  clientId="M23oYCQdXUjKfreB0vgHIDVmIJmoLWXy"
+                  redirectUri='http://localhost:8910/planner'
+                >
+                  <LogoutButton>
+                  </LogoutButton>
+                </Auth0Provider>
 
-                    </Link>
-                  )
-                } else {
-                  return (
-                    <Link>
-                      <Auth0Provider
-                        domain="dev-i1vyox6upbtxdp6g.us.auth0.com"
-                        clientId="M23oYCQdXUjKfreB0vgHIDVmIJmoLWXy"
-                        redirectUri="http://localhost:8910/planner"
-                      >
-                        <LoginButton />
-                      </Auth0Provider>
-                    </Link>
-                  )
-                }
+              </Link>
 
-              })()}
+              <Link>
+                <Auth0Provider
+                  domain="dev-i1vyox6upbtxdp6g.us.auth0.com"
+                  clientId="M23oYCQdXUjKfreB0vgHIDVmIJmoLWXy"
+                  redirectUri="http://localhost:8910/planner"
+                >
+                  <LoginButton>
+                  </LoginButton>
+                </Auth0Provider>
+              </Link>
 
 
             </ButtonGroup>

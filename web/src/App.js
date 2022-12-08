@@ -13,8 +13,6 @@ import './index.css'
 const extendedTheme = extendTheme(theme)
 
 const App = () => {
-  const { isAuthenticated } = useAuth0()
-  console.log(isAuthenticated)
   return (
     <>
       <FatalErrorBoundary page={FatalErrorPage}>
