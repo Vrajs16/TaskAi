@@ -34,21 +34,22 @@ const BannerLayout = ({ children }) => {
 
   return (
     <>
-      <header style={{ width: "100vw" }}>
+      <header style={{ width: "100%" }}>
         <Center bg="blue.500" h="100px" color="white">
           <Flex
-            minWidth="max-content"
-            direction={['column', 'row']}
+            direction='row'
             align="center"
             gap="300"
+            justify="space-evenly"
+            flexWrap='wrap'
+            w="full"
+
           >
             <Link to={routes.home()}>
               <Text fontSize="5xl" as="b" bgGradient='linear(to-l, #20BF55, #01BAEF)' bgClip='text' outline='none'>
                 TaskAI
               </Text>
             </Link>
-            <Spacer />
-            <Spacer />
             <ButtonGroup gap="4">
               <Link to={routes.profile()}>
                 <Button colorScheme="gray" variant="outline" size="md">
