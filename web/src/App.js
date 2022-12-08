@@ -19,7 +19,7 @@ import LogoutButton from 'src/components/LogoutButton/LogoutButton'
 
 const App = () => {
   const {isAuthenticated} = useAuth0()
-  console.log(isAuthenticated)
+  // console.log(isAuthenticated)
   return (
     <>
 
