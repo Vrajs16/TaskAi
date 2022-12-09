@@ -6,4 +6,4 @@
 #5: Working on, implenting on login using Auth0
 #6: Fixing problems with Auth0 Authentication
 #7: Doing Password strength, and updating readme
-#8: Fixing errors and adding 'confirm password and maing sure both password are the same or an error
+#8: Fixing errors and adding 'confirm password and maing sure both password are the same or an errors
