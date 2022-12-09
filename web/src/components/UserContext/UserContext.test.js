@@ -1,14 +1,14 @@
 import { render } from '@redwoodjs/testing/web'
 
-import ForgotPasswordPage from './ForgotPasswordPage'
+import UserContext from './UserContext'
 
 //   Improve this test with help from the Redwood Testing Doc:
-//   https://redwoodjs.com/docs/testing#testing-pages-layouts
+//    https://redwoodjs.com/docs/testing#testing-components
 
-describe('ForgotPasswordPage', () => {
+describe('UserContext', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<ForgotPasswordPage />)
+      render(<UserContext />)
     }).not.toThrow()
   })
 })
