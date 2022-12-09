@@ -53,11 +53,23 @@ const SignupPage = () => {
   }
 
 
-
+  const [ isError, setisError ] = useState('');
+  const [ confirmPassword, setconfirmPassword ] = useState('');
   const [ password, setPassword ] = useState('');
 
 
-
+  const checkValidation = (e) =>
+  {
+    const confPass = e.target.value
+    setconfirmPassword(confPass)
+    if (password!=confPass)
+    {
+      setisError("Confirm Password does not match Password");
+    } else
+    {
+      setisError("");
+    }
+  }
 
 
 
@@ -67,6 +79,9 @@ const SignupPage = () => {
 
       <div className="css-owjie1">
 
+        <div style={{ position: 'absolute', top: 20, marginLeft: 330}}>
+          {isError}
+        </div>
         <main className="rw-main">
           <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
           <Form onSubmit={onSubmit}>
@@ -125,6 +140,25 @@ const SignupPage = () => {
                       </InputRightElement>
                     </InputGroup>
                     <PasswordStrengthMeter password={password} />
+                  </FormControl>
+
+                  <FormControl isRequired>
+                    <FormLabel>Confirm Password</FormLabel>
+                    <InputGroup>
+                      <Input
+                        type={showPassword ? 'text' : 'password'}
+                        placeholder="Password"
+                        onChange={e => checkValidation(e)}
+                        name="confirmPassword"
+                        as={PasswordField}
+                      />
+                      <InputRightElement width="4.5rem">
+                        <Button h="1.75rem" size="sm" onClick={handleShowClick}>
+                          {showPassword ? 'Hide' : 'Show'}
+                        </Button>
+                      </InputRightElement>
+                    </InputGroup>
+                    <PasswordStrengthMeter password={confirmPassword} />
                   </FormControl>
 
                   <Button

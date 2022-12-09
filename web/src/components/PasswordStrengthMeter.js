@@ -53,7 +53,7 @@ const PasswordStrengthMeter = ({ password }) => {
     <div className="progress" style={{ height: '7px' }}>
       <div className="progress-bar" style={changePasswordColor()}><p></p></div>
     </div>
-    <p style={{ color: funcProgressColor()}}>{createPassLabel()}</p>
+    <p style={{ color: funcProgressColor() }}>{createPassLabel()}</p>
     </>
   )
 }
