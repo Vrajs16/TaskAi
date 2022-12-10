@@ -18,11 +18,11 @@ import SignupPage from './pages/SignupPage/SignupPage'
 const Routes = () => {
   return (
     <Router>
-      <Route path="/signup" page={SignupPage} name="signup" />
       <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
       <Route path="/calendar" page={CalendarPage} name="calendar" />
       <Route path="/GitAuth" page={GitAuth} name="GitAuth"></Route>
       <Set wrap={AuthLayout}>
+        <Route path="/signup" page={SignupPage} name="signup" />
         <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
         <Route path="/register" page={SignupPage} name="register" />
         <Route path="/login" page={LoginPage} name="login" />
