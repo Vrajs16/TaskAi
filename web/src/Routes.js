@@ -11,17 +11,21 @@ import { Router, Route, Set } from '@redwoodjs/router'
 
 import BannerLayout from 'src/layouts/BannerLayout'
 import ScaffoldLayout from 'src/layouts/ScaffoldLayout'
-import AuthLayout from './layouts/AuthLayout/AuthLayout'
+
 import GitAuth from './GitAuth'
+import AuthLayout from './layouts/AuthLayout/AuthLayout'
+import SignupPage from './pages/SignupPage/SignupPage'
 const Routes = () => {
   return (
     <Router>
       <Route path="/sync" page={SyncPage} name="sync" />
+      <Route path="/signup" page={SignupPage} name="signup" />
+      <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
       <Route path="/calendar" page={CalendarPage} name="calendar" />
       <Route path="/GitAuth" page={GitAuth} name="GitAuth"></Route>
       <Set wrap={AuthLayout}>
         <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
-        <Route path="/register" page={RegisterPage} name="register" />
+        <Route path="/register" page={SignupPage} name="register" />
         <Route path="/login" page={LoginPage} name="login" />
       </Set>
       <Set wrap={ScaffoldLayout} title="Tasks" titleTo="tasks" buttonLabel="New Task" buttonTo="newTask">

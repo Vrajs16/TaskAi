@@ -68,23 +68,25 @@ export const Success = ({ tasks, day, isTasks }) => {
             <Box key={item.id} onClick={() => navigate(routes.task({id: item.id}))} style={{cursor:'pointer'}} borderWidth="1px" borderRadius="lg" p="2" m="1" bg={priorityMap[item.priority]}>
               <HStack>
                 <ProgressIcon />
-                {/* <Text fontSize='l'>{`By ${taskTime}`}</Text>
-                <Center height='20px'><Divider orientation='vertical'/></Center> */}
+                {/* <Text fontSize='l'>{`By ${taskTime}`}</Text> */}
                 <Text fontSize='l' as='b'>{item.title}</Text>
+                <Center height='20px'><Divider orientation='vertical'/></Center>
+                <Text fontSize='l'>{item.description}</Text>
               </HStack>
             </Box>
           )
         }
         else if (day === item.dueDate.slice(0, 10) && !isTasks && item.isAppointment) {
-          let hours = new Date(item.duedate).getHours()
-          let minutes = new Date(item.duedate).getMinutes()
+
+          let hours = new Date(item.dueDate).getHours()
+          let minutes = new Date(item.dueDate).getMinutes()
           let ampm = hours >= 12 ? 'pm' : 'am'
           hours = hours % 12
           hours = hours ? hours : 12
           hours = hours < 10 ? '0'+hours : hours
           minutes = minutes < 10 ? '0'+minutes : minutes
           let appointmentTime = hours + ':' + minutes + ampm
-          let endTime = new Date(new Date(item.duedate).getTime() + item.duration*60000)
+          let endTime = new Date(new Date(item.dueDate).getTime() + item.duration*60000)
           hours = endTime.getHours()
           minutes = endTime.getMinutes()
           ampm = hours >= 12 ? 'pm' : 'am'
@@ -101,6 +103,8 @@ export const Success = ({ tasks, day, isTasks }) => {
                 <Text fontSize='l'>{`${appointmentTime} - ${appointmentEndTime}`}</Text>
                 <Center height='20px'><Divider orientation='vertical'/></Center>
                 <Text fontSize='l' as='b'>{item.title}</Text>
+                <Center height='20px'><Divider orientation='vertical'/></Center>
+                <Text fontSize='l'>{item.description}</Text>
               </HStack>
             </Box>
           )
