@@ -16,6 +16,10 @@ export const QUERY = gql`
     }
   }
 `
+// export const afterQuery = (data) => ({
+
+// })
+// push to database here after sanitizing like below 
 
 export const Loading = () => <div>Loading...</div>
 
@@ -33,13 +37,15 @@ export const Success = ({ getEvents }) => {
     start: item.start.replace(/T.*$/, ''),
     end: item.end.replace(/T.*$/, '')
   }))
-  console.log(typeof events)
-  console.log(events)
+
   for(let i=0; i < events.length; i++){
     console.log(events[i])
     arr.push(events[i])
   }
-
+  // TODO
+  /*
+    Push Arr to database HERE
+  */
   return (
       <section>
       <FullCalendar plugins={[dayGridPlugin]} initialView='dayGridMonth' initialEvents={arr}/>

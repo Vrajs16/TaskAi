@@ -16,6 +16,7 @@ import FullCalEvents from 'src/components/FullCalEventsCell/FullCalEventsCell'
 import WeekView from 'src/components/WeekView/WeekView'
 import DayView from 'src/components/DayView/DayView'
 import AuthorizeCell from 'src/components/AuthorizeCell/AuthorizeCell'
+import { Button, Center } from '@chakra-ui/react'
 {
   /* import day view here */
 }
@@ -35,17 +36,16 @@ const PlannerPage = () => {
   const handleOnChange = (e) => {
     setState(e.target.value)
   }
-
+  const [showEvents, setShowEvents] = useState(false)
   const queryParams = new URLSearchParams(window.location.search)
   const code = queryParams.get('code')
 
   const start = '2022-11-01T12:00:00Z'
   const end = '2022-12-30T12:00:00Z'
 
-  if (code === null){
-    return <AuthorizeCell></AuthorizeCell>
-  }
-
+  // if (code === null){
+  //   return <AuthorizeCell></AuthorizeCell>
+  // }
 
   useEffect(() => {
     state === 'month'
@@ -90,6 +90,14 @@ const PlannerPage = () => {
           </TabPanel>
         </TabPanels>
       </Tabs>
+      <Center> 
+      <Button colorScheme='green' onClick={() => setShowEvents(true)}>Sync Your Google Calendar</Button> 
+      </Center>
+      {showEvents ? (
+        <AuthorizeCell></AuthorizeCell>
+      ) : (
+        <div></div>
+      )}
     </>
   )
 }
