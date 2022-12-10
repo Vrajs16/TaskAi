@@ -11106,6 +11106,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bootstrap@npm:^5.2.3":
+  version: 5.2.3
+  resolution: "bootstrap@npm:5.2.3"
+  peerDependencies:
+    "@popperjs/core": ^2.11.6
+  checksum: 3db5d1e1047fb17ee5b62d830597424179f9cffd2139a89e932ee6bb66b7ec5bdb519028ec07d633bb1926a7fea6c4b5625846478da272f6aacd74d4920dbeb9
+  languageName: node
+  linkType: hard
+
 "boxen@npm:5.1.2, boxen@npm:^5.1.2":
   version: 5.1.2
   resolution: "boxen@npm:5.1.2"
@@ -26496,10 +26505,12 @@ __metadata:
     "@fullcalendar/timegrid": ^5.11.3
     "@redwoodjs/core": 3.2.0
     "@supabase/supabase-js": ^2.1.0
+    bootstrap: ^5.2.3
     dotenv: ^16.0.3
     react-datetime: ^3.2.0
     react-icons: ^4.6.0
     react-router-dom: ^6.4.3
+    zxcvbn: ^4.4.2
   languageName: unknown
   linkType: soft
 
@@ -31254,5 +31265,12 @@ __metadata:
   version: 1.0.5
   resolution: "zwitch@npm:1.0.5"
   checksum: 26dc7d32e5596824b565db1da9650d00d32659c1211195bef50c25c60820f9c942aa7abefe678fc1ed0b97c1755036ac1bde5f97881d7d0e73e04e02aca56957
+  languageName: node
+  linkType: hard
+
+"zxcvbn@npm:^4.4.2":
+  version: 4.4.2
+  resolution: "zxcvbn@npm:4.4.2"
+  checksum: 862f101cc95247b30290bad67ade333e430a16763bb771ce4e4c5414396d987f9a64288225675c96bd6f8d3eba65da0dee119b2a4eaa2e249da3f540b036942e
   languageName: node
   linkType: hard

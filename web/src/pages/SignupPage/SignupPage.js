@@ -18,6 +18,7 @@ import { Form, Submit, TextField, PasswordField } from '@redwoodjs/forms'
 import { navigate, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'
+import PasswordStrengthMeter from 'src/components/PasswordStrengthMeter'
 
 const SignupPage = () => {
   const { isAuthenticated, signUp } = useAuth()
@@ -50,11 +51,34 @@ const SignupPage = () => {
     }
   }
 
+  const checkValidation = (e) =>
+  {
+    const confPass = e.target.value
+    setconfirmPassword(confPass)
+    if (password!=confPass)
+    {
+      setisError("Confirm Password does not match Password");
+    } else
+    {
+      setisError("");
+    }
+  }
+
+
+
+  const [ isError, setisError ] = useState('');
+  const [ confirmPassword, setconfirmPassword ] = useState('');
+  const [ password, setPassword ] = useState('');
+
+
   return (
     <>
       <MetaTags title="Signup" />
 
       <div className="css-owjie1">
+        <div style={{ position: 'absolute', top: 20, marginLeft: 330}}>
+          {isError}
+        </div>
         <main className="rw-main">
           <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
           <Form onSubmit={onSubmit}>
@@ -96,12 +120,14 @@ const SignupPage = () => {
                       />
                     </InputGroup>
                   </FormControl>
+
                   <FormControl isRequired>
                     <FormLabel>Password</FormLabel>
                     <InputGroup>
                       <Input
                         type={showPassword ? 'text' : 'password'}
                         placeholder="Password"
+                        onChange={e => setPassword(e.target.value)}
                         name="password"
                         as={PasswordField}
                       />
@@ -111,7 +137,28 @@ const SignupPage = () => {
                         </Button>
                       </InputRightElement>
                     </InputGroup>
+                    <PasswordStrengthMeter password={password} />
                   </FormControl>
+
+                  <FormControl isRequired>
+                    <FormLabel>Confirm Password</FormLabel>
+                    <InputGroup>
+                      <Input
+                        type={showPassword ? 'text' : 'password'}
+                        placeholder="Password"
+                        onChange={e => checkValidation(e)}
+                        name="confirmPassword"
+                        as={PasswordField}
+                      />
+                      <InputRightElement width="4.5rem">
+                        <Button h="1.75rem" size="sm" onClick={handleShowClick}>
+                          {showPassword ? 'Hide' : 'Show'}
+                        </Button>
+                      </InputRightElement>
+                    </InputGroup>
+                    <PasswordStrengthMeter password={confirmPassword} />
+                  </FormControl>
+
                   <Button
                     borderRadius={0}
                     type="submit"
