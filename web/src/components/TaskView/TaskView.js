@@ -21,10 +21,10 @@ import TaskCell from 'src/components/Task/TaskCell'
 import TasksCell from 'src/components/Task/TasksCell'
 
 function TaskView() {
-  const [day, setDay] = useState(new Date().toJSON().slice(0, 10))
+  const [day, setDay] = useState(new Date(new Date() - 300*60*1000).toJSON().slice(0, 10))
 
   function getTodayDay() {
-    setDay(new Date().toJSON().slice(0, 10))
+    setDay(new Date(new Date() - 300*60*1000).toJSON().slice(0, 10))
   }
 
   function getNextDay() {

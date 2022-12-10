@@ -68,9 +68,10 @@ export const Success = ({ tasks, day, isTasks }) => {
             <Box key={item.id} onClick={() => navigate(routes.task({id: item.id}))} style={{cursor:'pointer'}} borderWidth="1px" borderRadius="lg" p="2" m="1" bg={priorityMap[item.priority]}>
               <HStack>
                 <ProgressIcon />
-                {/* <Text fontSize='l'>{`By ${taskTime}`}</Text>
-                <Center height='20px'><Divider orientation='vertical'/></Center> */}
+                {/* <Text fontSize='l'>{`By ${taskTime}`}</Text> */}
                 <Text fontSize='l' as='b'>{item.title}</Text>
+                <Center height='20px'><Divider orientation='vertical'/></Center>
+                <Text fontSize='l'>{item.description}</Text>
               </HStack>
             </Box>
           )
