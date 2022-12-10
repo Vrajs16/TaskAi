@@ -2,6 +2,7 @@ import { DbAuthHandler } from '@redwoodjs/api'
 
 import { db } from 'src/lib/db'
 
+const nodemailer = require('nodemailer')
 export const handler = async (event, context) => {
   const forgotPasswordOptions = {
     // handler() is invoked after verifying that a user was found with the given
@@ -16,20 +17,43 @@ export const handler = async (event, context) => {
     // You could use this return value to, for example, show the email
     // address in a toast message so the user will know it worked and where
     // to look for the email.
-    handler: (user) => {
+    handler: async (user) => {
+      try {
+        let transporter = nodemailer.createTransport({
+          host: 'smtp-relay.sendinblue.com',
+          port: 587,
+          secure: false,
+          auth: {
+            user: 'rachidmohamed0531@gmail.com',
+            pass: process.env.SEND_IN_BLUE_KEY,
+          },
+        })
+        const resetLink = `localhost:8910/reset-password?resetToken=${user.resetToken}`
+        const message = {
+          from: 'noreply@taskai.com',
+          to: user.email,
+          subject: 'Reset Forgotten Password',
+          text: `<a href="${resetLink}">Here is a link reset your password.  It will expire in 4hrs. <a href="${resetLink}">Reset my Password</>`,
+          html: `<a href="${resetLink}">Here is a link reset your password.  It will expire in 4hrs. <a href="${resetLink}">Reset my Password</>`,
+        }
+        await transporter.sendMail(message)
+      } catch (err) {
+        console.log(err)
+      }
+
       return user
     },
 
     // How long the resetToken is valid for, in seconds (default is 24 hours)
-    expires: 60 * 60 * 24,
+    expires: 60 * 60 * 4,
 
     errors: {
       // for security reasons you may want to be vague here rather than expose
       // the fact that the email address wasn't found (prevents fishing for
       // valid email addresses)
-      usernameNotFound: 'Username not found',
+      usernameNotFound: 'Email not found',
       // if the user somehow gets around client validation
-      usernameRequired: 'Username is required',
+      usernameRequired: 'Email is required',
     },
   }
 
