@@ -2,8 +2,10 @@ import { Link, routes, navigate } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 import { useState } from "react"
 import { Button, ButtonGroup, Container, FormControl, HStack, Input, Select, Stack, Text } from '@chakra-ui/react'
+import { useAuth } from '@redwoodjs/auth'
 
 function ProfilePage(props) {
+  const { isAuthenticated, currentUser} = useAuth()
   const [theme, setTheme] = useState(props.theme)
   const [currentPassword, setCurrentPassword] = useState("")
   const [newPassword, setNewPassword] = useState("")
@@ -34,19 +36,13 @@ function ProfilePage(props) {
       <Container maxW='3xl'>
         <Stack spacing={5}>
           <Text fontSize='3xl' as='b'>Profile</Text>
-          <HStack>
-            <Stack spacing={0} w="50%">
-              <Text className="input-title">First Name</Text>
-              <Input placeholder='First Name' isReadOnly={true} w="80%" />
-            </Stack>
-            <Stack spacing={0} w="50%">
-              <Text className="input-title">Last Name</Text>
-              <Input placeholder='Last Name' isReadOnly={true} w="80%" />
-            </Stack>
-          </HStack>
+          <Stack spacing={0} w="50%">
+            <Text className="input-title">Full Name</Text>
+            <Input value={currentUser.name} isReadOnly={true} w="100%" />
+          </Stack>
           <Stack spacing={0} w="50%">
             <Text className="input-title">Theme</Text>
-            <Select value={theme} onChange={e => setTheme(e.target.value)} w="80%">
+            <Select value={theme} onChange={e => setTheme(e.target.value)} w="100%">
               <option value="Light">Light</option>
               <option value="Dark">Dark</option>
             </Select>
