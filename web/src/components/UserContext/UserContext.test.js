@@ -1,14 +1,14 @@
 import { render } from '@redwoodjs/testing/web'
 
-import BannerLayout from './BannerLayout'
+import UserContext from './UserContext'
 
 //   Improve this test with help from the Redwood Testing Doc:
-//   https://redwoodjs.com/docs/testing#testing-pages-layouts
+//    https://redwoodjs.com/docs/testing#testing-components
 
-describe('BannerLayout', () => {
+describe('UserContext', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<BannerLayout />)
+      render(<UserContext />)
     }).not.toThrow()
   })
 })

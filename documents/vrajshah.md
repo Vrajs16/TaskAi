@@ -10,4 +10,3 @@
 | Create a simple homepage       |   ❎    |
 
 
-## Completed Tasks
