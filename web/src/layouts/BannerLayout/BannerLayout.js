@@ -65,7 +65,7 @@ const BannerLayout = ({ children }) => {
               {isAuthenticated ? (
                 <div>
                   <span style={{ marginRight: '20px' }}>
-                    Logged in as {currentUser.name}
+                    {/* Logged in as {currentUser.name} */}
                   </span>
 
                   <Button

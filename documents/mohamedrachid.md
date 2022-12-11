@@ -3,7 +3,6 @@
 ***Tasks Currently Being Worked On:***
 
 * Add PR links to each task
-*
 
 ***Completed Tasks***
 
@@ -15,3 +14,5 @@
   * Set up SendInBlue to send users an email with a link to reset their password
 * 12/10 - Set up the reset password page
   * Allow users to reset their password and re-login
+* 12/11 - Changed task service function to filter tasks on backend
+  * User grabs only their tasks from the database. Does not expose other user's tasks on frontend
