@@ -63,7 +63,9 @@ const BannerLayout = ({ children }) => {
 
               {isAuthenticated ? (
                 <div>
-                  <span style={{marginRight: "20px"}}>Logged in id is {currentUser.id}</span>
+                  <span style={{ marginRight: '20px' }}>
+                    Logged in id is {currentUser.id}
+                  </span>
 
                   <Button
                     colorScheme="gray"
@@ -105,11 +107,7 @@ const BannerLayout = ({ children }) => {
           </Flex>
         </Center>
       </header>
-      <main
-        style={{ height: 'calc(100vh - 100px', backgroundColor: '#F7FAFC' }}
-      >
-        {children}
-      </main>
+      <main style={{ height: 'calc(100vh - 100px' }}>{children}</main>
     </>
   )
 }

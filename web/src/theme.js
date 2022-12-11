@@ -1,4 +1,5 @@
 import { extendTheme } from '@chakra-ui/react'
+import { mode } from '@chakra-ui/theme-tools'
 
 // 2. Add your color mode config
 const theme = {
@@ -7,9 +8,10 @@ const theme = {
     useSystemColorMode: false,
   },
   styles: {
-    global: () => ({
+    global: (props) => ({
       body: {
-        bg: 'blackAlpha.700',
+        color: mode('gray.800', 'whiteAlpha.900')(props),
+        bg: mode('WhiteAlpha.900', '#0f2036')(props),
       },
     }),
   },
