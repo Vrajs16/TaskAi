@@ -1,5 +1,3 @@
-import { Auth0Provider } from '@auth0/auth0-react'
-import { useAuth0 } from '@auth0/auth0-react'
 import {
   Button,
   ButtonGroup,
@@ -23,15 +21,10 @@ import { Image } from '@chakra-ui/react'
 import { useAuth } from '@redwoodjs/auth'
 import { Link, routes } from '@redwoodjs/router'
 
-import LoggedInAs from 'src/components/LoggedInAs/LoggedInAs'
-import LoginButton from 'src/components/LoginButton/LoginButton'
-import LogoutButton from 'src/components/LogoutButton/LogoutButton'
 const BannerLayout = ({ children }) => {
   const { isAuthenticated, currentUser, logOut } = useAuth()
-  const domain = process.env.domain
-  const clientId = process.env.clientId
-  const redirectUri = process.env.redirectUri
   console.log(currentUser)
+  console.log(isAuthenticated)
   return (
     <>
       <header style={{ width: '100vw' }}>
@@ -73,26 +66,6 @@ const BannerLayout = ({ children }) => {
                   <Link to={routes.login()}>Login</Link>
                 )}
               </text>
-
-              <Link>
-                <Auth0Provider
-                  domain="dev-i1vyox6upbtxdp6g.us.auth0.com"
-                  clientId="M23oYCQdXUjKfreB0vgHIDVmIJmoLWXy"
-                  redirectUri={window.location.origin}
-                >
-                  <LoginButton></LoginButton>
-                </Auth0Provider>
-              </Link>
-
-              <Link>
-                <Auth0Provider
-                  domain="dev-i1vyox6upbtxdp6g.us.auth0.com"
-                  clientId="M23oYCQdXUjKfreB0vgHIDVmIJmoLWXy"
-                  redirectUri={window.location.origin}
-                >
-                  <LogoutButton></LogoutButton>
-                </Auth0Provider>
-              </Link>
             </ButtonGroup>
           </Flex>
         </Center>

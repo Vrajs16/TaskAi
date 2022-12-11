@@ -18,6 +18,7 @@ import SignupPage from './pages/SignupPage/SignupPage'
 const Routes = () => {
   return (
     <Router>
+      <Route path="/verify" page={VerifyPage} name="verify" />
       <Route path="/signup" page={SignupPage} name="signup" />
       <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
       <Route path="/calendar" page={CalendarPage} name="calendar" />
