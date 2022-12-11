@@ -22,6 +22,7 @@ const Routes = () => {
       <Set wrap={AuthLayout}>
         <Route path="/login" page={LoginPage} name="login" />
         <Route path="/signup" page={SignupPage} name="signup" />
+        <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
         <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
       </Set>
       <Set wrap={ScaffoldLayout} title="Tasks" titleTo="tasks" buttonLabel="New Task" buttonTo="newTask">
