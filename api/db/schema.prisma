@@ -31,3 +31,4 @@ model Task {
   dueDate       DateTime @default(now())
   createdAt     DateTime @default(now())
 }
+

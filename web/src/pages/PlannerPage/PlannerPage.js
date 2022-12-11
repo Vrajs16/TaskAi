@@ -17,6 +17,7 @@ import WeekView from 'src/components/WeekView/WeekView'
 import DayView from 'src/components/DayView/DayView'
 import AuthorizeCell from 'src/components/AuthorizeCell/AuthorizeCell'
 import { Button, Center } from '@chakra-ui/react'
+
 {
   /* import day view here */
 }
@@ -90,8 +91,8 @@ const PlannerPage = () => {
           </TabPanel>
         </TabPanels>
       </Tabs>
-      <Center> 
-      <Button colorScheme='green' onClick={() => setShowEvents(true)}>Sync Your Google Calendar</Button> 
+      <Center>
+      <Button colorScheme='green' onClick={() => setShowEvents(true)}>Sync Your Google Calendar</Button>
       </Center>
       {showEvents ? (
         <AuthorizeCell></AuthorizeCell>
