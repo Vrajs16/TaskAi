@@ -26,6 +26,7 @@ export const schema = gql`
     priority: Int!
     completed: Boolean!
     dueDate: DateTime!
+    iCalUID: String
   }
 
   input UpdateTaskInput {

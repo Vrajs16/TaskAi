@@ -1,5 +1,6 @@
 export const schema = gql`
   type Event {
+    id: String!
     summary: String!
     description: String
     start: String!

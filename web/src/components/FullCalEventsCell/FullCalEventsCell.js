@@ -10,6 +10,7 @@ export const QUERY = gql`
     getEvents(start: $start, end: $end, code: $code) {
       code
       events {
+        id
         summary
         description
         start
@@ -68,27 +69,24 @@ export const Success = ({ getEvents }) => {
   }
   /* code above handles the calendar render */
   /* code below handles push to database */
- if(count === 0) {const CREATE_TASK_MUTATION = gql`
-  mutation CreateTaskMutation($input: CreateTaskInput!) {
-    createTask(input: $input) {
+ if(count === 0) {const CREATE_APP_MUTATION = gql`
+  mutation CreateAppointmentMutation($input: CreateAppointmentInput!) {
+    createAppointment(input: $input) {
       id
     }
   }
 `
-  const [create] = useMutation(CREATE_TASK_MUTATION)
+  const [create] = useMutation(CREATE_APP_MUTATION)
   const {currentUser } = useAuth()
 
   const eventsDB = getEvents.events.map(item => ({
     userID: currentUser.id,
-    isAppointment: true,
     title: item.summary,
     description: item.description || '',
-    duration: 1, // not important for appointments
-    priority: 1, // not import for appointments
-    completed: false,
-    dueDate: item.end
+    start: item.start,
+    end: item.end
   }))
-  console.log(eventsDB.length)
+
   for(let i=0; i < eventsDB.length; i++){
     create({variables: { input: eventsDB[i]}})
   }

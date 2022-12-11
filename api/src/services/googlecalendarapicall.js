@@ -38,6 +38,7 @@ export const getEvents = async ({start, end, code}) => {
     const start = item.start.dateTime || item.start.date
     const end = item.end.dateTime || item.end.date
     const event = {
+      id: item.id,
       summary: item.summary,
       description: item.description,
       start: start, // this instance of start and end come from the variables we just defined above in lines 38/39
