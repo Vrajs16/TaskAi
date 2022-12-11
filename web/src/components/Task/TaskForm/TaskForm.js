@@ -7,6 +7,7 @@ import {
   Center,
 } from '@chakra-ui/react'
 
+import { useAuth } from '@redwoodjs/auth'
 import {
   Form,
   FormError,
@@ -20,14 +21,16 @@ import {
   DateField,
   InputField,
 } from '@redwoodjs/forms'
-
 const TaskForm = (props) => {
+  const { isAuthenticated, currentUser } = useAuth()
+  console.log(isAuthenticated)
+  console.log(currentUser)
   const onSubmit = (data) => {
+    data.userID = currentUser.id
     //WE NEED TO MAKE IT SO THAT THE SESSION USERID IS HERE INSTEAD
-    data.userID = 1
+    //data.userID = 1
     data.completed = false
     data.isAppointment = false
-    console.log(data)
     props.onSave(data, props?.task?.id)
   }
 

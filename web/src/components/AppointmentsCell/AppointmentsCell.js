@@ -7,21 +7,21 @@ import {
 } from '@chakra-ui/icons'
 import { Box, Center, Divider, HStack, Text } from '@chakra-ui/react'
 
-export const QUERY = gql`
-  query AppointmentsQuery {
-    appointments {
-      id
-      title
-      description
-      duration
-      priority
-      completed
-      duedate
-      createdat
-      appointment
-    }
-  }
-`
+// export const QUERY = gql`
+//   query AppointmentsQuery {
+//     appointments {
+//       id
+//       title
+//       description
+//       duration
+//       priority
+//       completed
+//       duedate
+//       createdat
+//       appointment
+//     }
+//   }
+// `
 
 export const Loading = () => <div>Loading...</div>
 
@@ -43,7 +43,10 @@ export const Success = ({ appointments, day }) => {
   return (
     <ul>
       {appointments.map((item) => {
-        if (day === item.duedate.slice(0, 10) && item.appointment) {
+        if (
+          day === item.duedate.toISOString().slice(0, 10) &&
+          item.appointment
+        ) {
           let hours = new Date(item.duedate).getHours()
           let minutes = new Date(item.duedate).getMinutes()
           let ampm = hours >= 12 ? 'pm' : 'am'
