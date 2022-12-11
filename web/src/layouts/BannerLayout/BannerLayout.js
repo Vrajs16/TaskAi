@@ -61,20 +61,29 @@ const BannerLayout = ({ children }) => {
                   Profile
                 </Button>
               </Link>
-              <text>
-                {isAuthenticated ? (
-                  <div>
-                    <span>Logged in as {currentUser.name}</span>
-                    <button type="button" onClick={logOut}>
-                      Logout
-                    </button>
-                  </div>
-                ) : (
-                  <Link to={routes.login()}>Login</Link>
-                )}
-              </text>
 
-              <Link>
+              {isAuthenticated ? (
+                <div>
+                  <span style={{marginRight: "20px"}}>Logged in id is {currentUser.id}</span>
+
+                  <Button
+                    colorScheme="gray"
+                    variant="outline"
+                    size="md"
+                    onClick={logOut}
+                  >
+                    Logout
+                  </Button>
+                </div>
+              ) : (
+                <Link to={routes.login()}>
+                  <Button colorScheme="gray" variant="outline" size="md">
+                    Login
+                  </Button>
+                </Link>
+              )}
+
+              {/* <Link>
                 <Auth0Provider
                   domain="dev-i1vyox6upbtxdp6g.us.auth0.com"
                   clientId="M23oYCQdXUjKfreB0vgHIDVmIJmoLWXy"
@@ -92,7 +101,7 @@ const BannerLayout = ({ children }) => {
                 >
                   <LogoutButton></LogoutButton>
                 </Auth0Provider>
-              </Link>
+              </Link> */}
             </ButtonGroup>
           </Flex>
         </Center>
