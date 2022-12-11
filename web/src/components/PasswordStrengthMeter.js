@@ -1,58 +1,59 @@
-import React from 'react'
-import zxcvbn from 'zxcvbn'
+import React from 'react';
+import zxcvbn from 'zxcvbn';
 
 const PasswordStrengthMeter = ({ password }) => {
-  const testResult = zxcvbn(password)
-  const num = (testResult.score * 100) / 4
+  const testResult = zxcvbn(password);
+  const num = testResult.score * 100/4;
 
   const createPassLabel = () => {
-    switch (testResult.score) {
+    switch(testResult.score)
+    {
       case 0:
-        return 'Very Weak'
+        return 'Very Weak';
       case 1:
-        return 'Weak'
+        return 'Weak';
       case 2:
-        return 'Fair'
+        return 'Fear';
       case 3:
-        return 'Good'
+        return 'Good';
       case 4:
-        return 'Strong'
+        return 'Strong';
       default:
-        return ''
+        return '';
     }
   }
 
+
   const funcProgressColor = () => {
-    switch (testResult.score) {
+    switch(testResult.score) {
       case 0:
-        return '#828282'
+        return '#828282';
       case 1:
-        return '#EA1111'
+        return '#EA1111';
       case 2:
-        return '#FFAD00'
+        return '#FFAD00';
       case 3:
-        return '#9bc158'
+        return '#9bc158';
       case 4:
-        return '#00b500'
+        return '#00b500';
       default:
-        return 'none'
+        return 'none';
+
     }
   }
 
   const changePasswordColor = () => ({
     width: `${num}%`,
     background: funcProgressColor(),
-    height: '7px',
+    height: '7px'
   })
 
-  return (
+  return(
     <>
-      <div className="progress" style={{ height: '7px' }}>
-        <div className="progress-bar" style={changePasswordColor()}>
-          <p></p>
-        </div>
-      </div>
-      <p style={{ color: funcProgressColor() }}>{createPassLabel()}</p>
+    <div className="progress" style={{ height: '7px' }}>
+      <div className="progress-bar" style={changePasswordColor()}><p></p></div>
+    </div>
+    <p style={{ color: funcProgressColor() }}>{createPassLabel()}</p>
     </>
   )
 }

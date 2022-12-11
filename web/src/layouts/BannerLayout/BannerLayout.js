@@ -48,7 +48,7 @@ const BannerLayout = ({ children }) => {
               <Text
                 fontSize="5xl"
                 as="b"
-                bgGradient="linear(to-l, green.300, blue.300)"
+                bgGradient="linear(to-l, #20BF55, #01BAEF)"
                 bgClip="text"
                 outline="none"
               >
@@ -82,8 +82,8 @@ const BannerLayout = ({ children }) => {
                   </Button>
                 </Link>
               )}
-              {/*
-              <Link>
+
+              {/* <Link>
                 <Auth0Provider
                   domain="dev-i1vyox6upbtxdp6g.us.auth0.com"
                   clientId="M23oYCQdXUjKfreB0vgHIDVmIJmoLWXy"
