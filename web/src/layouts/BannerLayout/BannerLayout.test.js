@@ -1,3 +1,4 @@
+import { ChakraProvider, ThemeProvider } from '@chakra-ui/react'
 import { render } from '@redwoodjs/testing/web'
 
 import BannerLayout from './BannerLayout'
@@ -8,7 +9,11 @@ import BannerLayout from './BannerLayout'
 describe('BannerLayout', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<BannerLayout />)
+      render(
+        <ChakraProvider>
+          <BannerLayout />
+        </ChakraProvider>
+      )
     }).not.toThrow()
   })
 })
