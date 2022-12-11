@@ -31,6 +31,7 @@ const BannerLayout = ({ children }) => {
   const domain = process.env.domain
   const clientId = process.env.clientId
   const redirectUri = process.env.redirectUri
+  console.log(currentUser)
   return (
     <>
       <header style={{ width: '100vw' }}>
@@ -47,7 +48,7 @@ const BannerLayout = ({ children }) => {
               <Text
                 fontSize="5xl"
                 as="b"
-                bgGradient="linear(to-l, green.300, blue.300)"
+                bgGradient="linear(to-l, #20BF55, #01BAEF)"
                 bgClip="text"
                 outline="none"
               >
@@ -60,7 +61,7 @@ const BannerLayout = ({ children }) => {
                   Profile
                 </Button>
               </Link>
-              <Text>
+              <text>
                 {isAuthenticated ? (
                   <div>
                     <span>Logged in as {currentUser.name}</span>
@@ -71,8 +72,8 @@ const BannerLayout = ({ children }) => {
                 ) : (
                   <Link to={routes.login()}>Login</Link>
                 )}
-              </Text>
-{/*
+              </text>
+
               <Link>
                 <Auth0Provider
                   domain="dev-i1vyox6upbtxdp6g.us.auth0.com"
@@ -91,7 +92,7 @@ const BannerLayout = ({ children }) => {
                 >
                   <LogoutButton></LogoutButton>
                 </Auth0Provider>
-              </Link> */}
+              </Link>
             </ButtonGroup>
           </Flex>
         </Center>
