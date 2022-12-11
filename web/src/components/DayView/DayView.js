@@ -1,7 +1,6 @@
-import React from 'react'
-
-import timeGridPlugin from '@fullcalendar/timegrid'
 import FullCalendar from '@fullcalendar/react'
+import timeGridPlugin from '@fullcalendar/timegrid'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export default function () {
