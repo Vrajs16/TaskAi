@@ -18,6 +18,7 @@ import { Form, Submit, TextField, PasswordField } from '@redwoodjs/forms'
 import { navigate, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'
+
 import PasswordStrengthMeter from 'src/components/PasswordStrengthMeter'
 
 const SignupPage = () => {
@@ -51,32 +52,26 @@ const SignupPage = () => {
     }
   }
 
-  const checkValidation = (e) =>
-  {
+  const checkValidation = (e) => {
     const confPass = e.target.value
     setconfirmPassword(confPass)
-    if (password!=confPass)
-    {
-      setisError("Confirm Password does not match Password");
-    } else
-    {
-      setisError("");
+    if (password != confPass) {
+      setisError('Confirm Password does not match Password')
+    } else {
+      setisError('')
     }
   }
 
-
-
-  const [ isError, setisError ] = useState('');
-  const [ confirmPassword, setconfirmPassword ] = useState('');
-  const [ password, setPassword ] = useState('');
-
+  const [isError, setisError] = useState('')
+  const [confirmPassword, setconfirmPassword] = useState('')
+  const [password, setPassword] = useState('')
 
   return (
     <>
       <MetaTags title="Signup" />
 
       <div className="css-owjie1">
-        <div style={{ position: 'absolute', top: 20, marginLeft: 330}}>
+        <div style={{ position: 'absolute', top: 20, marginLeft: 330 }}>
           {isError}
         </div>
         <main className="rw-main">
@@ -127,7 +122,7 @@ const SignupPage = () => {
                       <Input
                         type={showPassword ? 'text' : 'password'}
                         placeholder="Password"
-                        onChange={e => setPassword(e.target.value)}
+                        onChange={(e) => setPassword(e.target.value)}
                         name="password"
                         as={PasswordField}
                       />
@@ -146,7 +141,7 @@ const SignupPage = () => {
                       <Input
                         type={showPassword ? 'text' : 'password'}
                         placeholder="Password"
-                        onChange={e => checkValidation(e)}
+                        onChange={(e) => checkValidation(e)}
                         name="confirmPassword"
                         as={PasswordField}
                       />
