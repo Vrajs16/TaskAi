@@ -1,5 +1,3 @@
-import { Link, routes } from '@redwoodjs/router'
-import { MetaTags } from '@redwoodjs/web'
 import {
   Container,
   Tabs,
@@ -10,18 +8,23 @@ import {
   HStack,
   Text,
 } from '@chakra-ui/react'
-import TaskView from 'src/components/TaskView/TaskView'
+
+import { Link, routes } from '@redwoodjs/router'
+import { MetaTags } from '@redwoodjs/web'
+
 import Calendar from 'src/components/Calendar/Calendar'
-import WeekView from 'src/components/WeekView/WeekView'
 import DayView from 'src/components/DayView/DayView'
+import TaskView from 'src/components/TaskView/TaskView'
+import WeekView from 'src/components/WeekView/WeekView'
+
 {
   /* import day view here */
 }
 import { Select } from '@chakra-ui/react'
+
 import { useEffect, useState } from 'react'
 
 const PlannerPage = () => {
-
   /**
    * Setting the interactivity between the week, month and day views using react states
    */
