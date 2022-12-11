@@ -37,20 +37,8 @@ export const Success = ({ getEvents }) => {
     end: item.end.replace(/T.*$/, '')
   }))
 
-  // const data = {
-  //   userID: 1,
-  //   isAppointment: true,
-  //   title: 'Appointment',
-  //   description: 'testing',
-  //   duration: 1,
-  //   priority: 1,
-  //   completed: false
-  // }
-  // const res = createTask({input: data})
-
-
   for(let i=0; i < events.length; i++){
-    console.log(events[i])
+    //console.log(events[i])
     arr.push(events[i])
   }
   // TODO
