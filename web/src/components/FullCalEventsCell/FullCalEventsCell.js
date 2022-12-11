@@ -2,7 +2,6 @@ import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import React from 'react'
 
-
 export const QUERY = gql`
   query GoogleEvents ($start: String!, $end: String!, $code: String!) {
     getEvents(start: $start, end: $end, code: $code) {
@@ -19,7 +18,7 @@ export const QUERY = gql`
 // export const afterQuery = (data) => ({
 
 // })
-// push to database here after sanitizing like below 
+// push to database here after sanitizing like below
 
 export const Loading = () => <div>Loading...</div>
 
@@ -37,6 +36,18 @@ export const Success = ({ getEvents }) => {
     start: item.start.replace(/T.*$/, ''),
     end: item.end.replace(/T.*$/, '')
   }))
+
+  // const data = {
+  //   userID: 1,
+  //   isAppointment: true,
+  //   title: 'Appointment',
+  //   description: 'testing',
+  //   duration: 1,
+  //   priority: 1,
+  //   completed: false
+  // }
+  // const res = createTask({input: data})
+
 
   for(let i=0; i < events.length; i++){
     console.log(events[i])
