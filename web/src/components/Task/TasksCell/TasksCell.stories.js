@@ -1,4 +1,4 @@
-import { Loading, Empty, Failure, Success } from './TasksCell'
+import { Loading, Empty, Failure, Success } from './TasksCell.js'
 import { standard } from './TasksCell.mock'
 
 export const loading = () => {
