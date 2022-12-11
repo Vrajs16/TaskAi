@@ -28,3 +28,9 @@ export const deleteUser = ({ id }) => {
     where: { id },
   })
 }
+export const verifyUser = ({ id, input }) => {
+  return db.user.update({
+    data: input,
+    where: { id },
+  })
+}

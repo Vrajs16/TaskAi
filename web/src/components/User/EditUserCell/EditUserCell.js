@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 
+import { useAuth } from '@redwoodjs/auth'
 import { navigate, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
@@ -55,24 +56,22 @@ export const Success = ({ user }) => {
   const onSave = (input, id) => {
     updateUser({ variables: { id, input } })
   }
+  const { currentUser, isAuthenticated } = useAuth()
   const data = {
     isVerified: true,
   }
   const [update] = useMutation(UPDATE_USER_MUTATION)
-  update({ variables: { input: data } })
+  update({ variables: { id: $id, input: data } })
   useEffect(() => {
     update()
   })
   return (
-    <div className="rw-segment">
-      <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">
-          Edit User {user?.id}
-        </h2>
-      </header>
-      <div className="rw-segment-main">
-        <UserForm user={user} onSave={onSave} error={error} loading={loading} />
-      </div>
-    </div>
+    <h2>
+      <center>
+        <font color="#3BB9FF" size="4">
+          You may now exit this page ㋡
+        </font>
+      </center>
+    </h2>
   )
 }

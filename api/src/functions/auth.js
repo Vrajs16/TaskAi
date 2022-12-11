@@ -106,8 +106,6 @@ export const handler = async (event, context) => {
     // `signUp()` function in the form of: `{ message: 'String here' }`.
 
     handler: async ({ username, hashedPassword, salt, userAttributes }) => {
-      //my code
-
       try {
         let transporter = nodemailer.createTransport({
           host: 'smtp-relay.sendinblue.com',
@@ -171,6 +169,7 @@ export const handler = async (event, context) => {
       salt: 'salt',
       resetToken: 'resetToken',
       resetTokenExpiresAt: 'resetTokenExpiresAt',
+      isVerified: 'isVerified',
     },
 
     // Specifies attributes on the cookie that dbAuth sets in order to remember

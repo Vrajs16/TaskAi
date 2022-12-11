@@ -12,6 +12,25 @@ const VerifyPage = ({ id }) => {
   console.log(isAuthenticated)
   console.log(currentUser)
 
+  const VERIFY_USER_MUTATION = gql`
+    mutation VerifyUserMutation($id: Int!, $input: VerifyUserInput!) {
+      verifyUser(id: $id, input: $input) {
+        isVerified
+      }
+    }
+  `
+  const data = {
+    isVerified: true,
+  }
+  const [update] = useMutation(VERIFY_USER_MUTATION)
+  {
+    isAuthenticated ? (
+      update({ variables: { id: currentUser.id, input: data } })
+    ) : (
+      <>verifying</>
+    )
+  }
+
   return (
     <>
       {isAuthenticated ? (
@@ -32,15 +51,13 @@ const VerifyPage = ({ id }) => {
               alt="verified"
             ></img>
           </center>
-
           <h2>
             <center>
               <font color="#3BB9FF" size="4">
-                You may now exit this page ㋡{currentUser.id}
+                You may now exit this page ㋡
               </font>
             </center>
           </h2>
-          <EditUserCell id={currentUser.id}></EditUserCell>
         </div>
       ) : (
         <div>

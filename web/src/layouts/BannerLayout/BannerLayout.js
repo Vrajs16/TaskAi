@@ -23,6 +23,8 @@ import { Link, routes } from '@redwoodjs/router'
 
 const BannerLayout = ({ children }) => {
   const { isAuthenticated, currentUser, logOut } = useAuth()
+  console.log(currentUser)
+  console.log(isAuthenticated)
   return (
     <>
       <header style={{ width: '100vw' }}>

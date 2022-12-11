@@ -35,10 +35,14 @@ export const schema = gql`
     resetTokenExpiresAt: DateTime
     isVerified: Boolean
   }
+  input VerifyUserInput {
+    isVerified: Boolean
+  }
 
   type Mutation {
     createUser(input: CreateUserInput!): User! @skipAuth
     updateUser(id: Int!, input: UpdateUserInput!): User! @skipAuth
     deleteUser(id: Int!): User! @skipAuth
+    verifyUser(id: Int!, input: VerifyUserInput!): User! @skipAuth
   }
 `
