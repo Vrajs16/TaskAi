@@ -18,7 +18,7 @@ describe('HomePage', () => {
   it('renders a planner button when logged out', () => {
     render(<HomePage />)
     expect(screen.getByRole('button', { name: 'Planner' })).toBeInTheDocument()
-})
+  })
 
 
 })
