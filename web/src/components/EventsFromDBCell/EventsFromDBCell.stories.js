@@ -1,5 +1,5 @@
-import { Loading, Empty, Failure, Success } from './GoogleEventsCell'
-import { standard } from './GoogleEventsCell.mock'
+import { Loading, Empty, Failure, Success } from './EventsFromDbCell'
+import { standard } from './EventsFromDbCell.mock'
 
 export const loading = () => {
   return Loading ? <Loading /> : <></>
@@ -17,4 +17,4 @@ export const success = (args) => {
   return Success ? <Success {...standard()} {...args} /> : <></>
 }
 
-export default { title: 'Cells/GoogleEventsCell' }
+export default { title: 'Cells/EventsFromDbCell' }

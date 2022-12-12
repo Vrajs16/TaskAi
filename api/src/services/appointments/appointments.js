@@ -1,7 +1,7 @@
 import { db } from 'src/lib/db'
 
-export const appointments = () => {
-  return db.appointment.findMany()
+export const appointments = () => { // changed here according to Mohammed 
+  return db.appointment.findMany({where: { userID: context.currentUser.id}})
 }
 
 export const appointment = ({ id }) => {

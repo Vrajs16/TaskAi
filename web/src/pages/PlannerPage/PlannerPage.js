@@ -17,7 +17,9 @@ import WeekView from 'src/components/WeekView/WeekView'
 import DayView from 'src/components/DayView/DayView'
 import AuthorizeCell from 'src/components/AuthorizeCell/AuthorizeCell'
 import { Button, Center } from '@chakra-ui/react'
-
+import FullCalendar from '@fullcalendar/react'
+import dayGridPlugin from '@fullcalendar/daygrid'
+//import EventsFromDBCell from 'src/components/EventsFromDBCell/EventsFromDBCell'
 {
   /* import day view here */
 }
@@ -38,6 +40,7 @@ const PlannerPage = () => {
     setState(e.target.value)
   }
   const [showEvents, setShowEvents] = useState(false)
+  const [showGoogle, setShowGoogle] = useState(false)
   const queryParams = new URLSearchParams(window.location.search)
   const code = queryParams.get('code')
 
@@ -46,6 +49,11 @@ const PlannerPage = () => {
 
   // if (code === null){
   //   return <AuthorizeCell></AuthorizeCell>
+  // }
+
+  // if(showGoogle){
+  //   const arr = <EventsFromDBCell></EventsFromDBCell>
+  //   console.log(arr)
   // }
 
   useEffect(() => {
@@ -85,7 +93,7 @@ const PlannerPage = () => {
               <option value="week">Week</option>
               <option value="day">Day</option>
             </Select>
-            {monthContentVisible && <FullCalEvents start = {start} end = {end} code = {code} />}
+            {monthContentVisible && <FullCalendar plugins={[dayGridPlugin]} initialView="dayGridMonth" />}
             {weekContentVisible && <WeekView />}
             {dayContentVisible && <DayView />}
           </TabPanel>
@@ -97,7 +105,17 @@ const PlannerPage = () => {
       {showEvents ? (
         <AuthorizeCell></AuthorizeCell>
       ) : (
-        <div></div>
+        <div>
+        <br />
+        <Center>
+        <Button colorScheme='teal' onClick={() => setShowGoogle(true)}> Add Google Events to Calendar </Button>
+        </Center>
+        {showGoogle ? (
+          <FullCalEvents start = {start} end = {end} code = {code} />
+        ) : (
+          <div></div>
+        )}
+        </div>
       )}
     </>
   )
