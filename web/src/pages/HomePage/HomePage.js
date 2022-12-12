@@ -26,7 +26,7 @@ import { MetaTags } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'
 const HomePage = () => {
   function verifying() {
-    toast.error('Please verify')
+    toast.error('Please verify your account via email')
   }
   const { isAuthenticated, currentUser } = useAuth()
   return (

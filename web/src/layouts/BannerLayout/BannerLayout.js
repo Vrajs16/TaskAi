@@ -20,9 +20,13 @@ import { Image } from '@chakra-ui/react'
 
 import { useAuth } from '@redwoodjs/auth'
 import { Link, routes, navigate } from '@redwoodjs/router'
+import { toast, Toaster } from '@redwoodjs/web/toast'
 
 const BannerLayout = ({ children }) => {
   const { isAuthenticated, currentUser, logOut } = useAuth()
+  function verifying() {
+    toast.error('Please verify your account via email')
+  }
   const logOutUser = () => {
     // logout the user
     logOut()
@@ -54,6 +58,15 @@ const BannerLayout = ({ children }) => {
                 TaskAI
               </Text>
             </Link>
+            {isAuthenticated ? (
+              <div>
+                <span style={{ marginRight: '10px' }}>
+                  <font size="5">Welcome {currentUser.name}!</font>
+                </span>
+              </div>
+            ) : (
+              <></>
+            )}
 
             <ButtonGroup gap="4">
               {isAuthenticated ? (
@@ -68,7 +81,12 @@ const BannerLayout = ({ children }) => {
                     </div>
                   ) : (
                     <div>
-                      <Button colorScheme="gray" variant="outline" size="md">
+                      <Button
+                        onClick={() => verifying()}
+                        colorScheme="gray"
+                        variant="outline"
+                        size="md"
+                      >
                         Profile
                       </Button>
                     </div>
@@ -80,10 +98,6 @@ const BannerLayout = ({ children }) => {
 
               {isAuthenticated ? (
                 <div>
-                  <span style={{ marginRight: '20px' }}>
-                    Welcome {currentUser.name} !
-                  </span>
-
                   <Button
                     colorScheme="gray"
                     variant="outline"
