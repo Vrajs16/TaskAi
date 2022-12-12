@@ -12,3 +12,8 @@ sprint 4:
     -Implentation of sign in and out are done
     -switch to dbauth instead
     -Authentication is done, with email
+    -redirecting/wrapping all pages is done
+
+My TWO MAIN PARTS OF THE PROJECT:
+-Authentication is done, with email
+-redirecting/wrapping all pages is done
