@@ -109,7 +109,7 @@ const BannerLayout = ({ children }) => {
         </Center>
       </header>
       <main
-        style={{ height: 'calc(100vh - 100px', backgroundColor: '#F7FAFC' }}
+        style={{ height: 'calc(100vh - 100px)'}}
       >
         {children}
       </main>
