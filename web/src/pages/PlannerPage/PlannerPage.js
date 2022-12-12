@@ -17,8 +17,6 @@ import WeekView from 'src/components/WeekView/WeekView'
 import DayView from 'src/components/DayView/DayView'
 import AuthorizeCell from 'src/components/AuthorizeCell/AuthorizeCell'
 import { Button, Center } from '@chakra-ui/react'
-import FullCalendar from '@fullcalendar/react'
-import dayGridPlugin from '@fullcalendar/daygrid'
 import { useAuth } from '@redwoodjs/auth'
 {
   /* import day view here */
@@ -88,7 +86,7 @@ const PlannerPage = () => {
               <option value="week">Week</option>
               <option value="day">Day</option>
             </Select>
-            {monthContentVisible && <FullCalendar plugins={[dayGridPlugin]} initialView="dayGridMonth" />}
+            {monthContentVisible && <Calendar />}
             {weekContentVisible && <WeekView />}
             {dayContentVisible && <DayView />}
           </TabPanel>
@@ -109,7 +107,8 @@ const PlannerPage = () => {
           <FullCalEvents start = {start} end = {end} code = {code} />
         ) : (
           <div></div>
-        )}
+        )         
+        }
         </div>
       )}
     </>
