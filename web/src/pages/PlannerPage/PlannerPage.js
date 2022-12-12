@@ -63,9 +63,11 @@ const PlannerPage = () => {
       ? setDayContentVisible(true)
       : setDayContentVisible(false)
   }, [state])
-  const array1 = []
+
   return (
-    
+    // need an array of apps from db 
+    // so i can delete the database after getting said array
+    // and pass that array to the components that generate calendar
     <>
       <MetaTags title="Planner" description="Planner page" />
 
@@ -89,7 +91,7 @@ const PlannerPage = () => {
               <option value="week">Week</option>
               <option value="day">Day</option>
             </Select>
-            {monthContentVisible && <EventsFromDB />}
+            {monthContentVisible && <EventsFromDB />} 
             {weekContentVisible && <WeekView />}
             {dayContentVisible && <DayView />}
           </TabPanel>
