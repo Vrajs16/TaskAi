@@ -48,17 +48,22 @@ const BannerLayout = ({ children }) => {
                 TaskAI
               </Text>
             </Link>
+
             <ButtonGroup gap="4">
-              <Link to={routes.profile()}>
-                <Button colorScheme="gray" variant="outline" size="md">
-                  Profile
-                </Button>
-              </Link>
+              {isAuthenticated ? (
+                <Link to={routes.profile()}>
+                  <Button colorScheme="gray" variant="outline" size="md">
+                    Profile
+                  </Button>
+                </Link>
+              ) : (
+                <Link to={routes.home()}></Link>
+              )}
 
               {isAuthenticated ? (
                 <div>
                   <span style={{ marginRight: '20px' }}>
-                    Logged in id is {currentUser.id}
+                    Welcome {currentUser.name} !
                   </span>
 
                   <Button
@@ -77,26 +82,6 @@ const BannerLayout = ({ children }) => {
                   </Button>
                 </Link>
               )}
-
-              {/* <Link>
-                <Auth0Provider
-                  domain="dev-i1vyox6upbtxdp6g.us.auth0.com"
-                  clientId="M23oYCQdXUjKfreB0vgHIDVmIJmoLWXy"
-                  redirectUri={window.location.origin}
-                >
-                  <LoginButton></LoginButton>
-                </Auth0Provider>
-              </Link>
-
-              <Link>
-                <Auth0Provider
-                  domain="dev-i1vyox6upbtxdp6g.us.auth0.com"
-                  clientId="M23oYCQdXUjKfreB0vgHIDVmIJmoLWXy"
-                  redirectUri={window.location.origin}
-                >
-                  <LogoutButton></LogoutButton>
-                </Auth0Provider>
-              </Link> */}
             </ButtonGroup>
           </Flex>
         </Center>
