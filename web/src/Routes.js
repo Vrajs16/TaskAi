@@ -7,7 +7,7 @@
 // 'src/pages/HomePage/HomePage.js'         -> HomePage
 // 'src/pages/Admin/BooksPage/BooksPage.js' -> AdminBooksPage
 
-import { Router, Route, Set } from '@redwoodjs/router'
+import { Private, Router, Route, Set } from '@redwoodjs/router'
 
 import BannerLayout from 'src/layouts/BannerLayout'
 import ScaffoldLayout from 'src/layouts/ScaffoldLayout'
@@ -22,18 +22,23 @@ const Routes = () => {
       <Set wrap={AuthLayout}>
         <Route path="/login" page={LoginPage} name="login" />
         <Route path="/signup" page={SignupPage} name="signup" />
+        <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
         <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
       </Set>
       <Set wrap={ScaffoldLayout} title="Tasks" titleTo="tasks" buttonLabel="New Task" buttonTo="newTask">
-        <Route path="/tasks/new" page={TaskNewTaskPage} name="newTask" />
-        <Route path="/tasks/{id:Int}/edit" page={TaskEditTaskPage} name="editTask" />
-        <Route path="/tasks/{id:Int}" page={TaskTaskPage} name="task" />
-        <Route path="/tasks" page={TaskTasksPage} name="tasks" />
+        <Private unauthenticated='home'>
+          <Route path="/tasks/new" page={TaskNewTaskPage} name="newTask" />
+          <Route path="/tasks/{id:Int}/edit" page={TaskEditTaskPage} name="editTask" />
+          <Route path="/tasks/{id:Int}" page={TaskTaskPage} name="task" />
+          <Route path="/tasks" page={TaskTasksPage} name="tasks" />
+        </Private>
       </Set>
       <Set wrap={BannerLayout}>
         <Route path="/" page={HomePage} name="home" />
-        <Route path="/planner" page={PlannerPage} name="planner" />
-        <Route path="/profile" page={ProfilePage} name="profile" />
+        <Private unauthenticated='home'>
+          <Route path="/planner" page={PlannerPage} name="planner" />
+          <Route path="/profile" page={ProfilePage} name="profile" />
+        </Private>
       </Set>
       <Route notfound page={NotFoundPage} />
     </Router>
