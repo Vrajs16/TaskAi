@@ -24,3 +24,8 @@
   color: blue;
   text-decoration: underline;
 }
+
+.formError {
+  color: red;
+  text-align: center;
+}

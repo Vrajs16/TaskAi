@@ -26,8 +26,9 @@ import { Link, routes } from '@redwoodjs/router'
 import LoggedInAs from 'src/components/LoggedInAs/LoggedInAs'
 import LoginButton from 'src/components/LoginButton/LoginButton'
 import LogoutButton from 'src/components/LogoutButton/LogoutButton'
+
 const BannerLayout = ({ children }) => {
-  const { isAuthenticated, currentUser, logOut } = useAuth()
+  const { isAuthenticated, logOut, currentUser } = useAuth()
   const domain = process.env.domain
   const clientId = process.env.clientId
   const redirectUri = process.env.redirectUri
@@ -64,7 +65,7 @@ const BannerLayout = ({ children }) => {
               {isAuthenticated ? (
                 <div>
                   <span style={{ marginRight: '20px' }}>
-                    Logged in id is {currentUser.id}
+                    {/* Logged in as {currentUser.name} */}
                   </span>
 
                   <Button
