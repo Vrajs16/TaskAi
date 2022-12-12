@@ -9,7 +9,7 @@ export const schema = gql`
   }
 
   type Query {
-    appointments(userID: Int!): [Appointment!]! @skipAuth
+    appointments: [Appointment!]! @skipAuth
     appointment(userID: Int!): Appointment @skipAuth
   }
 

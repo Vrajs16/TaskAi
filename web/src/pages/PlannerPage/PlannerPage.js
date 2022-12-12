@@ -19,18 +19,22 @@ import AuthorizeCell from 'src/components/AuthorizeCell/AuthorizeCell'
 import { Button, Center } from '@chakra-ui/react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
-//import EventsFromDBCell from 'src/components/EventsFromDBCell/EventsFromDBCell'
+import EventsFromDBCell from 'src/components/EventsFromDBCell/EventsFromDBCell'
+import { useAuth } from '@redwoodjs/auth'
 {
   /* import day view here */
 }
 import { Select } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 
+
+
 const PlannerPage = () => {
 
   /**
    * Setting the interactivity between the week, month and day views using react states
    */
+  const {currentUser } = useAuth()
   const [state, setState] = useState('month')
   const [monthContentVisible, setMonthContentVisible] = useState(false)
   const [dayContentVisible, setDayContentVisible] = useState(false)
@@ -50,11 +54,9 @@ const PlannerPage = () => {
   // if (code === null){
   //   return <AuthorizeCell></AuthorizeCell>
   // }
-
-  // if(showGoogle){
-  //   const arr = <EventsFromDBCell></EventsFromDBCell>
-  //   console.log(arr)
-  // }
+  if (showGoogle === true){
+    <EventsFromDBCell></EventsFromDBCell>
+  }
 
   useEffect(() => {
     state === 'month'

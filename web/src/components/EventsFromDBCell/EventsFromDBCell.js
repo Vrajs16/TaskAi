@@ -1,27 +1,26 @@
-import { useAuth } from '@redwoodjs/auth'
-const {currentUser } = useAuth()
-const id = parseInt(currentUser.id)
+import FullCalendar from '@fullcalendar/react'
+import dayGridPlugin from '@fullcalendar/daygrid'
 export const QUERY = gql`
-query getApps($id: Int!) {
-  appointments(userID: $id ) {
-    description
-    end
-    id
-    start
-    title
+  query getApps {
+    appointments  {
+      description
+      end
+      id
+      start
+      title
+    }
   }
-}
 `
 
 export const Loading = () => <div>Loading...</div>
 
-export const Empty = () => <div>Empty</div>
+export const Empty = () => <div>No Events In Our Records</div>
 
-export const Failure = ({ error }) => (
-  <div style={{ color: 'red' }}>Error: {error?.message}</div>
+export const Failure = () => (
+  <div style={{ color: 'red' }}>Error: Events from DB Cell Not Working</div>
 )
 
 export const Success = ({ eventsFromDb }) => {
   console.log(eventsFromDb)
-  return <div>{JSON.stringify(eventsFromDb)}</div>
+  return <div></div>
 }
