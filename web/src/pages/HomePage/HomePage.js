@@ -23,10 +23,15 @@ import { Image } from '@chakra-ui/react'
 import { useAuth } from '@redwoodjs/auth'
 import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
+import { toast, Toaster } from '@redwoodjs/web/toast'
 const HomePage = () => {
+  function verifying() {
+    toast.error('Please verify')
+  }
   const { isAuthenticated, currentUser } = useAuth()
   return (
     <>
+      <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
       <MetaTags title="Home" description="Home page" />
       <Container maxW={'5xl'}>
         <Stack
@@ -55,16 +60,34 @@ const HomePage = () => {
           <Stack spacing={6} direction={'row'}>
             {isAuthenticated ? (
               <div>
-                <Link to={routes.profile()}>
-                  <Button
-                    rounded={'full'}
-                    px={6}
-                    colorScheme={'blue'}
-                    _hover={{ bg: 'blue.400' }}
-                  >
-                    Get Started
-                  </Button>
-                </Link>
+                {currentUser.isVerified ? (
+                  <div>
+                    <Link to={routes.profile()}>
+                      <Button
+                        rounded={'full'}
+                        px={6}
+                        colorScheme={'blue'}
+                        _hover={{ bg: 'blue.400' }}
+                      >
+                        Get Started
+                      </Button>
+                    </Link>
+                  </div>
+                ) : (
+                  <>
+                    <div>
+                      <Button
+                        onClick={() => verifying()}
+                        rounded={'full'}
+                        px={6}
+                        colorScheme={'blue'}
+                        _hover={{ bg: 'blue.400' }}
+                      >
+                        Get Started
+                      </Button>
+                    </div>
+                  </>
+                )}
               </div>
             ) : (
               <div>
@@ -80,13 +103,24 @@ const HomePage = () => {
                 </Link>
               </div>
             )}
+
             {isAuthenticated ? (
               <div>
-                <Link to={routes.planner()}>
-                  <Button rounded={'full'} px={6}>
-                    Planner
-                  </Button>
-                </Link>
+                {currentUser.isVerified ? (
+                  <div>
+                    <Link to={routes.planner()}>
+                      <Button rounded={'full'} px={6}>
+                        Planner
+                      </Button>
+                    </Link>
+                  </div>
+                ) : (
+                  <div>
+                    <Button onClick={() => verifying()} rounded={'full'} px={6}>
+                      Planner
+                    </Button>
+                  </div>
+                )}
               </div>
             ) : (
               <div>

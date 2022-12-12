@@ -19,10 +19,16 @@ import { Flex, Spacer } from '@chakra-ui/react'
 import { Image } from '@chakra-ui/react'
 
 import { useAuth } from '@redwoodjs/auth'
-import { Link, routes } from '@redwoodjs/router'
+import { Link, routes, navigate } from '@redwoodjs/router'
 
 const BannerLayout = ({ children }) => {
   const { isAuthenticated, currentUser, logOut } = useAuth()
+  const logOutUser = () => {
+    // logout the user
+    logOut()
+    // navigate to home page
+    navigate(routes.home())
+  }
   console.log(currentUser)
   console.log(isAuthenticated)
   return (
@@ -51,11 +57,23 @@ const BannerLayout = ({ children }) => {
 
             <ButtonGroup gap="4">
               {isAuthenticated ? (
-                <Link to={routes.profile()}>
-                  <Button colorScheme="gray" variant="outline" size="md">
-                    Profile
-                  </Button>
-                </Link>
+                <div>
+                  {currentUser.isVerified ? (
+                    <div>
+                      <Link to={routes.profile()}>
+                        <Button colorScheme="gray" variant="outline" size="md">
+                          Profile
+                        </Button>
+                      </Link>
+                    </div>
+                  ) : (
+                    <div>
+                      <Button colorScheme="gray" variant="outline" size="md">
+                        Profile
+                      </Button>
+                    </div>
+                  )}
+                </div>
               ) : (
                 <Link to={routes.home()}></Link>
               )}
@@ -70,7 +88,7 @@ const BannerLayout = ({ children }) => {
                     colorScheme="gray"
                     variant="outline"
                     size="md"
-                    onClick={logOut}
+                    onClick={logOutUser}
                   >
                     Logout
                   </Button>

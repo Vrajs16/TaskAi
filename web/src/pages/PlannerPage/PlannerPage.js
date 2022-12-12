@@ -11,6 +11,7 @@ import {
 
 import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
+import { Toaster } from '@redwoodjs/web/toast'
 
 import Calendar from 'src/components/Calendar/Calendar'
 import DayView from 'src/components/DayView/DayView'
@@ -53,7 +54,7 @@ const PlannerPage = () => {
   return (
     <>
       <MetaTags title="Planner" description="Planner page" />
-
+      <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
       <Tabs isLazy variant="enclosed" my="2">
         <HStack>
           <Text fontSize="xl" as="b" mx="2">
