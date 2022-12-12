@@ -9,7 +9,6 @@ import {
   Tab,
   HStack,
   Text,
-  VisuallyHidden,
 } from '@chakra-ui/react'
 import TaskView from 'src/components/TaskView/TaskView'
 import Calendar from 'src/components/Calendar/Calendar'
@@ -18,8 +17,6 @@ import WeekView from 'src/components/WeekView/WeekView'
 import DayView from 'src/components/DayView/DayView'
 import AuthorizeCell from 'src/components/AuthorizeCell/AuthorizeCell'
 import { Button, Center } from '@chakra-ui/react'
-import { useAuth } from '@redwoodjs/auth'
-import DeleteAppointmentsCell from 'src/components/Appointment/DeleteAppointmentsCell'
 import EventsFromDB from 'src/components/Appointment/EventsFromDBCell'
 {
   /* import day view here */
@@ -27,14 +24,11 @@ import EventsFromDB from 'src/components/Appointment/EventsFromDBCell'
 import { Select } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 
-
-
 const PlannerPage = () => {
 
   /**
    * Setting the interactivity between the week, month and day views using react states
    */
-  const {currentUser } = useAuth()
   const [state, setState] = useState('month')
   const [monthContentVisible, setMonthContentVisible] = useState(false)
   const [dayContentVisible, setDayContentVisible] = useState(false)
