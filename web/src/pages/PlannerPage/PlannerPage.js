@@ -19,7 +19,6 @@ import AuthorizeCell from 'src/components/AuthorizeCell/AuthorizeCell'
 import { Button, Center } from '@chakra-ui/react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
-import EventsFromDBCell from 'src/components/EventsFromDBCell/EventsFromDBCell'
 import { useAuth } from '@redwoodjs/auth'
 {
   /* import day view here */
@@ -51,12 +50,6 @@ const PlannerPage = () => {
   const start = '2022-11-01T12:00:00Z'
   const end = '2022-12-30T12:00:00Z'
 
-  // if (code === null){
-  //   return <AuthorizeCell></AuthorizeCell>
-  // }
-  if (showGoogle === true){
-    <EventsFromDBCell></EventsFromDBCell>
-  }
 
   useEffect(() => {
     state === 'month'
