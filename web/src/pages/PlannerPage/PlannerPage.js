@@ -9,6 +9,7 @@ import {
   Tab,
   HStack,
   Text,
+  VisuallyHidden,
 } from '@chakra-ui/react'
 import TaskView from 'src/components/TaskView/TaskView'
 import Calendar from 'src/components/Calendar/Calendar'
@@ -18,6 +19,8 @@ import DayView from 'src/components/DayView/DayView'
 import AuthorizeCell from 'src/components/AuthorizeCell/AuthorizeCell'
 import { Button, Center } from '@chakra-ui/react'
 import { useAuth } from '@redwoodjs/auth'
+import DeleteAppointmentsCell from 'src/components/Appointment/DeleteAppointmentsCell'
+import EventsFromDB from 'src/components/Appointment/EventsFromDBCell'
 {
   /* import day view here */
 }
@@ -48,7 +51,6 @@ const PlannerPage = () => {
   const start = '2022-11-01T12:00:00Z'
   const end = '2022-12-30T12:00:00Z'
 
-
   useEffect(() => {
     state === 'month'
       ? setMonthContentVisible(true)
@@ -61,8 +63,9 @@ const PlannerPage = () => {
       ? setDayContentVisible(true)
       : setDayContentVisible(false)
   }, [state])
-
+  const array1 = []
   return (
+    
     <>
       <MetaTags title="Planner" description="Planner page" />
 
@@ -86,7 +89,7 @@ const PlannerPage = () => {
               <option value="week">Week</option>
               <option value="day">Day</option>
             </Select>
-            {monthContentVisible && <Calendar />}
+            {monthContentVisible && <EventsFromDB />}
             {weekContentVisible && <WeekView />}
             {dayContentVisible && <DayView />}
           </TabPanel>
