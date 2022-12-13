@@ -45,7 +45,6 @@ export const handler = async (event, context) => {
       return user
     },
 
-
     // How long the resetToken is valid for, in seconds (default is 24 hours)
     expires: 60 * 60 * 4,
 
@@ -53,9 +52,9 @@ export const handler = async (event, context) => {
       // for security reasons you may want to be vague here rather than expose
       // the fact that the email address wasn't found (prevents fishing for
       // valid email addresses)
-      usernameNotFound: 'Username not found',
+      usernameNotFound: 'Email not found',
       // if the user somehow gets around client validation
-      usernameRequired: 'Username is required',
+      usernameRequired: 'Email is required',
     },
   }
 
@@ -94,7 +93,7 @@ export const handler = async (event, context) => {
     // in. Return `false` otherwise, and in the Reset Password page redirect the
     // user to the login page.
     handler: (_user) => {
-      return true
+     // return true
     },
 
     // If `false` then the new password MUST be different from the current one
@@ -156,7 +155,7 @@ export const handler = async (event, context) => {
           email: username,
           hashedPassword: hashedPassword,
           salt: salt,
-          name: userAttributes.name
+          name: userAttributes.name,
         },
       })
     },
