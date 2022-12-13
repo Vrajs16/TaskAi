@@ -1,5 +1,4 @@
-import Calendar from 'src/components/Calendar'
-
+import DayView from 'src/components/DayView'
 export const QUERY = gql`
   query FindAppointments {
     appointments {
@@ -38,7 +37,7 @@ export const Success = ({ appointments }) => {
   return (
     <section>
     {/* Component Below Developed By Villaire Pierre*/}
-    <Calendar array2= {events}/>
+    <DayView array2= {events}/>
   </section>
   )
 }

@@ -13,13 +13,12 @@ import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 import { Toaster } from '@redwoodjs/web/toast'
 import TaskView from 'src/components/TaskView'
-import Calendar from 'src/components/Calendar/Calendar'
 import FullCalEvents from 'src/components/FullCalEventsCell/FullCalEventsCell'
-import WeekView from 'src/components/WeekView/WeekView'
-import DayView from 'src/components/DayView/DayView'
 import AuthorizeCell from 'src/components/AuthorizeCell/AuthorizeCell'
 import { Button, Center } from '@chakra-ui/react'
 import EventsFromDB from 'src/components/Appointment/EventsFromDBCell'
+import EventsFromDBWeek from 'src/components/Appointment/EventsFromDBWeekCell'
+import EventsFromDBDay from 'src/components/Appointment/EventsFromDBDayCell'
 {
   /* import day view here */
 }
@@ -88,8 +87,8 @@ const PlannerPage = () => {
               <option value="day">Day</option>
             </Select>
             {monthContentVisible && <EventsFromDB />}
-            {weekContentVisible && <WeekView />}
-            {dayContentVisible && <DayView />}
+            {weekContentVisible && <EventsFromDBWeek />}
+            {dayContentVisible && <EventsFromDBDay />}
           </TabPanel>
         </TabPanels>
       </Tabs>
