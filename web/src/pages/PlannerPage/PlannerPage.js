@@ -59,7 +59,7 @@ const PlannerPage = () => {
   }, [state])
 
   return (
-    // need an array of apps from db 
+    // need an array of apps from db
     // so i can delete the database after getting said array
     // and pass that array to the components that generate calendar
     <>
@@ -106,7 +106,7 @@ const PlannerPage = () => {
           <FullCalEvents start = {start} end = {end} code = {code} />
         ) : (
           <div></div>
-        )         
+        )
         }
         </div>
       )}

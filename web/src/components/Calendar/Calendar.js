@@ -7,7 +7,7 @@ import { Select } from '@chakra-ui/react'
 import { Link, navigate, routes } from '@redwoodjs/router'
 import NewTaskPage from 'src/pages/Task/NewTaskPage/NewTaskPage'
 
-export default function () {
+export default function ({array2}) {
   let todayStr = new Date().toISOString().replace(/T.*$/, '')
   console.log(todayStr)
 
@@ -17,13 +17,7 @@ export default function () {
         <button onClick={navigate(NewTaskPage)}>New Task</button>
       */}
       <FullCalendar plugins={[dayGridPlugin]} initialView="dayGridMonth"
-      initialEvents={[
-        {
-          id: 'testing',
-          title: 'summary',
-          start: todayStr
-        }
-      ]}
+      initialEvents={array2}
       />
     </section>
   )

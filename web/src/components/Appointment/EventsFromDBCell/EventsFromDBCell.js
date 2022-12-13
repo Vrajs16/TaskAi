@@ -1,5 +1,4 @@
-import FullCalendar from '@fullcalendar/react'
-import dayGridPlugin from '@fullcalendar/daygrid'
+import Calendar from 'src/components/Calendar'
 
 export const QUERY = gql`
   query FindAppointments {
@@ -26,7 +25,7 @@ export const Failure = ({ error }) => (
   <div className="rw-cell-error">{error?.message}</div>
 )
 
-export const Success = ({ appointments,  }) => {
+export const Success = ({ appointments }) => {
 
   const events = appointments.map((item) =>({
     id: item.id,
@@ -38,8 +37,8 @@ export const Success = ({ appointments,  }) => {
 
   return (
     <section>
-    <FullCalendar plugins={[dayGridPlugin]} initialView="dayGridMonth" initialEvents={events}
-    />
+    {/* Component Below Developed By Villaire Pierre*/}
+    <Calendar array2= {events}/>
   </section>
   )
 }
