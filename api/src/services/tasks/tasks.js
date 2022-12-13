@@ -1,7 +1,9 @@
 import { db } from 'src/lib/db'
 
 export const tasks = () => {
-  return db.task.findMany()
+  return db.task.findMany({
+    where: { userID: context.currentUser.id },
+  })
 }
 
 export const task = ({ id }) => {

@@ -22,6 +22,7 @@ import { useAuth } from '@redwoodjs/auth'
 import { Link, routes, navigate } from '@redwoodjs/router'
 import { toast, Toaster } from '@redwoodjs/web/toast'
 
+
 const BannerLayout = ({ children }) => {
   const { isAuthenticated, currentUser, logOut } = useAuth()
   function verifying() {
@@ -35,6 +36,7 @@ const BannerLayout = ({ children }) => {
   }
   console.log(currentUser)
   console.log(isAuthenticated)
+
   return (
     <>
       <header style={{ width: '100vw' }}>
@@ -71,6 +73,7 @@ const BannerLayout = ({ children }) => {
             <ButtonGroup gap="4">
               {isAuthenticated ? (
                 <div>
+
                   {currentUser.isVerified ? (
                     <div>
                       <Link to={routes.profile()}>
@@ -119,7 +122,7 @@ const BannerLayout = ({ children }) => {
         </Center>
       </header>
       <main
-        style={{ height: 'calc(100vh - 100px', backgroundColor: '#F7FAFC' }}
+        style={{ height: 'calc(100vh - 100px)'}}
       >
         {children}
       </main>

@@ -70,10 +70,14 @@ const SignupPage = () => {
     <>
       <MetaTags title="Signup" />
 
-      <div className="css-owjie1">
-        <div style={{ position: 'absolute', top: 20, marginLeft: 330 }}>
-          {isError}
-        </div>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '100vh',
+        }}
+      >
         <main className="rw-main">
           <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
           <Form onSubmit={onSubmit}>
@@ -86,12 +90,7 @@ const SignupPage = () => {
               <Avatar bg="blue.500" />
               <Heading color="blue.500">TaskAi</Heading>
               <Box minW={{ base: '90%', md: '468px' }}>
-                <Stack
-                  spacing={4}
-                  p="1rem"
-                  backgroundColor="whiteAlpha.900"
-                  boxShadow="md"
-                >
+                <Stack spacing={4} p="1rem" boxShadow="md">
                   <FormControl isRequired>
                     <FormLabel>Email</FormLabel>
                     <InputGroup>
@@ -153,6 +152,8 @@ const SignupPage = () => {
                     </InputGroup>
                     <PasswordStrengthMeter password={confirmPassword} />
                   </FormControl>
+
+                  <p className="formError">{isError}</p>
 
                   <Button
                     borderRadius={0}
