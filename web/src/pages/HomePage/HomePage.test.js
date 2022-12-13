@@ -12,15 +12,21 @@ describe('HomePage', () => {
     }).not.toThrow()
   })
   it('renders a get started button when logged out', () => {
-      render(<HomePage />)
-      expect(screen.getByRole('button', { name: 'Get Started' })).toBeInTheDocument()
-  })
-  it('renders a planner button when logged out', () => {
     render(<HomePage />)
-    expect(screen.getByRole('button', { name: 'Planner' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Get Started' })).toBeInTheDocument()
   })
-
-
+  it('renders planning image', () => {
+    render(<HomePage />)
+    expect(screen.getByRole('PlanningImage')).toBeInTheDocument()
+  })
+  it('renders completing image', () => {
+    render(<HomePage />)
+    expect(screen.getByRole('CompletingImage')).toBeInTheDocument()
+  })
+  it('renders success image', () => {
+    render(<HomePage />)
+    expect(screen.getByRole('SuccessImage')).toBeInTheDocument()
+  })
 })
 
 

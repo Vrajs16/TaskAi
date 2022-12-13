@@ -14,5 +14,6 @@ Worked on adding illustration to landing page and learning about testing with Je
 Helped work on auth0, found problem with auth structure which is why is doesn't work.
 Worked on setting up for dark mode
 Added unit tests to HomePage, BannerLayout, PlannerPage, and LoginPage
+Edited HomePage Planner button and added pictures with unit tests
 
 
