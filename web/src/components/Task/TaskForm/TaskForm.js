@@ -21,6 +21,8 @@ import {
   DateField,
   InputField,
 } from '@redwoodjs/forms'
+
+import { checkboxInputTag, timeTag } from 'src/lib/formatters'
 const TaskForm = (props) => {
   const { isAuthenticated, currentUser } = useAuth()
   console.log(isAuthenticated)
@@ -117,6 +119,25 @@ const TaskForm = (props) => {
                 <NumberField
                   name="priority"
                   defaultValue={props.task?.priority}
+                  className="rw-input"
+                  errorClassName="rw-input rw-input-error"
+                  validation={{ required: true }}
+                />
+              </Box>
+              <Box w="100%" bg="white" color="blue.500">
+                <FieldError name="duration" className="rw-field-error" />
+                <Label
+                  name="priority"
+                  className="rw-label"
+                  errorClassName="rw-label rw-label-error"
+                >
+                  <Text as="b">Completed</Text>
+                </Label>
+              </Box>
+              <Box w="100%" bg="white" color="blue.500">
+                <CheckboxField
+                  name="completed"
+                  defaultValue={checkboxInputTag(props.task?.completed)}
                   className="rw-input"
                   errorClassName="rw-input rw-input-error"
                   validation={{ required: true }}
