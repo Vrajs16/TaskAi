@@ -71,12 +71,16 @@ export const handler = async (event, context) => {
     // by the `logIn()` function from `useAuth()` in the form of:
     // `{ message: 'Error message' }`
     handler: (user) => {
+      if (!user.isVerified) {
+        throw 'Email is not verified'
+      }
       return user
     },
 
     errors: {
       usernameOrPasswordMissing: 'Both username and password are required',
       usernameNotFound: 'Username ${username} not found',
+      notVerified: 'Email is not verified',
       // For security reasons you may want to make this the same as the
       // usernameNotFound error so that a malicious user can't use the error
       // to narrow down if it's the username or password that's incorrect
