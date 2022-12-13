@@ -22,7 +22,7 @@ import { toast, Toaster } from '@redwoodjs/web/toast'
 import PasswordStrengthMeter from 'src/components/PasswordStrengthMeter'
 
 const SignupPage = () => {
-  const { isAuthenticated, signUp } = useAuth()
+  const { isAuthenticated, signUp, currentUser, logOut } = useAuth()
 
   // Handle showing the password upon icon click
   const [showPassword, setShowPassword] = useState(false)
@@ -30,7 +30,11 @@ const SignupPage = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate(routes.planner())
+      logOut()
+      toast.success(
+        `Email with link to verify has been sent to ${currentUser.email}`
+      )
+      navigate(routes.login())
     }
   }, [isAuthenticated])
 
@@ -48,7 +52,9 @@ const SignupPage = () => {
       toast.error(response.error)
     } else {
       // user is signed in automatically
-      toast.success('Welcome!')
+      toast.success(
+        `Email with link to verify has been sent to ${currentUser.email}`
+      )
     }
   }
 

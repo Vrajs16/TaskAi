@@ -13,4 +13,5 @@
   * Set up SendInBlue to send users an email with a link to reset their password
 * [12/11 - Changed task service function to filter tasks on backend](https://github.com/Vrajs16/TaskAi/pull/86)
   * User grabs only their tasks from the database. Does not expose other user's tasks on frontend
-* 12/12 - Blocked users from logging in if their email is not verified
+* [12/12 - Blocked users from logging in if their email is not verified](https://github.com/Vrajs16/TaskAi/pull/94)
+* 12/13 - Fixed the signing up and verification account flow. Fixed bug where page did not recognize user as verified after they verified email.

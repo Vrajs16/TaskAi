@@ -97,7 +97,7 @@ export const handler = async (event, context) => {
     // in. Return `false` otherwise, and in the Reset Password page redirect the
     // user to the login page.
     handler: (_user) => {
-     // return true
+      // return true
     },
 
     // If `false` then the new password MUST be different from the current one
@@ -147,7 +147,7 @@ export const handler = async (event, context) => {
           from: 'noreply@taskai.com',
           to: username,
           subject: 'Email Verification',
-          text: 'Thank you for signing up with TaskAi! \nClick this link to verify your account: http://localhost:8910/verify',
+          text: `Thank you for signing up with TaskAi! \nClick this link to verify your account: http://localhost:8910/verify?email=${username}`,
         }
         await transporter.sendMail(message)
       } catch (err) {
