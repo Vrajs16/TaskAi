@@ -8,7 +8,7 @@ import { RedwoodApolloProvider } from '@redwoodjs/web/apollo'
 
 import FatalErrorPage from 'src/pages/FatalErrorPage'
 import Routes from 'src/Routes'
-
+import AuthURLProvider from 'src/contexts/AuthURL'
 import './index.css'
 import theme from './theme'
 

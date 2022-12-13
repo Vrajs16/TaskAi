@@ -20,6 +20,12 @@ import SignupPage from './pages/SignupPage/SignupPage'
 const Routes = () => {
   return (
     <Router>
+      <Set wrap={ScaffoldLayout} title="Appointments" titleTo="appointments" buttonLabel="New Appointment" buttonTo="newAppointment">
+        <Route path="/appointments/new" page={AppointmentNewAppointmentPage} name="newAppointment" />
+        <Route path="/appointments/{id:Int}/edit" page={AppointmentEditAppointmentPage} name="editAppointment" />
+        <Route path="/appointments/{id:Int}" page={AppointmentAppointmentPage} name="appointment" />
+        <Route path="/appointments" page={AppointmentAppointmentsPage} name="appointments" />
+      </Set>
       <Route path="/GitAuth" page={GitAuth} name="GitAuth"></Route>
 
       <Set wrap={AuthLayout}>

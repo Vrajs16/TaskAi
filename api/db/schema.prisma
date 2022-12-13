@@ -31,4 +31,15 @@ model Task {
   completed     Boolean  @default(false)
   dueDate       DateTime @default(now())
   createdAt     DateTime @default(now())
+  iCalUID       String?  @default("")
+}
+
+model Appointment {
+  id          Int      @id @default(autoincrement())
+  userID      Int
+  title       String
+  description String
+  start       DateTime @default(now())
+  end         DateTime @default(now())
+  iCal        String   
 }

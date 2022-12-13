@@ -16,7 +16,7 @@ import {
 
 import { Link, routes } from '@redwoodjs/router'
 
-import AppointmentsCell from 'src/components/AppointmentsCell'
+import AppointmentsCell from 'src/components/Appointment/AppointmentsCell'
 import TaskCell from 'src/components/Task/TaskCell'
 import TasksCell from 'src/components/Task/TasksCell'
 
@@ -72,7 +72,7 @@ function TaskView() {
           <Text fontSize="2xl" as="b">
             Appointments
           </Text>
-          <TasksCell day={day} isTasks={false}></TasksCell>
+          <AppointmentsCell></AppointmentsCell>
           <Divider orientation="horizontal" mb="2" />
         </Box>
       </HStack>

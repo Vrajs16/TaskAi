@@ -97,7 +97,7 @@ export const handler = async (event, context) => {
     // in. Return `false` otherwise, and in the Reset Password page redirect the
     // user to the login page.
     handler: (_user) => {
-      // return true
+     // return true
     },
 
     // If `false` then the new password MUST be different from the current one
