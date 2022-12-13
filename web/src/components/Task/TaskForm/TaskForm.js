@@ -45,7 +45,7 @@ const TaskForm = (props) => {
               Insert Task Information
             </h2>
           </Box>
-          <Form onSubmit={onSubmit} error={props.error}>
+          <Form onChange={onSubmit} error={props.error}>
             <SimpleGrid columns={2} spacing="2px" border="2px">
               <Box w="100%" bg="white" color="blue.500">
                 <Label
@@ -63,6 +63,7 @@ const TaskForm = (props) => {
                   className="rw-input"
                   errorClassName="rw-input rw-input-error"
                   validation={{ required: true }}
+                  onChange={onSubmit}
                 />
               </Box>
               <Box w="100%" bg="white" color="blue.500">
@@ -82,6 +83,7 @@ const TaskForm = (props) => {
                   className="rw-input"
                   errorClassName="rw-input rw-input-error"
                   validation={{ required: true }}
+                  onChange={onSubmit}
                 />
               </Box>
 
@@ -102,6 +104,7 @@ const TaskForm = (props) => {
                   className="rw-input"
                   errorClassName="rw-input rw-input-error"
                   validation={{ required: true }}
+                  onChange={onSubmit}
                 />
               </Box>
 
@@ -122,6 +125,7 @@ const TaskForm = (props) => {
                   className="rw-input"
                   errorClassName="rw-input rw-input-error"
                   validation={{ required: true }}
+                  onChange={onSubmit}
                 />
               </Box>
               <Box w="100%" bg="white" color="blue.500">
@@ -141,6 +145,7 @@ const TaskForm = (props) => {
                   className="rw-input"
                   errorClassName="rw-input rw-input-error"
                   validation={{ required: true }}
+                  onChange={onSubmit}
                 />
               </Box>
               <Box w="100%" bg="white" color="blue.500">
@@ -154,21 +159,8 @@ const TaskForm = (props) => {
                 </Label>
               </Box>
               <Box w="100%" bg="white" color="blue.500">
-                <DateField name="dueDate" />
+                <DateField name="dueDate" onChange={onSubmit} />
                 <FieldError name="dueDate" className="rw-field-error" />
-              </Box>
-
-              <Box w="100%" bg="white" color="blue.500">
-                <Button colorScheme="gray" variant="outline" size="md">
-                  <div className="rw-button-group">
-                    <Submit
-                      disabled={props.loading}
-                      className="rw-button rw-button-blue"
-                    >
-                      Save
-                    </Submit>
-                  </div>
-                </Button>
               </Box>
             </SimpleGrid>
           </Form>
