@@ -3,6 +3,7 @@ import { DbAuthHandler } from '@redwoodjs/api'
 import { db } from 'src/lib/db'
 
 const nodemailer = require('nodemailer')
+
 export const handler = async (event, context) => {
   const forgotPasswordOptions = {
     // handler() is invoked after verifying that a user was found with the given
@@ -126,7 +127,29 @@ export const handler = async (event, context) => {
     //
     // If this returns anything else, it will be returned by the
     // `signUp()` function in the form of: `{ message: 'String here' }`.
-    handler: ({ username, hashedPassword, salt, userAttributes }) => {
+
+    handler: async ({ username, hashedPassword, salt, userAttributes }) => {
+      try {
+        let transporter = nodemailer.createTransport({
+          host: 'smtp-relay.sendinblue.com',
+          port: 587,
+          secure: false,
+          auth: {
+            user: 'rachidmohamed0531@gmail.com',
+            pass: process.env.SEND_IN_BLUE_KEY,
+          },
+        })
+        const message = {
+          from: 'noreply@taskai.com',
+          to: username,
+          subject: 'Email Verification',
+          text: 'Thank you for signing up with TaskAi! \nClick this link to verify your account: http://localhost:8910/verify',
+        }
+        await transporter.sendMail(message)
+      } catch (err) {
+        console.log(err)
+      }
+
       return db.user.create({
         data: {
           email: username,
@@ -169,6 +192,7 @@ export const handler = async (event, context) => {
       salt: 'salt',
       resetToken: 'resetToken',
       resetTokenExpiresAt: 'resetTokenExpiresAt',
+      isVerified: 'isVerified',
     },
 
     // Specifies attributes on the cookie that dbAuth sets in order to remember
