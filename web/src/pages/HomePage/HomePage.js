@@ -103,6 +103,34 @@ const HomePage = () => {
                 </Link>
               </div>
             )}
+
+            {isAuthenticated ? (
+              <div>
+                {currentUser.isVerified ? (
+                  <div>
+                    <Link to={routes.planner()}>
+                      <Button rounded={'full'} px={6}>
+                        Planner
+                      </Button>
+                    </Link>
+                  </div>
+                ) : (
+                  <div>
+                    <Button onClick={() => verifying()} rounded={'full'} px={6}>
+                      Planner
+                    </Button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div>
+                <Link to={routes.login()}>
+                  <Button rounded={'full'} px={6}>
+                    Planner
+                  </Button>
+                </Link>
+              </div>
+            )}
           </Stack>
           <Stack direction='row'>
            <Image
