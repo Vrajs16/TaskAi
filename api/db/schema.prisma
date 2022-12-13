@@ -16,6 +16,7 @@ model User {
   salt                String
   resetToken          String?
   resetTokenExpiresAt DateTime?
+  isVerified          Boolean   @default(false)
 }
 
 // Task datamodel defined here. Defines the data fields for each task. Defines the data type of each field

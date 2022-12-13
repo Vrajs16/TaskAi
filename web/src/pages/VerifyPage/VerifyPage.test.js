@@ -1,14 +1,14 @@
 import { render } from '@redwoodjs/testing/web'
 
-import LogoutButton from './LogoutButton'
+import VerifyPage from './VerifyPage'
 
 //   Improve this test with help from the Redwood Testing Doc:
-//    https://redwoodjs.com/docs/testing#testing-components
+//   https://redwoodjs.com/docs/testing#testing-pages-layouts
 
-describe('LogoutButton', () => {
+describe('VerifyPage', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<LogoutButton />)
+      render(<VerifyPage />)
     }).not.toThrow()
   })
 })

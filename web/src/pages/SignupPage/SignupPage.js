@@ -90,12 +90,7 @@ const SignupPage = () => {
               <Avatar bg="blue.500" />
               <Heading color="blue.500">TaskAi</Heading>
               <Box minW={{ base: '90%', md: '468px' }}>
-                <Stack
-                  spacing={4}
-                  p="1rem"
-                  backgroundColor="whiteAlpha.900"
-                  boxShadow="md"
-                >
+                <Stack spacing={4} p="1rem" boxShadow="md">
                   <FormControl isRequired>
                     <FormLabel>Email</FormLabel>
                     <InputGroup>

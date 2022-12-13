@@ -1,5 +1,3 @@
-import { Auth0Provider } from '@auth0/auth0-react'
-import { useAuth0 } from '@auth0/auth0-react'
 import {
   Button,
   ButtonGroup,
@@ -21,17 +19,24 @@ import { Flex, Spacer } from '@chakra-ui/react'
 import { Image } from '@chakra-ui/react'
 
 import { useAuth } from '@redwoodjs/auth'
-import { Link, routes } from '@redwoodjs/router'
+import { Link, routes, navigate } from '@redwoodjs/router'
+import { toast, Toaster } from '@redwoodjs/web/toast'
 
-import LoggedInAs from 'src/components/LoggedInAs/LoggedInAs'
-import LoginButton from 'src/components/LoginButton/LoginButton'
-import LogoutButton from 'src/components/LogoutButton/LogoutButton'
 
 const BannerLayout = ({ children }) => {
-  const { isAuthenticated, logOut, currentUser } = useAuth()
-  const domain = process.env.domain
-  const clientId = process.env.clientId
-  const redirectUri = process.env.redirectUri
+  const { isAuthenticated, currentUser, logOut } = useAuth()
+  function verifying() {
+    toast.error('Please verify your account via email')
+  }
+  const logOutUser = () => {
+    // logout the user
+    logOut()
+    // navigate to home page
+    navigate(routes.home())
+  }
+  console.log(currentUser)
+  console.log(isAuthenticated)
+
   return (
     <>
       <header style={{ width: '100vw' }}>
@@ -55,24 +60,52 @@ const BannerLayout = ({ children }) => {
                 TaskAI
               </Text>
             </Link>
+            {isAuthenticated ? (
+              <div>
+                <span style={{ marginRight: '10px' }}>
+                  <font size="5">Welcome {currentUser.name}!</font>
+                </span>
+              </div>
+            ) : (
+              <></>
+            )}
+
             <ButtonGroup gap="4">
-              <Link to={routes.profile()}>
-                <Button colorScheme="gray" variant="outline" size="md">
-                  Profile
-                </Button>
-              </Link>
+              {isAuthenticated ? (
+                <div>
+
+                  {currentUser.isVerified ? (
+                    <div>
+                      <Link to={routes.profile()}>
+                        <Button colorScheme="gray" variant="outline" size="md">
+                          Profile
+                        </Button>
+                      </Link>
+                    </div>
+                  ) : (
+                    <div>
+                      <Button
+                        onClick={() => verifying()}
+                        colorScheme="gray"
+                        variant="outline"
+                        size="md"
+                      >
+                        Profile
+                      </Button>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link to={routes.home()}></Link>
+              )}
 
               {isAuthenticated ? (
                 <div>
-                  <span style={{ marginRight: '20px' }}>
-                    {/* Logged in as {currentUser.name} */}
-                  </span>
-
                   <Button
                     colorScheme="gray"
                     variant="outline"
                     size="md"
-                    onClick={logOut}
+                    onClick={logOutUser}
                   >
                     Logout
                   </Button>
@@ -84,32 +117,12 @@ const BannerLayout = ({ children }) => {
                   </Button>
                 </Link>
               )}
-
-              {/* <Link>
-                <Auth0Provider
-                  domain="dev-i1vyox6upbtxdp6g.us.auth0.com"
-                  clientId="M23oYCQdXUjKfreB0vgHIDVmIJmoLWXy"
-                  redirectUri={window.location.origin}
-                >
-                  <LoginButton></LoginButton>
-                </Auth0Provider>
-              </Link>
-
-              <Link>
-                <Auth0Provider
-                  domain="dev-i1vyox6upbtxdp6g.us.auth0.com"
-                  clientId="M23oYCQdXUjKfreB0vgHIDVmIJmoLWXy"
-                  redirectUri={window.location.origin}
-                >
-                  <LogoutButton></LogoutButton>
-                </Auth0Provider>
-              </Link> */}
             </ButtonGroup>
           </Flex>
         </Center>
       </header>
       <main
-        style={{ height: 'calc(100vh - 100px', backgroundColor: '#F7FAFC' }}
+        style={{ height: 'calc(100vh - 100px)'}}
       >
         {children}
       </main>
