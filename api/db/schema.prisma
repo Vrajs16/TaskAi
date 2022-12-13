@@ -35,10 +35,11 @@ model Task {
 }
 
 model Appointment {
-  id  Int @id @default(autoincrement())
-  userID  Int
-  title String
+  id          Int      @id @default(autoincrement())
+  userID      Int
+  title       String
   description String
-  start DateTime @default(now())
-  end DateTime @default(now())
+  start       DateTime @default(now())
+  end         DateTime @default(now())
+  iCal        String   
 }
