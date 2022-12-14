@@ -24,5 +24,5 @@ sprint 4:
         )
 
 My TWO MAIN PARTS OF THE PROJECT:
--Authentication is done, with email
--redirecting/wrapping all pages is done
+-Authentication is done, with email verification
+-redirecting/wrapping all pages
