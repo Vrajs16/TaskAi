@@ -12,7 +12,7 @@ export default function ({array2, changeDate}) {
   const [state, setState] = useState({});
 
   useEffect(() => {
-    if (changeDate.changeDate !== state.changeDate){
+    if (changeDate !== state.changeDate){
       setState({changeDate:changeDate.changeDate})
     }
   },[changeDate])
