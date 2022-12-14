@@ -4,7 +4,7 @@ import { navigate, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
-import TaskForm from 'src/components/Task/TaskForm'
+import TaskFormNew from '../TaskFormNew/TaskFormNew'
 
 const CREATE_TASK_MUTATION = gql`
   mutation CreateTaskMutation($input: CreateTaskInput!) {
@@ -40,7 +40,7 @@ const NewTask = () => {
         </Center>
       </header>
       <div className="rw-segment-main">
-        <TaskForm onSave={onSave} loading={loading} error={error} />
+        <TaskFormNew onSave={onSave} loading={loading} error={error} />
       </div>
     </div>
   )
