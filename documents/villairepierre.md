@@ -16,4 +16,6 @@
 - Helped Dilip and the API team setup the Cells and pass the Google Calendar Events as props to the above components created.
 
 - [Addded the DatePicker to the Calendar and Dependant Components]
-- - 
+- - Status: Broken
+- - - Calendar Component does not auto update on prop change to represent new date passed to it
+- - - Date gets passed properly but was not able to get the auto re render working
