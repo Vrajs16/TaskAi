@@ -60,7 +60,7 @@ function ProfilePage(props) {
           </Text>
           <Stack spacing={0} w="50%">
             <Text className="input-title">Full Name</Text>
-            <Input value={currentUser.name} isReadOnly={true} w="100%" />
+            <Input value={isAuthenticated && currentUser.name} isReadOnly={true} w="100%" />
           </Stack>
           <Stack spacing={0} w="50%">
             <Text className="input-title">Theme</Text>

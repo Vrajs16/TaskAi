@@ -1,6 +1,6 @@
 import { render } from '@redwoodjs/testing/web'
-import { Loading, Empty, Failure, Success } from './EventsFromDbCell'
-import { standard } from './EventsFromDbCell.mock'
+import { Loading, Empty, Failure, Success } from './AppointmentsCell'
+import { standard } from './AppointmentsCell.mock'
 
 // Generated boilerplate tests do not account for all circumstances
 // and can fail without adjustments, e.g. Float and DateTime types.
@@ -8,7 +8,7 @@ import { standard } from './EventsFromDbCell.mock'
 //        https://redwoodjs.com/docs/testing#testing-cells
 // https://redwoodjs.com/docs/testing#jest-expect-type-considerations
 
-describe('EventsFromDbCell', () => {
+describe('AppointmentsCell', () => {
   it('renders Loading successfully', () => {
     expect(() => {
       render(<Loading />)

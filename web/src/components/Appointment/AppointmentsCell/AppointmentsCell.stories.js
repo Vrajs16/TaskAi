@@ -1,5 +1,5 @@
-import { Loading, Empty, Failure, Success } from './EventsFromDbWeekCell'
-import { standard } from './EventsFromDbWeekCell.mock'
+import { Loading, Empty, Failure, Success } from './AppointmentsCell.js'
+import { standard } from './AppointmentsCell.mock'
 
 export const loading = () => {
   return Loading ? <Loading /> : <></>
@@ -17,4 +17,4 @@ export const success = (args) => {
   return Success ? <Success {...standard()} {...args} /> : <></>
 }
 
-export default { title: 'Cells/EventsFromDbWeekCell' }
+export default { title: 'Cells/AppointmentsCell' }
