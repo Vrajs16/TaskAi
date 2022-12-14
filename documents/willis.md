@@ -26,3 +26,4 @@ sprint 4:
 My TWO MAIN PARTS OF THE PROJECT:
 -Authentication is done, with email verification
 -redirecting/wrapping all pages
+HUGE SHOUTOUT TO: Villaire, Dilip, Mohamed, and Robert for our late night calls up to 6 am just grinding away this project and helping eachother out !
