@@ -33,17 +33,9 @@ describe('AppointmentsCell', () => {
   // 1. import { screen } from '@redwoodjs/testing/web'
   // 2. Add test: expect(screen.getByText('Hello, world')).toBeInTheDocument()
 
-<<<<<<< HEAD:web/src/components/Appointment/AppointmentsCell/AppointmentsCell.test.js
-  it('renders Success successfully', async () => {
-    expect(() => {
-      render(<Success appointments={standard().appointments} />)
-    }).not.toThrow()
-  })
-=======
 //  it('renders Success successfully', async () => {
 //   expect(() => {
 //      render(<Success eventsFromDb={standard().eventsFromDb} />)
 //    }).not.toThrow()
 //  })
->>>>>>> 5c0b1b33675f34fbbea4f4bf34affcfc0f52b662:web/src/components/Appointment/EventsFromDBCell/EventsFromDBCell.test.js
 })
