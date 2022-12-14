@@ -69,8 +69,7 @@ const LoginPage = () => {
             justifyContent="center"
             alignItems="center"
           >
-            <Avatar bg="blue.500" />
-            <Heading color="blue.500">TaskAi</Heading>
+            <Heading color="blue.500">TaskAI</Heading>
             <Box minW={{ base: '90%', md: '468px' }}>
               <Stack spacing={4} p="1rem" boxShadow="md">
                 <FormControl isRequired>
