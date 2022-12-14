@@ -17,24 +17,6 @@ export default function ({array2, changeDate}) {
     }
   },[changeDate])
 
-  function mapMonthsToNumbers(month) {
-    const months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December"
-    ];
-
-    return months.indexOf(month);
-  }
 
   return (
     <section>
@@ -48,5 +30,6 @@ export default function ({array2, changeDate}) {
     </section>
   )
 }
+
 
 
