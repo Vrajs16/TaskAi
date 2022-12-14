@@ -28,3 +28,13 @@ Role in the project - Project manager and a part of the AI team
 # 11/30 - 12/7 Task
 - Fixed the create task page to properly reflect creating tasks
 - Removed user ability to create an appointment, this functionality will be on pulling from the Google Calendar API
+
+# 12/7 - 12/14 Task
+- Worked extensively with Mohamed, Willis, Dilip, Villaire to fix the following
+- Everything
+- Nah but really it was the following:
+- Calendar synch by helping Dilip with writing Queries (Mohamed was extremely helpful for this)
+- Working with Mohamed and Willis to fix everything verification wise (Mostly was Willis and Mohamed but I was there)
+- Villaire worked and fixed on everything calendar wise front end
+- Got appointments to generate to the front end
+- Pretty much anything with backend concerning users, appointments, or tasks it was Me Dilip and Mohamed and Willis helped a lot too.
