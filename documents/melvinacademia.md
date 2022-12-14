@@ -28,5 +28,3 @@
  2. Removed isAppointment toggle from form and removed Appointment attribute from task view
  3. Added isComplete toggle, can save completed and incompleted statuses, previous form had isComplete hard coded to false
  4. Implemented autosave functionality on Taskform and removed save button, form now calls update mutation each time a field is changed, so each input is automatically saved.
- 5. Editing task is supposed to autosave and have no save button and creating a task needs a save button and only saves when submitted. This is causes issues because our pages for editing a task and creating a new task rely on the same form. This is fixed by creating two separate components for each of these functionalities. The component Taskform is used for editing and has autosave, and is used on the edit task page.  TaskFormNew is used for creating tasks and only saves when submitted and is used on the new task page, that way the pages aren't trying to use the same form for two different things
- 6. fixed a bug where trying to create a task that is marked completed would cause an error.
