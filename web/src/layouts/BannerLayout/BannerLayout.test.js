@@ -27,13 +27,6 @@ describe('BannerLayout', () => {
    <ChakraProvider>
      <BannerLayout />
    </ChakraProvider>)
-   expect(screen.getByRole('button', { name: 'Profile' })).toBeInTheDocument()
- })
- it('renders a profile button when logged out', () => {
-   render(
-   <ChakraProvider>
-     <BannerLayout />
-   </ChakraProvider>)
    expect(screen.getByText('TaskAI')).toBeInTheDocument()
  })
 })
