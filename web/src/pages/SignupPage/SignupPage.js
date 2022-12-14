@@ -93,7 +93,12 @@ const SignupPage = () => {
               justifyContent="center"
               alignItems="center"
             >
-              <Avatar bg="blue.500" />
+              <Avatar
+                bg="blue.500"
+                src="https://www.drupal.org/files/project-images/drupal-module-calendar.jpg"
+                size="lg"
+                mb="2"
+              />
               <Heading color="blue.500">TaskAi</Heading>
               <Box minW={{ base: '90%', md: '468px' }}>
                 <Stack spacing={4} p="1rem" boxShadow="md">
