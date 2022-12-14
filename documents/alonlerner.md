@@ -12,9 +12,9 @@ created a planner page that contains task view and calendar view tabs
 created task view component
 implemented date picker and the two boxes: one for tasks and one for appointments
 
-### Tasks Cells (web/src/components/Task/TasksCell/TasksCell.js)
+### Tasks Cells (web/src/components/Task/TasksCell/TasksCell.js), Appointments Cells (web/src/components/Appointment/AppointmentsCell/AppointmentsCell.js)
 implemented task and appointment cells: added icon to show if it was completed, title and description, color for priority, and time for appointments.
-added links to the tasks and appointments pages
+added links to the tasks pages
 integrated between the page and the database
 
 ### Storybook
