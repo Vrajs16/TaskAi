@@ -55,14 +55,6 @@ const Task = ({ task }) => {
               <Box w="!00%" bg="white" color="blue.500">
                 <Text>{task.userID}</Text>
               </Box>
-
-              <Box w="100%" bg="white" color="blue.500">
-                <Text as="b">Is Appointment</Text>
-              </Box>
-              <Box w="!00%" bg="white" color="blue.500">
-                {checkboxInputTag(task.isAppointment)}
-              </Box>
-
               <Box w="100%" bg="white" color="blue.500">
                 <Text as="b">Title</Text>
               </Box>
