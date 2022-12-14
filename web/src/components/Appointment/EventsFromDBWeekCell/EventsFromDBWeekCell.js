@@ -24,7 +24,7 @@ export const Failure = ({ error }) => (
   <div className="rw-cell-error">{error?.message}</div>
 )
 
-export const Success = ({ appointments }) => {
+export const Success = ({ appointments, date }) => {
 
   const events = appointments.map((item) =>({
     id: item.id,
@@ -37,7 +37,7 @@ export const Success = ({ appointments }) => {
   return (
     <section>
     {/* Component Below Developed By Villaire Pierre*/}
-    <WeekView array2= {events}/>
+    <WeekView array2= {events} changeDate = {date}/>
   </section>
   )
 }
