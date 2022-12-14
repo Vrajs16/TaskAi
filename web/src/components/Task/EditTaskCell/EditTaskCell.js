@@ -66,7 +66,7 @@ export const Success = ({ task }) => {
         <Center>
           <h2 className="rw-heading rw-heading-secondary">
             <Text fontSize="3xl" as="b" color="blue.500">
-              Edit Task {task?.id}
+              Editing Task: {task?.title}
             </Text>
           </h2>
         </Center>

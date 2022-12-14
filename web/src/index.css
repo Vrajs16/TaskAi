@@ -20,3 +20,16 @@
 .date-selector:hover {
   cursor: pointer;
 }
+
+#sign-up-link-wrapper {
+  text-align: center;
+}
+.sign-up-link {
+  color: rgb(49, 89, 251);
+  text-decoration: underline;
+}
+
+.formError {
+  color: red;
+  text-align: center;
+}

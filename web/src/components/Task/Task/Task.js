@@ -38,31 +38,10 @@ const Task = ({ task }) => {
           <Box bg="blue.500" w="100%" color="white">
             <Link to={routes.editTask({ id: task.id })}>
               <h2 className="rw-heading rw-heading-secondary">
-                Task {task.id} Details
+                Task {task.title} Details
               </h2>
             </Link>
             <SimpleGrid columns={2} spacing="2px" border="2px">
-              <Box w="100%" bg="white" color="blue.500">
-                <Text as="b">Id</Text>
-              </Box>
-              <Box w="!00%" bg="white" color="blue.500">
-                <Text>{task.id}</Text>
-              </Box>
-
-              <Box w="100%" bg="white" color="blue.500">
-                <Text as="b">User ID</Text>
-              </Box>
-              <Box w="!00%" bg="white" color="blue.500">
-                <Text>{task.userID}</Text>
-              </Box>
-
-              <Box w="100%" bg="white" color="blue.500">
-                <Text as="b">Is Appointment</Text>
-              </Box>
-              <Box w="!00%" bg="white" color="blue.500">
-                {checkboxInputTag(task.isAppointment)}
-              </Box>
-
               <Box w="100%" bg="white" color="blue.500">
                 <Text as="b">Title</Text>
               </Box>

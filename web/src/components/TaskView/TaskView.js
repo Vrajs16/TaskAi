@@ -2,13 +2,7 @@ import { useState } from 'react'
 
 import {
   Box,
-  Container,
   Divider,
-  Tabs,
-  TabList,
-  TabPanel,
-  TabPanels,
-  Tab,
   HStack,
   Text,
   Input,
@@ -16,15 +10,14 @@ import {
 
 import { Link, routes } from '@redwoodjs/router'
 
-import AppointmentsCell from 'src/components/AppointmentsCell'
-import TaskCell from 'src/components/Task/TaskCell'
+import AppointmentsCell from 'src/components/Appointment/AppointmentsCell'
 import TasksCell from 'src/components/Task/TasksCell'
 
 function TaskView() {
-  const [day, setDay] = useState(new Date().toJSON().slice(0, 10))
+  const [day, setDay] = useState(new Date(new Date() - 300*60*1000).toJSON().slice(0, 10))
 
   function getTodayDay() {
-    setDay(new Date().toJSON().slice(0, 10))
+    setDay(new Date(new Date() - 300*60*1000).toJSON().slice(0, 10))
   }
 
   function getNextDay() {
@@ -65,14 +58,14 @@ function TaskView() {
           <Text fontSize="2xl" as="b">
             Tasks
           </Text>
-          <TasksCell day={day} isTasks={true}></TasksCell>
+          <TasksCell day={day}></TasksCell>
           <Divider orientation="horizontal" mb="2" />
         </Box>
-        <Box w="50%" borderWidth="1px" borderRadius="lg" p="3" center={false}>
+        <Box w="50%" borderWidth="1px" borderRadius="lg" p="3" center="false">
           <Text fontSize="2xl" as="b">
             Appointments
           </Text>
-          <TasksCell day={day} isTasks={false}></TasksCell>
+          <AppointmentsCell day={day}></AppointmentsCell>
           <Divider orientation="horizontal" mb="2" />
         </Box>
       </HStack>
@@ -84,5 +77,3 @@ function TaskView() {
 }
 
 export default TaskView
-//<TasksCell day={day} />
-//<AppointmentsCell day={day} />

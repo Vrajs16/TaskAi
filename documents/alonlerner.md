@@ -1,18 +1,21 @@
 # Alon Lerner
 
 ## Completed Tasks
-### Profile Page
+### Profile Page (web/src/pages/ProfilePage/ProfilePage.js)
 created and designed a profile page
 implemented validation for user inputs, and created states
 
-### Planner Page
-created a planner page that contains task view and calendar view
+### Planner Page (web/src/pages/PlannerPage/PlannerPage.js)
+created a planner page that contains task view and calendar view tabs
 
-### Task View
+### Task View (web/src/components/TaskView/TaskView.js)
 created task view component
 implemented date picker and the two boxes: one for tasks and one for appointments
-implemented task and appointment cells with progress, time, title and priority
 
-## Future Tasks
-### Task View
-integrate between the the user information and the profile page
+### Tasks Cells (web/src/components/Task/TasksCell/TasksCell.js), Appointments Cells (web/src/components/Appointment/AppointmentsCell/AppointmentsCell.js)
+implemented task and appointment cells: added icon to show if it was completed, title and description, color for priority, and time for appointments.
+added links to the tasks pages
+integrated between the page and the database
+
+### Storybook
+created mock data for the components that I worked on
