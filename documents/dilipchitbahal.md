@@ -6,7 +6,7 @@
 
 
 
-* Google Calendar API function that returns an array of events is fully implemented
+* [Google Calendar API function that returns an array of events is fully implemented](https://github.com/Vrajs16/TaskAi/pull/95)
     * Created a function that runs 2 api services, createAuth and GoogleCalEvents where createAuth prompts the user to sign in with a google email address which will grant consent to the readonly scopes
     * GoogleCalEvents will create an authInstance with a token to make the api call for calendar.events.list
     * JSON object returned with google cal events

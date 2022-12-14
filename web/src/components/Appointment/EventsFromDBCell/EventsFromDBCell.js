@@ -15,17 +15,19 @@ export const QUERY = gql`
 
 export const Loading = () => <div>Loading...</div>
 
-export const Empty = () => {
+export const Empty = ({date}) => {
   return (
-    <div>No Appointments In Database</div>
-  )
+    <>
+      <Calendar changeDate = {date.changeDate}></Calendar>
+    </>
+    )
 }
 
 export const Failure = ({ error }) => (
   <div className="rw-cell-error">{error?.message}</div>
 )
 
-export const Success = ({ appointments }) => {
+export const Success = ({ appointments, date }) => {
 
   const events = appointments.map((item) =>({
     id: item.id,
@@ -38,7 +40,9 @@ export const Success = ({ appointments }) => {
   return (
     <section>
     {/* Component Below Developed By Villaire Pierre*/}
-    <Calendar array2= {events}/>
+    <Calendar array2= {events} changeDate={date.changeDate}/>
   </section>
   )
 }
+
+

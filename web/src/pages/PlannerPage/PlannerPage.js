@@ -84,7 +84,7 @@ const PlannerPage = () => {
           </Text>
           <TabList w="100%">
             <Tab>Tasks</Tab>
-            <Tab>Calender</Tab>
+            <Tab>Calendar</Tab>
           </TabList>
         </HStack>
         <TabPanels>
@@ -114,9 +114,9 @@ const PlannerPage = () => {
                 </Box>
               </HStack>
             </Center>
-            {monthContentVisible && <EventsFromDB />}
-            {weekContentVisible && <EventsFromDBWeek />}
-            {dayContentVisible && <EventsFromDBDay />}
+            {monthContentVisible && <EventsFromDB date = {{changeDate}}/>}
+            {weekContentVisible && <EventsFromDBWeek date = {{changeDate}}/>}
+            {dayContentVisible && <EventsFromDBDay date = {{changeDate}}/>}
           </TabPanel>
         </TabPanels>
       </Tabs>
