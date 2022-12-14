@@ -14,4 +14,6 @@
 * [12/11 - Changed task service function to filter tasks on backend](https://github.com/Vrajs16/TaskAi/pull/86)
   * User grabs only their tasks from the database. Does not expose other user's tasks on frontend
 * [12/12 - Blocked users from logging in if their email is not verified](https://github.com/Vrajs16/TaskAi/pull/94)
-* 12/13 - Fixed the signing up and verification account flow. Fixed bug where page did not recognize user as verified after they verified email.
+* [12/13 - Fixed the signing up and verification account flow. Fixed bug where page did not recognize user as verified after they verified email.](https://github.com/Vrajs16/TaskAi/pull/98)
+  * Signing up a user does not auto sign them in. They must verify email first. Fixed bug where user was not recognized as verified on pages even though they were.
+* [Github Repo Contributions Page](https://github.com/Vrajs16/TaskAi/graphs/contributors)
