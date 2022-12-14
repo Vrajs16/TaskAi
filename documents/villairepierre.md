@@ -14,3 +14,6 @@
 - - - Added some UI elements
 
 - Helped Dilip and the API team setup the Cells and pass the Google Calendar Events as props to the above components created.
+
+- [Addded the DatePicker to the Calendar and Dependant Components]
+- - 

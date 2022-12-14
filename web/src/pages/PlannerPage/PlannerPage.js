@@ -7,6 +7,13 @@ import {
   Tab,
   HStack,
   Text,
+  Select,
+  Center,
+  Input,
+  InputGroup,
+  InputRightAddon,
+  Button,
+  Box
 } from '@chakra-ui/react'
 
 import { Link, routes } from '@redwoodjs/router'
@@ -15,16 +22,12 @@ import { Toaster } from '@redwoodjs/web/toast'
 import TaskView from 'src/components/TaskView'
 import FullCalEvents from 'src/components/FullCalEventsCell/FullCalEventsCell'
 import AuthorizeCell from 'src/components/AuthorizeCell/AuthorizeCell'
-import { Button, Center } from '@chakra-ui/react'
 import EventsFromDB from 'src/components/Appointment/EventsFromDBCell'
 import EventsFromDBWeek from 'src/components/Appointment/EventsFromDBWeekCell'
 import EventsFromDBDay from 'src/components/Appointment/EventsFromDBDayCell'
-{
-  /* import day view here */
-}
-import { Select } from '@chakra-ui/react'
 
 import { useEffect, useState } from 'react'
+import { CalendarIcon } from '@chakra-ui/icons'
 
 const PlannerPage = () => {
   /**
@@ -45,6 +48,14 @@ const PlannerPage = () => {
 
   const start = '2022-11-01T12:00:00Z'
   const end = '2022-12-30T12:00:00Z'
+
+  /*
+    Setting the interactivity for the date picker
+  */
+  const [changeDate, setChangeDate] = useState(new Date())
+  const handleOnDateChange = (e) => {
+    setChangeDate(e.target.value)
+  }
 
   useEffect(() => {
     state === 'month'
@@ -81,11 +92,28 @@ const PlannerPage = () => {
             <TaskView></TaskView>
           </TabPanel>
           <TabPanel>
-            <Select value={state} onChange={handleOnChange}>
-              <option value="month">Month</option>
-              <option value="week">Week</option>
-              <option value="day">Day</option>
-            </Select>
+            <Center>
+              <HStack>
+                <Box>
+                  <Select value={state} onChange={handleOnChange}>
+                    <option value="month">Month</option>
+                    <option value="week">Week</option>
+                    <option value="day">Day</option>
+                  </Select>
+                </Box>
+                <Box>
+                  <InputGroup>
+                    <Input
+                    type='date'
+                    value={changeDate}
+                    onChange = {handleOnDateChange}
+                    >
+                    </Input>
+                    <InputRightAddon>{<CalendarIcon />}</InputRightAddon>
+                  </InputGroup>
+                </Box>
+              </HStack>
+            </Center>
             {monthContentVisible && <EventsFromDB />}
             {weekContentVisible && <EventsFromDBWeek />}
             {dayContentVisible && <EventsFromDBDay />}
